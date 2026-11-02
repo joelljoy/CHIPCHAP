@@ -1,0 +1,237 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>CHIPCHAP - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "on-tertiary-container": "#72e9af",
+                            "tertiary-fixed-dim": "#65dca4",
+                            "surface-container-highest": "#d8e2ff",
+                            "on-tertiary": "#ffffff",
+                            "on-error": "#ffffff",
+                            "outline-variant": "#c3c6d6",
+                            "surface-gray": "#F4F5F7",
+                            "surface-dim": "#ccdaff",
+                            "on-surface": "#051a3e",
+                            "surface-container": "#e9edff",
+                            "error": "#ba1a1a",
+                            "on-primary-fixed": "#001848",
+                            "surface-container-high": "#e1e8ff",
+                            "on-error-container": "#93000a",
+                            "on-primary-fixed-variant": "#0040a2",
+                            "secondary-fixed": "#ffdcc3",
+                            "primary-fixed": "#dae2ff",
+                            "on-secondary-fixed": "#2f1500",
+                            "alert-red": "#DE350B",
+                            "background": "#faf9ff",
+                            "tertiary-container": "#006844",
+                            "on-secondary": "#ffffff",
+                            "secondary-container": "#fe8a00",
+                            "secondary": "#914d00",
+                            "surface-container-low": "#f1f3ff",
+                            "inverse-on-surface": "#edf0ff",
+                            "border-subtle": "#DFE1E6",
+                            "on-secondary-container": "#613100",
+                            "surface-tint": "#0c56d0",
+                            "primary-fixed-dim": "#b2c5ff",
+                            "on-tertiary-fixed": "#002113",
+                            "on-secondary-fixed-variant": "#6e3900",
+                            "inverse-primary": "#b2c5ff",
+                            "tertiary-fixed": "#82f9be",
+                            "on-tertiary-fixed-variant": "#005235",
+                            "safety-orange-light": "#FFFAE6",
+                            "primary-container": "#0052cc",
+                            "civic-blue-dark": "#0747A6",
+                            "primary": "#003d9b",
+                            "secondary-fixed-dim": "#ffb77e",
+                            "tertiary": "#004e32",
+                            "surface-variant": "#d8e2ff",
+                            "error-container": "#ffdad6",
+                            "on-primary-container": "#c4d2ff",
+                            "on-surface-variant": "#434654",
+                            "surface": "#faf9ff",
+                            "surface-bright": "#faf9ff",
+                            "on-primary": "#ffffff",
+                            "inverse-surface": "#1d3054",
+                            "on-background": "#051a3e",
+                            "outline": "#737685",
+                            "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "sm": "8px",
+                            "md": "16px",
+                            "container-margin": "20px",
+                            "xl": "32px",
+                            "base": "8px",
+                            "gutter": "12px",
+                            "xs": "4px",
+                            "lg": "24px"
+                    },
+                    "fontFamily": {
+                            "headline-sm": ["Hanken Grotesk"],
+                            "headline-lg": ["Hanken Grotesk"],
+                            "label-md": ["JetBrains Mono"],
+                            "body-sm": ["Hanken Grotesk"],
+                            "label-sm": ["JetBrains Mono"],
+                            "body-lg": ["Hanken Grotesk"],
+                            "body-md": ["Hanken Grotesk"],
+                            "headline-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                            "label-sm": ["10px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center justify-center relative overflow-hidden font-body-md">
+<!-- Ambient Background Element -->
+<div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] rounded-full bg-primary-fixed-dim/20 blur-3xl mix-blend-multiply opacity-70"></div>
+<div class="absolute top-[60%] -right-[20%] w-[80vw] h-[80vw] rounded-full bg-surface-container-highest/40 blur-3xl mix-blend-multiply opacity-60"></div>
+</div>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-md px-container-margin z-10 flex flex-col h-full justify-center">
+<!-- Header Section -->
+<div class="mb-xl text-center flex flex-col items-center">
+<div class="w-16 h-16 bg-primary-container text-primary rounded-xl flex items-center justify-center mb-md shadow-sm">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">assured_workload</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight mb-xs">CHIPCHAP</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Civic clarity for your community.</p>
+</div>
+<!-- Account Type Selector: the citizen/government separation happens here -->
+<div class="w-full mb-md rounded-xl border border-surface-container-high bg-surface-container-low p-1 flex gap-1" id="roleSelector">
+<button id="citizenRole" type="button" class="flex-1 h-10 rounded-lg bg-primary text-on-primary font-label-md text-label-md" onclick="setRole('citizen')">Citizen</button>
+<button id="governmentRole" type="button" class="flex-1 h-10 rounded-lg text-on-surface-variant font-label-md text-label-md" onclick="setRole('government')">Government</button>
+</div>
+<div id="governmentPanel" class="hidden mb-md rounded-xl border border-primary/20 bg-primary-container/40 p-md text-left">
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary">account_balance</span>
+<div>
+<p class="font-headline-sm text-headline-sm text-on-surface">Government Portal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Authorized personnel sign in through the secure administration portal.</p>
+</div>
+</div>
+<button type="button" onclick="window.location.href='screen://admin_login'" class="mt-md w-full h-11 rounded-lg bg-primary text-on-primary font-label-md text-label-md">Continue to Government Login</button>
+</div>
+<!-- Login Card (citizen only; hidden while the Government tab is selected) -->
+<div id="citizenLoginCard" class="glass-panel rounded-2xl shadow-[0px_8px_24px_rgba(9,30,66,0.12)] p-lg w-full border border-surface-container-high">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-md">Welcome Back</h2>
+<form class="space-y-lg flex flex-col">
+<!-- Email Input Group -->
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface-variant block uppercase" for="email">Email</label>
+<div class="flex relative rounded-lg shadow-sm border border-border-subtle focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all overflow-hidden bg-surface-lowest h-12">
+<input autocomplete="email" class="flex-1 block w-full border-0 focus:ring-0 bg-transparent py-3 px-md font-body-md text-body-md text-on-surface placeholder-outline-variant" id="email" name="email" placeholder="Email" type="email" value="">
+</div>
+</div>
+<!-- Password Input Group -->
+<div class="space-y-sm">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface-variant block uppercase" for="password">Password</label>
+<a class="font-label-md text-label-md text-primary hover:text-civic-blue-dark transition-colors" href="#" id="citizenForgotPassword">Forgot Password?</a>
+</div>
+<div class="flex relative rounded-lg shadow-sm border border-border-subtle focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all overflow-hidden bg-surface-lowest h-12">
+<input autocomplete="current-password" class="flex-1 block w-full border-0 focus:ring-0 bg-transparent py-3 px-md font-body-md text-body-md text-on-surface placeholder-outline-variant" id="password" name="password" placeholder="Password" type="password" value="">
+<button type="button" id="citizenPasswordToggle" aria-label="Show password" onclick="ccTogglePassword(this)" class="px-md text-outline hover:text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined">visibility_off</span>
+</button>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-primary text-on-primary h-12 rounded-lg font-headline-sm text-headline-sm flex items-center justify-center hover:bg-civic-blue-dark active:scale-[0.98] transition-all shadow-md" type="button">
+                    Login
+                </button>
+</form>
+<!-- Divider -->
+<div class="mt-lg mb-lg flex items-center justify-center">
+<div class="w-full h-px bg-border-subtle"></div>
+<span class="px-md font-label-md text-label-md text-outline bg-transparent uppercase">or</span>
+<div class="w-full h-px bg-border-subtle"></div>
+</div>
+<!-- Sign Up Link -->
+<div class="text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    New to CHIPCHAP? 
+                    <a class="text-primary font-headline-sm text-headline-sm text-base ml-xs hover:underline decoration-2 underline-offset-4" href="screen://signup_screen">Sign Up</a>
+</p>
+</div>
+</div>
+<!-- Bottom Safety Link -->
+<div class="mt-xl text-center">
+<a class="inline-flex items-center space-x-2 font-label-md text-label-md text-outline hover:text-on-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="uppercase">Secure Government Gateway</span>
+</a>
+</div>
+</main>
+
+
+<script>
+function setRole(role){
+  const citizen=document.getElementById('citizenRole');
+  const gov=document.getElementById('governmentRole');
+  const panel=document.getElementById('governmentPanel');
+  const card=document.getElementById('citizenLoginCard');
+  if(role==='government'){
+    gov.className='flex-1 h-10 rounded-lg bg-primary text-on-primary font-label-md text-label-md';
+    citizen.className='flex-1 h-10 rounded-lg text-on-surface-variant font-label-md text-label-md';
+    panel.classList.remove('hidden');
+    if(card) card.classList.add('hidden');
+  } else {
+    citizen.className='flex-1 h-10 rounded-lg bg-primary text-on-primary font-label-md text-label-md';
+    gov.className='flex-1 h-10 rounded-lg text-on-surface-variant font-label-md text-label-md';
+    panel.classList.add('hidden');
+    if(card) card.classList.remove('hidden');
+  }
+  // The tab only chooses which sign-in form is shown. It is never stored and grants nothing:
+  // government access is decided by the Firebase custom claim after sign-in.
+}
+function ccTogglePassword(btn){
+  var pw=document.getElementById('password');
+  if(!pw) return;
+  var show=pw.type==='password';
+  pw.type=show?'text':'password';
+  btn.setAttribute('aria-label', show?'Hide password':'Show password');
+  var icon=btn.querySelector('.material-symbols-outlined');
+  if(icon){ var k=show?'visibility':'visibility_off'; icon.dataset.ccIcon=k; icon.textContent=k; if(window.ccIcons) window.ccIcons(); }
+}
+document.addEventListener('DOMContentLoaded',function(){
+  // Always opens on the Citizen tab with empty fields.
+  setRole('citizen');
+});
+</script>
+</body></html>

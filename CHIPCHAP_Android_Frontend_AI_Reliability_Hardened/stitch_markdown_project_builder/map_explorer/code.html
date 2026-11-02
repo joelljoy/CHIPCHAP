@@ -1,0 +1,250 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>CHIPCHAP - Map</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
+        
+        /* Hide scrollbar for horizontal chips */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-container": "#006844",
+                      "safety-orange-light": "#FFFAE6",
+                      "tertiary-fixed": "#82f9be",
+                      "background": "#faf9ff",
+                      "on-tertiary": "#ffffff",
+                      "outline": "#737685",
+                      "on-surface": "#051a3e",
+                      "on-primary-container": "#c4d2ff",
+                      "secondary-container": "#fe8a00",
+                      "border-subtle": "#DFE1E6",
+                      "secondary": "#914d00",
+                      "surface-dim": "#ccdaff",
+                      "surface-container-highest": "#d8e2ff",
+                      "inverse-primary": "#b2c5ff",
+                      "on-surface-variant": "#434654",
+                      "tertiary": "#004e32",
+                      "on-error-container": "#93000a",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed-variant": "#005235",
+                      "alert-red": "#DE350B",
+                      "surface-container-high": "#e1e8ff",
+                      "on-primary-fixed-variant": "#0040a2",
+                      "on-secondary-fixed": "#2f1500",
+                      "secondary-fixed": "#ffdcc3",
+                      "primary-fixed": "#dae2ff",
+                      "surface-gray": "#F4F5F7",
+                      "tertiary-fixed-dim": "#65dca4",
+                      "on-tertiary-container": "#72e9af",
+                      "surface-container-low": "#f1f3ff",
+                      "primary-fixed-dim": "#b2c5ff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-container": "#613100",
+                      "surface-tint": "#0c56d0",
+                      "on-background": "#051a3e",
+                      "primary-container": "#0052cc",
+                      "on-primary-fixed": "#001848",
+                      "surface": "#faf9ff",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#1d3054",
+                      "civic-blue-dark": "#0747A6",
+                      "outline-variant": "#c3c6d6",
+                      "error-container": "#ffdad6",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#d8e2ff",
+                      "surface-container": "#e9edff",
+                      "secondary-fixed-dim": "#ffb77e",
+                      "on-tertiary-fixed": "#002113",
+                      "on-secondary-fixed-variant": "#6e3900",
+                      "surface-bright": "#faf9ff",
+                      "inverse-on-surface": "#edf0ff",
+                      "primary": "#003d9b",
+                      "on-secondary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "base": "8px",
+                      "sm": "8px",
+                      "xl": "32px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "container-margin": "20px",
+                      "gutter": "12px"
+              },
+              "fontFamily": {
+                      "headline-sm": ["Hanken Grotesk"],
+                      "headline-lg": ["Hanken Grotesk"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "label-md": ["JetBrains Mono"],
+                      "body-sm": ["Hanken Grotesk"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "label-sm": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                      "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                      "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                      "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                      "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                      "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                      "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                      "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }]
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface h-screen w-screen overflow-hidden flex flex-col font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Main Map Area (Canvas) -->
+<main class="relative flex-grow h-full w-full">
+<!-- The Map Background -->
+<div class="absolute inset-0 w-full h-full bg-surface-container-high object-cover z-0" data-location="San Francisco">
+<img alt="Map Background" class="w-full h-full object-cover opacity-80" data-alt="A clean, modern, simplified digital street map in a light UI mode, showing urban blocks and parks with subtle depth. The color palette focuses on soft greys, pure whites, and pale blues (Civic Blue) indicating waterways, with gentle pastel greens for park areas. The aesthetic is highly legible, minimal, and professional, suitable for a civic application background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjibroHzQ4-cPixGKy6RjA-j197G7b3CmooLPeTOS-B2De83N9G9jOkeOInLefIrzh2GQSOs_VxuNopaNMPXkRiBNuPIoxslN25VU7GPPF3a2ZhXqyGBCqCNb2rq5tmjkbfJysCi2YaZGPDaQNiVuTAwtkSIWC2An_6P6LGsoQucgTktHKDZVMzmgevqdBuMG835e2meYKj2bx9rFgkEwAw9DBCc3aKICTcQobYAXM-1uaT9952wdV">
+</div>
+<!-- Top Controls Overlay -->
+<div class="absolute top-0 left-0 w-full z-20 pt-safe">
+<!-- TopAppBar -->
+<header class="flex items-center justify-between px-container-margin h-14 w-full bg-surface/90 backdrop-blur-md shadow-sm transition-colors duration-200">
+<button aria-label="Go back" class="text-primary hover:bg-surface-variant/50 rounded-full p-2 transition-colors duration-200 active:scale-95">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-civic-blue-dark">CHIPCHAP</h1>
+<button aria-label="Help" class="text-primary hover:bg-surface-variant/50 rounded-full p-2 transition-colors duration-200 active:scale-95">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</header>
+<!-- Search & Filters -->
+<div class="px-container-margin py-md flex flex-col gap-sm mt-2">
+<!-- Search Bar -->
+<div class="flex items-center bg-surface shadow-[0px_4px_12px_rgba(9,30,66,0.08)] rounded-full px-4 py-2 w-full border border-border-subtle focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none outline-none w-full font-body-md text-on-surface placeholder:text-on-surface-variant/70 focus:ring-0 p-0" placeholder="Search complaints or addresses" type="text">
+<button class="ml-2 text-primary p-1 bg-surface-variant rounded-full flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+<!-- Chips -->
+<div class="flex overflow-x-auto no-scrollbar gap-2 py-1 items-center pb-2">
+<button class="shrink-0 bg-primary-container text-on-primary-container font-label-md text-label-md px-4 py-2 rounded-full border border-primary transition-colors">All</button>
+<button class="shrink-0 bg-surface text-on-surface font-label-md text-label-md px-4 py-2 rounded-full border border-border-subtle shadow-sm hover:bg-surface-variant transition-colors">Infrastructure</button>
+<button class="shrink-0 bg-surface text-on-surface font-label-md text-label-md px-4 py-2 rounded-full border border-border-subtle shadow-sm hover:bg-surface-variant transition-colors">Cleanliness</button>
+<button class="shrink-0 bg-surface text-on-surface font-label-md text-label-md px-4 py-2 rounded-full border border-border-subtle shadow-sm hover:bg-surface-variant transition-colors">Safety</button>
+</div>
+</div>
+</div>
+<!-- Map Pins (Static examples) -->
+<!-- Pin 1: Selected Pothole -->
+<button class="absolute top-[40%] left-[30%] z-10 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group focus:outline-none">
+<div class="bg-surface text-secondary-container p-2 rounded-full shadow-[0px_8px_24px_rgba(9,30,66,0.12)] border-2 border-primary ring-4 ring-primary/20 scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="w-1 h-3 bg-primary mx-auto mt-[-4px]"></div>
+</button>
+<!-- Pin 2: Unselected Trash -->
+<button class="absolute top-[60%] left-[70%] z-10 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group focus:outline-none hover:scale-105 transition-transform">
+<div class="bg-surface text-tertiary p-2 rounded-full shadow-md border border-border-subtle">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">delete</span>
+</div>
+<div class="w-1 h-3 bg-border-subtle mx-auto mt-[-4px]"></div>
+</button>
+<!-- Pin 3: Unselected Light -->
+<button class="absolute top-[30%] left-[60%] z-10 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group focus:outline-none hover:scale-105 transition-transform">
+<div class="bg-surface text-on-surface-variant p-2 rounded-full shadow-md border border-border-subtle">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<div class="w-1 h-3 bg-border-subtle mx-auto mt-[-4px]"></div>
+</button>
+<!-- Floating Action Buttons -->
+<div class="absolute right-container-margin bottom-[180px] z-20 flex flex-col gap-md">
+<!-- My Location -->
+<button aria-label="My Location" class="w-12 h-12 bg-surface rounded-full shadow-[0px_4px_12px_rgba(9,30,66,0.08)] flex items-center justify-center text-primary hover:bg-surface-variant transition-colors active:scale-95">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+<!-- Report New -->
+<button aria-label="Report New Issue" class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-[0px_8px_24px_rgba(9,30,66,0.12)] flex items-center justify-center hover:bg-civic-blue-dark transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</div>
+<!-- Selected Item Bottom Sheet Preview -->
+<div class="absolute bottom-24 left-0 w-full px-container-margin z-30 transition-transform duration-300 ease-out transform translate-y-0">
+<div class="bg-surface rounded-xl shadow-[0px_8px_24px_rgba(9,30,66,0.12)] p-md flex flex-col gap-sm border border-border-subtle/50 relative overflow-hidden">
+<!-- Status Chip -->
+<div class="flex justify-between items-start mb-1">
+<span class="inline-flex items-center gap-1 bg-[#FFF3E0] text-secondary px-2 py-1 rounded font-label-sm text-label-sm uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span> Pending
+                    </span>
+<button aria-label="Close Preview" class="text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Severe Pothole</h3>
+<div class="flex items-center gap-md text-on-surface-variant font-body-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">directions_walk</span>
+<span class="">0.2 miles away</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">group</span>
+<span class="">12 Backers</span>
+</div>
+</div>
+<div class="mt-2 flex gap-sm">
+<a href="{{DATA:SCREEN:SCREEN_13}}" class="flex-1 bg-primary text-on-primary font-label-md text-label-md h-12 rounded-lg flex items-center justify-center shadow-sm hover:bg-civic-blue-dark transition-colors active:scale-95">View Details</a>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-4 pb-safe bg-surface shadow-[0px_-4px_12px_rgba(9,30,66,0.08)] z-50 rounded-t-xl transition-colors duration-200">
+<a aria-label="Home" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant rounded-full px-4 py-1 transition-colors duration-200" href="{{DATA:SCREEN:SCREEN_21}}">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a aria-label="Report" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant rounded-full px-4 py-1 transition-colors duration-200" href="{{DATA:SCREEN:SCREEN_20}}">
+<span class="material-symbols-outlined mb-1">add_circle</span>
+<span class="font-label-md text-label-md">Report</span>
+</a>
+<!-- Active Map Tab -->
+<a aria-label="Map" class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 scale-110 transition-transform duration-300" href="{{DATA:SCREEN:SCREEN_12}}">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="font-label-md text-label-md font-bold">Map</span>
+</a>
+<a aria-label="Alerts" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant rounded-full px-4 py-1 transition-colors duration-200" href="{{DATA:SCREEN:SCREEN_9}}">
+<span class="material-symbols-outlined mb-1">notifications</span>
+<span class="font-label-md text-label-md">Alerts</span>
+</a>
+<a aria-label="Profile" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant rounded-full px-4 py-1 transition-colors duration-200" href="{{DATA:SCREEN:SCREEN_6}}">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+
+
+</body></html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Notifications</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#edf0ff",
+                      "surface-tint": "#0c56d0",
+                      "surface-gray": "#F4F5F7",
+                      "primary-fixed-dim": "#b2c5ff",
+                      "on-primary-fixed-variant": "#0040a2",
+                      "tertiary-container": "#006844",
+                      "on-primary-fixed": "#001848",
+                      "error": "#ba1a1a",
+                      "surface": "#faf9ff",
+                      "background": "#faf9ff",
+                      "primary-container": "#0052cc",
+                      "on-secondary": "#ffffff",
+                      "on-surface-variant": "#434654",
+                      "primary-fixed": "#dae2ff",
+                      "tertiary-fixed-dim": "#65dca4",
+                      "surface-dim": "#ccdaff",
+                      "outline": "#737685",
+                      "tertiary": "#004e32",
+                      "inverse-primary": "#b2c5ff",
+                      "secondary-fixed-dim": "#ffb77e",
+                      "inverse-surface": "#1d3054",
+                      "on-secondary-fixed": "#2f1500",
+                      "primary": "#003d9b",
+                      "surface-variant": "#d8e2ff",
+                      "secondary-container": "#fe8a00",
+                      "on-primary-container": "#c4d2ff",
+                      "on-tertiary-fixed": "#002113",
+                      "outline-variant": "#c3c6d6",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed": "#82f9be",
+                      "alert-red": "#DE350B",
+                      "error-container": "#ffdad6",
+                      "on-secondary-container": "#613100",
+                      "secondary-fixed": "#ffdcc3",
+                      "on-tertiary": "#ffffff",
+                      "safety-orange-light": "#FFFAE6",
+                      "surface-container-high": "#e1e8ff",
+                      "on-surface": "#051a3e",
+                      "surface-container-highest": "#d8e2ff",
+                      "civic-blue-dark": "#0747A6",
+                      "surface-container": "#e9edff",
+                      "on-background": "#051a3e",
+                      "surface-container-low": "#f1f3ff",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "border-subtle": "#DFE1E6",
+                      "on-tertiary-fixed-variant": "#005235",
+                      "on-tertiary-container": "#72e9af",
+                      "on-secondary-fixed-variant": "#6e3900",
+                      "secondary": "#914d00",
+                      "on-error-container": "#93000a",
+                      "surface-bright": "#faf9ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "12px",
+                      "xl": "32px",
+                      "container-margin": "20px",
+                      "xs": "4px",
+                      "sm": "8px",
+                      "lg": "24px",
+                      "base": "8px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "label-md": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-md": [
+                              "Hanken Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "10px",
+                              {
+                                      "lineHeight": "14px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen pb-[80px]">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-container-margin h-14 bg-surface dark:bg-on-background shadow-sm transition-colors duration-200">
+<div class="flex items-center gap-md hover:bg-surface-container-high dark:hover:bg-surface-variant p-sm rounded-full cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="menu">menu</span>
+</div>
+<h1 class="text-headline-sm font-headline-sm font-bold text-primary dark:text-primary-fixed">Civic Clarity Admin</h1>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant cursor-pointer hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">person</span>
+</div>
+</header>
+<main class="px-container-margin py-lg max-w-2xl mx-auto space-y-xl">
+<div class="flex justify-between items-end border-b border-border-subtle pb-sm">
+<h2 class="font-headline-md text-headline-md text-on-background">Notifications</h2>
+<button class="font-label-sm text-label-sm text-primary uppercase tracking-wider hover:text-civic-blue-dark transition-colors">Mark all as read</button>
+</div>
+<!-- High Priority Alerts -->
+<section class="space-y-sm">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">High Priority</h3>
+<div class="bg-safety-orange-light rounded-xl p-md shadow-sm border border-secondary-fixed flex gap-md items-start transition-all hover:-translate-y-0.5 hover:shadow-md cursor-pointer">
+<div class="bg-alert-red rounded-full p-2 flex items-center justify-center flex-shrink-0 mt-xs">
+<span class="material-symbols-outlined text-on-error" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-xs">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Water Main Break Reported</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2m ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Multiple reports indicating severe flooding on 5th Ave &amp; Main St. Immediate dispatch required.</p>
+<div class="flex gap-sm">
+<button class="bg-alert-red text-on-error px-4 py-2 rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity">Dispatch Crew</button>
+<button class="bg-transparent border border-alert-red text-alert-red px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-safety-orange-light transition-colors">View Map</button>
+</div>
+</div>
+</div>
+</section>
+<!-- General Notifications List -->
+<section class="space-y-sm">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Recent Activity</h3>
+<div class="space-y-sm">
+<!-- AI Insight Notification -->
+<div class="bg-[#E6EFFC] rounded-xl p-md shadow-sm border border-primary flex gap-md items-start transition-all hover:-translate-y-0.5 hover:shadow-md cursor-pointer relative overflow-hidden">
+<div class="absolute top-0 right-0 w-16 h-16 bg-primary-fixed-dim rounded-bl-full opacity-20 pointer-events-none"></div>
+<div class="bg-surface rounded-full p-2 flex items-center justify-center flex-shrink-0 mt-xs border border-primary-fixed-dim">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-xs">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Spike in Pothole Reports</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">15m ago</span>
+</div>
+<span class="inline-block bg-primary-fixed text-primary px-2 py-1 rounded-full font-label-sm text-label-sm mb-sm border border-primary-fixed-dim">AI ANALYSIS</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Anomaly detected: 45% increase in pothole reports in District 4 over the last 48 hours following heavy rainfall.</p>
+</div>
+</div>
+<!-- Assignment Update -->
+<div class="bg-surface rounded-xl p-md shadow-[0_4px_12px_rgba(9,30,66,0.08)] flex gap-md items-start transition-all hover:-translate-y-0.5 hover:shadow-md cursor-pointer border border-transparent hover:border-border-subtle">
+<div class="bg-surface-variant rounded-full p-2 flex items-center justify-center flex-shrink-0 mt-xs">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="check_circle">check_circle</span>
+</div>
+<div class="flex-1 border-b border-border-subtle pb-md">
+<div class="flex justify-between items-start mb-xs">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Graffiti Removal Completed</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1h ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm">Crew #4 has resolved Ticket #8892 at the Central Park underpass.</p>
+<span class="inline-block bg-tertiary-fixed text-on-tertiary-fixed-variant px-2 py-1 rounded font-label-sm text-label-sm">Resolved</span>
+</div>
+</div>
+<!-- Resolution Reminder -->
+<div class="bg-surface rounded-xl p-md shadow-[0_4px_12px_rgba(9,30,66,0.08)] flex gap-md items-start transition-all hover:-translate-y-0.5 hover:shadow-md cursor-pointer border border-transparent hover:border-border-subtle">
+<div class="bg-error-container rounded-full p-2 flex items-center justify-center flex-shrink-0 mt-xs">
+<span class="material-symbols-outlined text-error" data-icon="schedule">schedule</span>
+</div>
+<div class="flex-1 border-b border-border-subtle pb-md">
+<div class="flex justify-between items-start mb-xs">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Overdue SLA: Streetlight Repair</h4>
+<span class="font-label-sm text-label-sm text-error font-bold">Overdue</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm">Ticket #8850 (Reported 4 days ago) has breached the 72-hour resolution SLA.</p>
+<button class="text-primary font-label-md text-label-md hover:underline">Reassign Task</button>
+</div>
+</div>
+<!-- New Complaint Received -->
+<div class="bg-surface rounded-xl p-md shadow-[0_4px_12px_rgba(9,30,66,0.08)] flex gap-md items-start transition-all hover:-translate-y-0.5 hover:shadow-md cursor-pointer border border-transparent hover:border-border-subtle">
+<div class="bg-surface-variant rounded-full p-2 flex items-center justify-center flex-shrink-0 mt-xs">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="report">report</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-xs">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">New Complaint: Noise Disturbance</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3h ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm">Resident reported ongoing construction noise outside permitted hours on Elm St.</p>
+<span class="inline-block bg-primary-fixed-dim text-on-primary-fixed-variant px-2 py-1 rounded font-label-sm text-label-sm">Pending Review</span>
+</div>
+</div>
+</div>
+</section>
+<div class="flex justify-center pt-md">
+<button class="bg-transparent text-on-surface-variant px-6 py-3 rounded-lg font-label-md text-label-md hover:bg-surface-variant transition-colors border border-border-subtle">Load More History</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-2 pb-safe bg-surface dark:bg-on-background shadow-[0_-4px_12px_rgba(9,30,66,0.08)] rounded-t-xl md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 hover:text-primary dark:hover:text-primary-fixed transition-all duration-300 active:scale-95 group">
+<span class="material-symbols-outlined group-hover:bg-surface-variant rounded-full p-1" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-label-sm mt-1">Dashboard</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 hover:text-primary dark:hover:text-primary-fixed transition-all duration-300 active:scale-95 group">
+<span class="material-symbols-outlined group-hover:bg-surface-variant rounded-full p-1" data-icon="assignment">assignment</span>
+<span class="font-label-sm text-label-sm mt-1">Complaints</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 hover:text-primary dark:hover:text-primary-fixed transition-all duration-300 active:scale-95 group">
+<span class="material-symbols-outlined group-hover:bg-surface-variant rounded-full p-1" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-sm text-label-sm mt-1">Analytics</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 hover:text-primary dark:hover:text-primary-fixed transition-all duration-300 active:scale-95 group">
+<span class="material-symbols-outlined group-hover:bg-surface-variant rounded-full p-1" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</button>
+</nav>
+
+<style>
+#govDrawerBackdrop{position:fixed;inset:0;background:rgba(5,26,62,.34);z-index:90;opacity:0;pointer-events:none;transition:opacity .2s}
+#govDrawer{position:fixed;top:0;left:0;height:100%;width:min(320px,86vw);background:#faf9ff;z-index:91;transform:translateX(-102%);transition:transform .22s;box-shadow:8px 0 30px rgba(9,30,66,.18);padding:24px 18px}
+#govDrawer.open{transform:translateX(0)} #govDrawerBackdrop.open{opacity:1;pointer-events:auto}
+.gov-link{display:flex;align-items:center;gap:12px;padding:13px 12px;border-radius:12px;color:#051a3e;text-decoration:none;font-family:Arial,sans-serif}.gov-link:hover{background:#e9edff}
+</style>
+<div id="govDrawerBackdrop" onclick="govCloseDrawer()"></div><aside id="govDrawer">
+<div style="font-weight:700;font-size:20px;color:#003d9b;margin-bottom:18px">Civic Clarity</div>
+<a class="gov-link" href="screen://dashboard"><span class="material-symbols-outlined">dashboard</span>Dashboard</a>
+<a class="gov-link" href="screen://complaint_queue"><span class="material-symbols-outlined">assignment</span>Complaint Queue</a>
+<a class="gov-link" href="screen://analytics"><span class="material-symbols-outlined">leaderboard</span>Analytics</a>
+<a class="gov-link" href="screen://admin_profile"><span class="material-symbols-outlined">person</span>Admin Profile</a>
+<div style="height:1px;background:#c3c6d6;margin:12px 0"></div>
+<a class="gov-link" href="screen://login_screen"><span class="material-symbols-outlined">logout</span>Sign Out</a>
+</aside>
+<script>
+function govOpenDrawer(){document.getElementById('govDrawer').classList.add('open');document.getElementById('govDrawerBackdrop').classList.add('open')}
+function govCloseDrawer(){document.getElementById('govDrawer').classList.remove('open');document.getElementById('govDrawerBackdrop').classList.remove('open')}
+document.addEventListener('DOMContentLoaded',()=>{
+ document.querySelectorAll('button').forEach(b=>{const i=b.querySelector('.material-symbols-outlined');if(i&&i.textContent.trim()==='menu') b.onclick=govOpenDrawer;});
+ document.querySelectorAll('nav a, nav button').forEach(el=>{const t=(el.innerText||'').trim().toLowerCase();let u=null;if(t.includes('dashboard'))u='screen://dashboard';else if(t.includes('complaints'))u='screen://complaint_queue';else if(t.includes('analytics'))u='screen://analytics';else if(t.includes('alerts'))u='screen://notifications_2';else if(t.includes('profile'))u='screen://admin_profile';if(u)el.onclick=()=>{window.location.href=u};});
+});
+</script>
+</body></html>

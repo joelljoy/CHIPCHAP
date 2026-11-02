@@ -1,0 +1,16 @@
+# Android / Gradle generated files
+.gradle/
+**/build/
+local.properties
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+# Local secrets / signing files
+*.jks
+*.keystore
+*.pem
+*.p12
+.env
+# Development-agent backups and test artifacts (keep outside app source)
+Claude outputs/

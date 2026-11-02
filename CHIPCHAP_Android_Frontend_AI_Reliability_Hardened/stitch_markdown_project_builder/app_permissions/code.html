@@ -1,0 +1,214 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>CHIPCHAP - Permissions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#72e9af",
+                        "tertiary-fixed-dim": "#65dca4",
+                        "surface-container-highest": "#d8e2ff",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c3c6d6",
+                        "surface-gray": "#F4F5F7",
+                        "surface-dim": "#ccdaff",
+                        "on-surface": "#051a3e",
+                        "surface-container": "#e9edff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#001848",
+                        "surface-container-high": "#e1e8ff",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "secondary-fixed": "#ffdcc3",
+                        "primary-fixed": "#dae2ff",
+                        "on-secondary-fixed": "#2f1500",
+                        "alert-red": "#DE350B",
+                        "background": "#faf9ff",
+                        "tertiary-container": "#006844",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#fe8a00",
+                        "secondary": "#914d00",
+                        "surface-container-low": "#f1f3ff",
+                        "inverse-on-surface": "#edf0ff",
+                        "border-subtle": "#DFE1E6",
+                        "on-secondary-container": "#613100",
+                        "surface-tint": "#0c56d0",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-fixed": "#002113",
+                        "on-secondary-fixed-variant": "#6e3900",
+                        "inverse-primary": "#b2c5ff",
+                        "tertiary-fixed": "#82f9be",
+                        "on-tertiary-fixed-variant": "#005235",
+                        "safety-orange-light": "#FFFAE6",
+                        "primary-container": "#0052cc",
+                        "civic-blue-dark": "#0747A6",
+                        "primary": "#003d9b",
+                        "secondary-fixed-dim": "#ffb77e",
+                        "tertiary": "#004e32",
+                        "surface-variant": "#d8e2ff",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#c4d2ff",
+                        "on-surface-variant": "#434654",
+                        "surface": "#faf9ff",
+                        "surface-bright": "#faf9ff",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#1d3054",
+                        "on-background": "#051a3e",
+                        "outline": "#737685",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "md": "16px",
+                        "container-margin": "20px",
+                        "xl": "32px",
+                        "base": "8px",
+                        "gutter": "12px",
+                        "xs": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-md": ["JetBrains Mono"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "label-sm": ["JetBrains Mono"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Toggle Switch Styles */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #003d9b;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #003d9b;
+        }
+        .toggle-checkbox {
+            right: 0;
+            z-index: 1;
+            border-color: #e5e7eb;
+            transition: all 0.3s;
+        }
+        .toggle-label {
+            width: 3rem;
+            height: 1.5rem;
+            background-color: #DFE1E6;
+            border-radius: 9999px;
+            transition: all 0.3s;
+        }
+        .toggle-checkbox:checked {
+            transform: translateX(100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col items-center justify-center p-container-margin md:p-xl">
+<!-- Top Navigation for Transactional Flow (Back Action Only) -->
+<nav class="fixed top-0 w-full z-50 bg-surface shadow-sm h-16 flex justify-between items-center px-container-margin">
+<button class="text-primary hover:bg-surface-container rounded-full p-2 transition-colors active:scale-95 duration-100 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="arrow_back" data-weight="regular">arrow_back</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold text-primary">CHIPCHAP</div>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</nav>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-md mt-24 mb-32 flex flex-col gap-lg relative z-10">
+<!-- Header Section -->
+<header class="text-center mb-md">
+<div class="w-20 h-20 bg-primary-container text-primary rounded-full flex items-center justify-center mx-auto mb-lg shadow-sm">
+<span class="material-symbols-outlined text-4xl" data-icon="admin_panel_settings" style="font-variation-settings: 'FILL' 1;">admin_panel_settings</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-sm">App Permissions</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">To provide you with the best experience and ensure civic clarity, we need access to a few things.</p>
+</header>
+<!-- Permissions List -->
+<div class="flex flex-col gap-md">
+<!-- Location Permission -->
+<div class="bg-surface p-md rounded-xl shadow-[0px_4px_12px_rgba(9,30,66,0.08)] border border-border-subtle flex items-start gap-md hover:shadow-[0px_8px_24px_rgba(9,30,66,0.12)] transition-shadow">
+<div class="bg-surface-container p-sm rounded-lg text-primary flex-shrink-0 mt-1">
+<span class="material-symbols-outlined" data-icon="location_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Location Access</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Required for reporting issues accurately on the civic map.</p>
+<span class="inline-block px-2 py-1 bg-surface-container-high text-on-surface-variant rounded-md font-label-md text-label-md uppercase tracking-wider">Required</span>
+</div>
+<div class="flex-shrink-0 relative w-12 mr-2 mt-2 align-middle select-none">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="toggle-location" name="toggle-location" type="checkbox">
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer" for="toggle-location"></label>
+</div>
+</div>
+<!-- Camera Permission -->
+<div class="bg-surface p-md rounded-xl shadow-[0px_4px_12px_rgba(9,30,66,0.08)] border border-border-subtle flex items-start gap-md hover:shadow-[0px_8px_24px_rgba(9,30,66,0.12)] transition-shadow">
+<div class="bg-surface-container p-sm rounded-lg text-primary flex-shrink-0 mt-1">
+<span class="material-symbols-outlined" data-icon="photo_camera" data-weight="fill" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Camera &amp; Photos</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Allows you to upload photos of the civic issues you encounter.</p>
+</div>
+<div class="flex-shrink-0 relative w-12 mr-2 mt-2 align-middle select-none">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="toggle-camera" name="toggle-camera" type="checkbox">
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer" for="toggle-camera"></label>
+</div>
+</div>
+<!-- Notifications Permission -->
+<div class="bg-surface p-md rounded-xl shadow-[0px_4px_12px_rgba(9,30,66,0.08)] border border-border-subtle flex items-start gap-md hover:shadow-[0px_8px_24px_rgba(9,30,66,0.12)] transition-shadow">
+<div class="bg-surface-container p-sm rounded-lg text-primary flex-shrink-0 mt-1">
+<span class="material-symbols-outlined" data-icon="notifications" data-weight="fill" style="font-variation-settings: 'FILL' 1;">notifications</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Push Notifications</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Receive status updates on your reports and community alerts.</p>
+</div>
+<div class="flex-shrink-0 relative w-12 mr-2 mt-2 align-middle select-none">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="toggle-notifications" name="toggle-notifications" type="checkbox">
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer" for="toggle-notifications"></label>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Area -->
+<div class="fixed bottom-0 w-full bg-surface/90 backdrop-blur-md border-t border-border-subtle p-container-margin z-40 pb-safe">
+<div class="max-w-md mx-auto flex flex-col gap-sm">
+<button class="w-full bg-primary text-on-primary font-headline-sm text-headline-sm py-4 rounded-lg shadow-sm hover:bg-civic-blue-dark transition-colors active:scale-[0.98]" onclick="window.location.href='{{DATA:SCREEN:SCREEN_21}}'">
+                Enable All &amp; Continue
+            </button>
+<button class="w-full bg-transparent text-primary font-body-md text-body-md py-3 rounded-lg hover:bg-surface-container-low transition-colors active:scale-[0.98]">
+                Skip for now
+            </button>
+</div>
+</div>
+
+
+</body></html>

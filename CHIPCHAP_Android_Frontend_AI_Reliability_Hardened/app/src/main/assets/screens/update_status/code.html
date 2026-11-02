@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Civic Clarity Admin - Update Status</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#edf0ff",
+                    "surface-tint": "#0c56d0",
+                    "surface-gray": "#F4F5F7",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "tertiary-container": "#006844",
+                    "on-primary-fixed": "#001848",
+                    "error": "#ba1a1a",
+                    "surface": "#faf9ff",
+                    "background": "#faf9ff",
+                    "primary-container": "#0052cc",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#434654",
+                    "primary-fixed": "#dae2ff",
+                    "tertiary-fixed-dim": "#65dca4",
+                    "surface-dim": "#ccdaff",
+                    "outline": "#737685",
+                    "tertiary": "#004e32",
+                    "inverse-primary": "#b2c5ff",
+                    "secondary-fixed-dim": "#ffb77e",
+                    "inverse-surface": "#1d3054",
+                    "on-secondary-fixed": "#2f1500",
+                    "primary": "#003d9b",
+                    "surface-variant": "#d8e2ff",
+                    "secondary-container": "#fe8a00",
+                    "on-primary-container": "#c4d2ff",
+                    "on-tertiary-fixed": "#002113",
+                    "outline-variant": "#c3c6d6",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#82f9be",
+                    "alert-red": "#DE350B",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#613100",
+                    "secondary-fixed": "#ffdcc3",
+                    "on-tertiary": "#ffffff",
+                    "safety-orange-light": "#FFFAE6",
+                    "surface-container-high": "#e1e8ff",
+                    "on-surface": "#051a3e",
+                    "surface-container-highest": "#d8e2ff",
+                    "civic-blue-dark": "#0747A6",
+                    "surface-container": "#e9edff",
+                    "on-background": "#051a3e",
+                    "surface-container-low": "#f1f3ff",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "border-subtle": "#DFE1E6",
+                    "on-tertiary-fixed-variant": "#005235",
+                    "on-tertiary-container": "#72e9af",
+                    "on-secondary-fixed-variant": "#6e3900",
+                    "secondary": "#914d00",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#faf9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "12px",
+                    "xl": "32px",
+                    "container-margin": "20px",
+                    "xs": "4px",
+                    "sm": "8px",
+                    "lg": "24px",
+                    "base": "8px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "label-md": ["JetBrains Mono"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "label-sm": ["JetBrains Mono"],
+                    "body-sm": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "headline-sm": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["10px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #DFE1E6;
+            border-radius: 10px;
+        }
+        
+        .timeline-line {
+            width: 2px;
+            background-color: #DFE1E6;
+            position: absolute;
+            top: 24px;
+            bottom: -24px;
+            left: 11px;
+            z-index: 0;
+        }
+        .timeline-item:last-child .timeline-line {
+            display: none;
+        }
+        .status-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface h-full flex flex-col font-body-md antialiased">
+<!-- TopAppBar -->
+<header class="bg-surface text-primary shadow-sm sticky top-0 z-50 flex justify-between items-center w-full px-container-margin h-14">
+<div class="flex items-center gap-sm">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors duration-200 active:opacity-80 flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">Civic Clarity Admin</h1>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-headline-sm overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a city administrator in a light blue collared shirt, well-lit studio lighting against a clean white background, conveying approachability and competence, high resolution photograph." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrgbHCU373KdKPxt5JlUEy2DuRye2a1QpdcPSMULre7-r24TtnBqXRPkjtfr5JBy12CuJ6YqHz-5hKadMNB445X09Eh_v4nUOClrkXsBIzRn8mBAjGbm2mEeco-V0gxRNggfg6EouZSrYVqos0_lHGtRYPwQPx2Cz9bSZtvckcrbw1bu0rokiCgD_TgeW5dNUUBFmLz1bLjWdizD4-k_Qp6uYzpEY6S0llUqy9bflG_bQMWY2Bq-GF"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto px-container-margin py-lg max-w-2xl mx-auto w-full pb-32">
+<!-- Header Info -->
+<div class="mb-lg">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<span class="font-label-md text-label-md text-outline uppercase">Issue ID: P-2023-401</span>
+<h2 class="font-headline-lg text-headline-lg mt-xs">Update Status</h2>
+</div>
+<div class="bg-safety-orange-light text-secondary-container px-3 py-1 rounded-full border border-secondary-container/20 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="pending">pending</span>
+<span class="font-label-md text-label-md">In Progress</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Pothole reported on 4th Ave &amp; Main St. Currently assigned to Public Works Team Alpha.</p>
+</div>
+<!-- Status Progression Timeline -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(9,30,66,0.08)] p-md mb-lg border border-border-subtle">
+<h3 class="font-headline-sm text-headline-sm mb-md">Status Progression</h3>
+<div class="flex flex-col gap-lg relative ml-2">
+<!-- Stage 1: Assigned (Completed) -->
+<div class="timeline-item flex gap-md relative">
+<div class="timeline-line"></div>
+<div class="status-dot bg-tertiary text-on-tertiary">
+<span class="material-symbols-outlined text-[14px]" data-icon="check">check</span>
+</div>
+<div class="flex-1 pt-1">
+<h4 class="font-headline-md text-headline-md text-base text-on-surface">Assigned</h4>
+<p class="font-body-sm text-body-sm text-outline">Oct 12, 09:45 AM • Team Alpha</p>
+</div>
+</div>
+<!-- Stage 2: In Progress (Active) -->
+<div class="timeline-item flex gap-md relative">
+<div class="timeline-line"></div>
+<div class="status-dot bg-primary text-on-primary ring-4 ring-primary-container">
+<span class="material-symbols-outlined text-[14px]" data-icon="build">build</span>
+</div>
+<div class="flex-1 pt-1">
+<h4 class="font-headline-md text-headline-md text-base text-primary">In Progress</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Crew dispatched, materials secured.</p>
+</div>
+</div>
+<!-- Stage 3: Resolved (Pending) -->
+<div class="timeline-item flex gap-md relative">
+<div class="timeline-line"></div>
+<div class="status-dot bg-surface-gray border-2 border-border-subtle text-outline">
+<span class="material-symbols-outlined text-[14px]" data-icon="done_all">done_all</span>
+</div>
+<div class="flex-1 pt-1 opacity-60">
+<h4 class="font-headline-md text-headline-md text-base text-on-surface">Resolved</h4>
+<p class="font-body-sm text-body-sm text-outline">Pending completion</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Media Evidence Section (Bento style) -->
+<section class="grid grid-cols-2 gap-sm mb-lg">
+<!-- Before Image -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(9,30,66,0.08)] border border-border-subtle overflow-hidden flex flex-col">
+<div class="p-sm border-b border-border-subtle bg-surface-gray flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant">BEFORE</span>
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="image">image</span>
+</div>
+<div class="relative h-32 w-full bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A close-up photograph of a deep, jagged pothole in an asphalt road during daylight. The edges of the pothole are crumbling, exposing dirt and gravel beneath. The surrounding pavement is gray and worn, typical urban street decay. Realistic, high contrast lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmJfBveEivUaCLqPQkj2ZsBmd47tVOf-XdluDaYdUsbgyzeNFm7ut6VlieZ6VDcVV9BNkugpQe5mXSORmT6G04LQJyj8Zy2UDZ47SmYHE8KdJbSEKdFvCtQLX-lCWzY5Ek17c180LdQg07SuPBA6suwriaXAvdtG3sEHY0hDFpSPFcYy7RSIyMoHp4Skex1hGyZcIytgg2HU5dd3OUMevR5MFT4TXdU7n_p5EY5jRh64_wmJCHSVB7"/>
+</div>
+</div>
+<!-- After Image Upload -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(9,30,66,0.08)] border border-primary border-dashed overflow-hidden flex flex-col hover:bg-primary-container/10 transition-colors cursor-pointer group">
+<div class="p-sm border-b border-border-subtle bg-surface-gray flex justify-between items-center">
+<span class="font-label-md text-label-md text-primary">AFTER (UPLOAD)</span>
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="add_a_photo">add_a_photo</span>
+</div>
+<div class="relative h-32 w-full flex flex-col items-center justify-center p-md text-center">
+<div class="w-10 h-10 rounded-full bg-primary-container text-primary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="upload">upload</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary">Tap to upload photo</span>
+</div>
+</div>
+</section>
+<!-- Resolution Details Form -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(9,30,66,0.08)] p-md mb-lg border border-border-subtle">
+<h3 class="font-headline-sm text-headline-sm mb-md">Resolution Details</h3>
+<div class="mb-md">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-xs" for="resolution-notes">Notes for Citizen (Public)</label>
+<textarea class="w-full rounded-lg border border-border-subtle bg-surface p-sm font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" id="resolution-notes" placeholder="Describe the work done to resolve the issue..." rows="4"></textarea>
+</div>
+<!-- Internal Toggle -->
+<div class="flex items-center justify-between p-sm bg-surface-gray rounded-lg border border-border-subtle">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Mark as Final Resolution</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">This will close the ticket and notify the citizen.</span>
+</div>
+<!-- Custom Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-tertiary-container"></div>
+</label>
+</div>
+</section>
+<!-- Action Button -->
+<button class="w-full h-12 bg-primary text-on-primary rounded-xl font-headline-md text-headline-md text-[16px] flex items-center justify-center gap-sm shadow-md hover:bg-civic-blue-dark active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+            Mark as Completed
+        </button>
+</main>
+<!-- Suppressed Nav Shells as this is a task-focused transactional sub-page with a clear 'Back' intent -->
+
+<style>
+#govDrawerBackdrop{position:fixed;inset:0;background:rgba(5,26,62,.34);z-index:90;opacity:0;pointer-events:none;transition:opacity .2s}
+#govDrawer{position:fixed;top:0;left:0;height:100%;width:min(320px,86vw);background:#faf9ff;z-index:91;transform:translateX(-102%);transition:transform .22s;box-shadow:8px 0 30px rgba(9,30,66,.18);padding:24px 18px}
+#govDrawer.open{transform:translateX(0)} #govDrawerBackdrop.open{opacity:1;pointer-events:auto}
+.gov-link{display:flex;align-items:center;gap:12px;padding:13px 12px;border-radius:12px;color:#051a3e;text-decoration:none;font-family:Arial,sans-serif}.gov-link:hover{background:#e9edff}
+</style>
+<div id="govDrawerBackdrop" onclick="govCloseDrawer()"></div><aside id="govDrawer">
+<div style="font-weight:700;font-size:20px;color:#003d9b;margin-bottom:18px">Civic Clarity</div>
+<a class="gov-link" href="screen://dashboard"><span class="material-symbols-outlined">dashboard</span>Dashboard</a>
+<a class="gov-link" href="screen://complaint_queue"><span class="material-symbols-outlined">assignment</span>Complaint Queue</a>
+<a class="gov-link" href="screen://analytics"><span class="material-symbols-outlined">leaderboard</span>Analytics</a>
+<a class="gov-link" href="screen://admin_profile"><span class="material-symbols-outlined">person</span>Admin Profile</a>
+<div style="height:1px;background:#c3c6d6;margin:12px 0"></div>
+<a class="gov-link" href="screen://login_screen"><span class="material-symbols-outlined">logout</span>Sign Out</a>
+</aside>
+<script>
+function govOpenDrawer(){document.getElementById('govDrawer').classList.add('open');document.getElementById('govDrawerBackdrop').classList.add('open')}
+function govCloseDrawer(){document.getElementById('govDrawer').classList.remove('open');document.getElementById('govDrawerBackdrop').classList.remove('open')}
+document.addEventListener('DOMContentLoaded',()=>{
+ document.querySelectorAll('button').forEach(b=>{const i=b.querySelector('.material-symbols-outlined');if(i&&i.textContent.trim()==='menu') b.onclick=govOpenDrawer;});
+ document.querySelectorAll('nav a, nav button').forEach(el=>{const t=(el.innerText||'').trim().toLowerCase();let u=null;if(t.includes('dashboard'))u='screen://dashboard';else if(t.includes('complaints'))u='screen://complaint_queue';else if(t.includes('analytics'))u='screen://analytics';else if(t.includes('alerts'))u='screen://notifications_2';else if(t.includes('profile'))u='screen://admin_profile';if(u)el.onclick=()=>{window.location.href=u};});
+});
+</script>
+</body></html>

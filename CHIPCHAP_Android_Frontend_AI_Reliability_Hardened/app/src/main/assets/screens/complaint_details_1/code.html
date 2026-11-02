@@ -1,0 +1,369 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>CHIPCHAP - Complaint Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-container": "#72e9af",
+                      "on-secondary-fixed-variant": "#6e3900",
+                      "on-secondary-container": "#613100",
+                      "on-surface-variant": "#434654",
+                      "on-secondary": "#ffffff",
+                      "on-primary-container": "#c4d2ff",
+                      "on-surface": "#051a3e",
+                      "secondary": "#914d00",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#005235",
+                      "secondary-fixed": "#ffdcc3",
+                      "tertiary-container": "#006844",
+                      "border-subtle": "#DFE1E6",
+                      "surface": "#faf9ff",
+                      "surface-container-highest": "#d8e2ff",
+                      "secondary-fixed-dim": "#ffb77e",
+                      "tertiary": "#004e32",
+                      "on-error-container": "#93000a",
+                      "on-background": "#051a3e",
+                      "surface-bright": "#faf9ff",
+                      "on-primary-fixed": "#001848",
+                      "civic-blue-dark": "#0747A6",
+                      "surface-dim": "#ccdaff",
+                      "on-tertiary-fixed": "#002113",
+                      "alert-red": "#DE350B",
+                      "on-secondary-fixed": "#2f1500",
+                      "surface-container": "#e9edff",
+                      "surface-variant": "#d8e2ff",
+                      "tertiary-fixed": "#82f9be",
+                      "on-error": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "error": "#ba1a1a",
+                      "outline-variant": "#c3c6d6",
+                      "surface-tint": "#0c56d0",
+                      "surface-container-high": "#e1e8ff",
+                      "on-tertiary": "#ffffff",
+                      "outline": "#737685",
+                      "inverse-surface": "#1d3054",
+                      "inverse-on-surface": "#edf0ff",
+                      "primary-fixed-dim": "#b2c5ff",
+                      "primary-fixed": "#dae2ff",
+                      "primary": "#003d9b",
+                      "inverse-primary": "#b2c5ff",
+                      "surface-container-lowest": "#ffffff",
+                      "background": "#faf9ff",
+                      "safety-orange-light": "#FFFAE6",
+                      "on-primary-fixed-variant": "#0040a2",
+                      "primary-container": "#0052cc",
+                      "surface-container-low": "#f1f3ff",
+                      "secondary-container": "#fe8a00",
+                      "tertiary-fixed-dim": "#65dca4",
+                      "surface-gray": "#F4F5F7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "32px",
+                      "md": "16px",
+                      "base": "8px",
+                      "sm": "8px",
+                      "container-margin": "20px",
+                      "xs": "4px",
+                      "lg": "24px",
+                      "gutter": "12px"
+              },
+              "fontFamily": {
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "label-md": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-md": [
+                              "Hanken Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "label-sm": [
+                              "10px",
+                              {
+                                      "lineHeight": "14px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #faf9ff;
+            color: #051a3e;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+        /* Hide scrollbar for clean UI */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen flex flex-col no-scrollbar">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-sm flex justify-between items-center px-container-margin h-16 w-full">
+<a href="screen://home_screen" aria-label="Go back" class="text-primary dark:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors active:scale-95 duration-100 p-2 -ml-2 rounded-full inline-flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</a>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim tracking-tight">Details</h1>
+<button aria-label="Search" class="text-primary dark:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors active:scale-95 duration-100 p-2 -mr-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[80px] pb-[100px] px-container-margin flex flex-col space-y-lg">
+<!-- Status & ID Header -->
+<section class="flex flex-col space-y-xs">
+<div class="flex justify-between items-start">
+<div class="inline-flex items-center space-x-2 bg-safety-orange-light px-3 py-1.5 rounded-full border border-[#FFE380]">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-label-md text-label-md text-on-secondary-container uppercase tracking-wider">In Progress</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-low px-2 py-1 rounded">#CCP-8291</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mt-sm">Severe Pothole on Main St.</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Reported by Citizen User on Oct 24, 2023</p>
+</section>
+<!-- Live Tracking Timeline -->
+<a href="screen://live_tracking_timeline" class="block bg-surface-container-lowest rounded-xl shadow-lg p-md border border-surface-container-highest hover:bg-surface-container-low transition-colors active:scale-[0.99]">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-md flex items-center">
+<span class="material-symbols-outlined mr-2 text-primary" data-icon="timeline">timeline</span> 
+                Live Tracking
+            </h3>
+<div class="relative pl-6 space-y-6">
+<!-- Vertical Line -->
+<div class="absolute left-[11px] top-2 bottom-6 w-0.5 bg-surface-container-high z-0"></div>
+<!-- Progress Line overlay (up to current) -->
+<div class="absolute left-[11px] top-2 h-[45%] w-0.5 bg-primary z-0"></div>
+<!-- Step 1: Reported -->
+<div class="relative z-10 flex items-start">
+<div class="absolute -left-6 bg-primary rounded-full w-[14px] h-[14px] border-2 border-surface-container-lowest mt-1"></div>
+<div class="flex-1">
+<p class="font-body-md text-body-md font-semibold text-on-surface leading-tight">Reported</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Oct 24, 10:30 AM</p>
+</div>
+</div>
+<!-- Step 2: AI Categorized -->
+<div class="relative z-10 flex items-start">
+<div class="absolute -left-6 bg-primary rounded-full w-[14px] h-[14px] border-2 border-surface-container-lowest mt-1"></div>
+<div class="flex-1">
+<p class="font-body-md text-body-md font-semibold text-on-surface leading-tight">AI Categorized</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Oct 24, 10:32 AM</p>
+</div>
+</div>
+<!-- Step 3: Assigned (Current) -->
+<div class="relative z-10 flex items-start">
+<div class="absolute -left-[27px] bg-surface-container-lowest rounded-full w-5 h-5 flex items-center justify-center -mt-0.5">
+<div class="bg-primary rounded-full w-3 h-3 animate-ping absolute opacity-75"></div>
+<div class="bg-primary rounded-full w-2.5 h-2.5 relative z-20"></div>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md font-semibold text-primary leading-tight">Assigned to Sanitation Dept</p>
+<p class="font-label-sm text-label-sm text-primary">Oct 24, 2:15 PM</p>
+</div>
+</div>
+<!-- Step 4: Dispatched (Pending) -->
+<div class="relative z-10 flex items-start opacity-50">
+<div class="absolute -left-6 bg-surface-container-high rounded-full w-[14px] h-[14px] border-2 border-surface-container-lowest mt-1"></div>
+<div class="flex-1">
+<p class="font-body-md text-body-md font-semibold text-on-surface leading-tight">Crew Dispatched</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pending</p>
+</div>
+</div>
+<!-- Step 5: Resolution (Pending) -->
+<div class="relative z-10 flex items-start opacity-50">
+<div class="absolute -left-6 bg-surface-container-high rounded-full w-[14px] h-[14px] border-2 border-surface-container-lowest mt-1"></div>
+<div class="flex-1">
+<p class="font-body-md text-body-md font-semibold text-on-surface leading-tight">Resolution</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pending</p>
+</div>
+</div>
+</div>
+</a>
+<!-- Assigned Department Card -->
+<section class="bg-[#E6EFFC] rounded-xl p-md border border-primary flex items-center justify-between shadow-sm relative overflow-hidden">
+<!-- Subtle AI background indication -->
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-[80px] text-primary opacity-5 transform rotate-12" data-icon="auto_awesome">auto_awesome</span>
+<div class="flex flex-col relative z-10">
+<span class="font-label-sm text-label-sm text-primary mb-1 flex items-center">
+<span class="material-symbols-outlined text-[14px] mr-1" data-icon="apartment">apartment</span>
+                    ASSIGNED DEPARTMENT
+                </span>
+<p class="font-body-md text-body-md font-bold text-on-surface">Sanitation &amp; Public Works</p>
+</div>
+<div class="text-right relative z-10 bg-white/60 p-2 rounded-lg backdrop-blur-sm border border-white/40">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-0.5">EST. RESOLUTION</p>
+<p class="font-body-sm text-body-sm font-semibold text-on-surface">2-3 Bus. Days</p>
+</div>
+</section>
+<!-- Evidence (Before/After) -->
+<section class="flex flex-col space-y-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Evidence</h3>
+<div class="grid grid-cols-2 gap-sm">
+<!-- Before Photo -->
+<div class="relative rounded-xl overflow-hidden aspect-square border border-border-subtle shadow-sm group">
+<div class="bg-cover bg-center w-full h-full" data-alt="A close-up, high-resolution photo of a severe, jagged pothole in the middle of an asphalt urban street during daytime. The lighting is bright and natural, highlighting the depth and danger of the pothole. The overall aesthetic is realistic and gritty, suitable for a civic reporting application context." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD8gGJexT4kegj_aBMK_hhMZHIXZOnGKWpc3S7A5UkIZQcwPM5rdzpZ3Fn2IimvJ0HqB0R7ShBJXVUUBWoDcplAd-BZ5D5JEL64lAwxebZwv7sfSOA1uYIpo9EzcyNFpvGqGdvSm8enLhGoRvrkF_ICwjpevDQikQNgRfQXMjT8ErQx-YJhrIGUg7A0lL9CCePtfwx7rEvUo_2JerjQUy-muVyOgNkJxHPhy92knar9JO9euSdGaRWP')"></div>
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
+<span class="font-label-sm text-label-sm text-white drop-shadow-md">BEFORE</span>
+</div>
+</div>
+<!-- After Photo (Placeholder) -->
+<div class="relative rounded-xl overflow-hidden aspect-square border-2 border-dashed border-outline-variant bg-surface-container-low flex flex-col items-center justify-center text-outline-variant">
+<span class="material-symbols-outlined text-[32px] mb-1 opacity-50" data-icon="photo_camera">photo_camera</span>
+<span class="font-label-sm text-label-sm text-center px-4 opacity-75">Awaiting Resolution Photo</span>
+</div>
+</div>
+</section>
+<!-- Details Section -->
+<section class="bg-surface-container-lowest rounded-xl shadow-lg p-md border border-surface-container-highest space-y-md">
+<div class="grid grid-cols-2 gap-4 border-b border-border-subtle pb-md">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">CATEGORY</span>
+<div class="inline-flex items-center px-2 py-1 rounded bg-surface-container text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] mr-1" data-icon="cleaning_services">cleaning_services</span>
+                        Cleanliness
+                    </div>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">SEVERITY</span>
+<div class="inline-flex items-center px-2 py-1 rounded bg-[#FFFAE6] text-secondary-container font-body-sm text-body-sm border border-[#FFE380]">
+<span class="material-symbols-outlined text-[16px] mr-1" data-icon="warning">warning</span>
+                        Moderate
+                    </div>
+</div>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-2">DESCRIPTION</span>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                    Large pothole causing severe traffic disruption and potential damage to vehicles. Needs immediate attention before the upcoming rainstorm exacerbates the issue.
+                </p>
+</div>
+</section>
+<!-- Community Engagement -->
+<section class="flex items-center justify-between bg-surface-container-lowest rounded-xl p-3 border border-surface-container-highest shadow-sm">
+<div class="flex items-center space-x-2">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-primary-fixed-dim border-2 border-surface-container-lowest flex items-center justify-center font-label-sm text-label-sm text-on-primary-fixed font-bold">JD</div>
+<div class="w-8 h-8 rounded-full bg-secondary-fixed-dim border-2 border-surface-container-lowest flex items-center justify-center font-label-sm text-label-sm text-on-secondary-fixed font-bold">AK</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-2 border-surface-container-lowest flex items-center justify-center font-label-sm text-label-sm text-on-surface-variant">+10</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant ml-2"><span class="font-semibold text-on-surface">12 neighbors</span> backed this</p>
+</div>
+<button class="flex items-center justify-center px-4 py-2 bg-white border border-primary text-primary rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[18px] mr-1" data-icon="thumb_up">thumb_up</span>
+                Upvote
+            </button>
+</section>
+<!-- Comments Section Placeholder (Minimalist) -->
+<section class="flex flex-col space-y-sm pb-lg">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Comments</h3>
+<div class="bg-surface-container-lowest rounded-xl border border-surface-container-highest p-md text-center opacity-60">
+<span class="material-symbols-outlined text-[32px] text-outline mb-2 block mx-auto" data-icon="forum">forum</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">No comments yet. Be the first to discuss.</p>
+</div>
+<!-- Add Comment Input (simplified for details screen) -->
+<div class="relative mt-2">
+<input class="w-full bg-surface-container-lowest border border-border-subtle rounded-xl py-3 pl-4 pr-12 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Add a comment..." type="text">
+<button class="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 text-primary hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="send" data-weight="fill">send</span>
+</button>
+</div>
+</section>
+</main>
+
+
+</body></html>

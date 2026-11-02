@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Civic Clarity - Admin Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#edf0ff",
+                        "surface-tint": "#0c56d0",
+                        "surface-gray": "#F4F5F7",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "tertiary-container": "#006844",
+                        "on-primary-fixed": "#001848",
+                        "error": "#ba1a1a",
+                        "surface": "#faf9ff",
+                        "background": "#faf9ff",
+                        "primary-container": "#0052cc",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#434654",
+                        "primary-fixed": "#dae2ff",
+                        "tertiary-fixed-dim": "#65dca4",
+                        "surface-dim": "#ccdaff",
+                        "outline": "#737685",
+                        "tertiary": "#004e32",
+                        "inverse-primary": "#b2c5ff",
+                        "secondary-fixed-dim": "#ffb77e",
+                        "inverse-surface": "#1d3054",
+                        "on-secondary-fixed": "#2f1500",
+                        "primary": "#003d9b",
+                        "surface-variant": "#d8e2ff",
+                        "secondary-container": "#fe8a00",
+                        "on-primary-container": "#c4d2ff",
+                        "on-tertiary-fixed": "#002113",
+                        "outline-variant": "#c3c6d6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#82f9be",
+                        "alert-red": "#DE350B",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#613100",
+                        "secondary-fixed": "#ffdcc3",
+                        "on-tertiary": "#ffffff",
+                        "safety-orange-light": "#FFFAE6",
+                        "surface-container-high": "#e1e8ff",
+                        "on-surface": "#051a3e",
+                        "surface-container-highest": "#d8e2ff",
+                        "civic-blue-dark": "#0747A6",
+                        "surface-container": "#e9edff",
+                        "on-background": "#051a3e",
+                        "surface-container-low": "#f1f3ff",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "border-subtle": "#DFE1E6",
+                        "on-tertiary-fixed-variant": "#005235",
+                        "on-tertiary-container": "#72e9af",
+                        "on-secondary-fixed-variant": "#6e3900",
+                        "secondary": "#914d00",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#faf9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "12px",
+                        "xl": "32px",
+                        "container-margin": "20px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "base": "8px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["JetBrains Mono"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-sm": ["JetBrains Mono"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+        .chart-bar { transform-origin: bottom; animation: growUp 0.8s ease-out forwards; }
+        @keyframes growUp { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+        
+        /* Soft shadows as requested by style guidance */
+        .card-shadow { box-shadow: 0px 4px 12px rgba(9, 30, 66, 0.08); }
+        .ai-insight-border { border: 1px solid #003d9b; }
+    </style>
+</head>
+<body class="bg-surface text-on-background min-h-screen font-body-md pb-24 selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-container-margin h-14 bg-surface dark:bg-on-background shadow-sm">
+<button aria-label="Menu" class="text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 active:opacity-80 p-2 rounded-full -ml-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed truncate">Civic Clarity Admin</h1>
+<div class="h-8 w-8 rounded-full bg-surface-container-highest overflow-hidden border border-border-subtle flex-shrink-0">
+<img alt="Admin Profile Picture" class="w-full h-full object-cover" data-alt="A professional headshot of a city administrator in bright, modern office lighting. Clean background, corporate yet approachable civic aesthetic. The lighting is high-key and soft, aligning with a light-mode modern UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAezvbk1Ms3hVlA3zPJu0XRi8z5FFTVgwSDY5FvjZiXT2lzgxUqnskjJL9QFAHxOOnemvsHVHudTxl5aigzu4KQsnAZyhjluz4R09v_1oZhVqo5jjwm7KJcAmogEo-eRD8-Gi55PF7K1fq0L2jDpFzCVy60dg32C8q9Y_xDau-0FR63eW02J4w3B-9LwgkDz9QAqO0RgIJMEKMCt7POFcwrBN_lHUX085kymAGx3p-Dt_gdfz9b1t5N"/>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="px-container-margin py-md space-y-lg max-w-3xl mx-auto">
+<!-- Header Section -->
+<section class="mb-md">
+<p class="font-label-md text-label-md text-outline uppercase tracking-wider mb-xs">Overview</p>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Analytics</h2>
+</section>
+<!-- KPI Grid (Bento Style) -->
+<section class="grid grid-cols-2 gap-sm">
+<div class="bg-surface-container-lowest p-md rounded-xl card-shadow flex flex-col justify-between h-32 relative overflow-hidden group">
+<div class="flex justify-between items-start z-10">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-label-sm text-label-sm text-tertiary-container bg-tertiary-fixed rounded-full px-2 py-0.5 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[10px]">arrow_upward</span> 12%
+                    </span>
+</div>
+<div class="z-10">
+<p class="font-label-md text-label-md text-on-surface-variant mb-xs">Total Reports</p>
+<p class="font-headline-md text-headline-md text-on-surface">1,432</p>
+</div>
+<div class="absolute bottom-0 right-0 opacity-5 transition-opacity duration-300 group-hover:opacity-10 pointer-events-none text-9xl leading-none">
+<span class="material-symbols-outlined block translate-x-1/4 translate-y-1/4" style="font-variation-settings: 'FILL' 1;">assignment</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl card-shadow flex flex-col justify-between h-32 relative overflow-hidden group">
+<div class="flex justify-between items-start z-10">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-sm text-label-sm text-tertiary-container bg-tertiary-fixed rounded-full px-2 py-0.5 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[10px]">arrow_upward</span> 4%
+                    </span>
+</div>
+<div class="z-10">
+<p class="font-label-md text-label-md text-on-surface-variant mb-xs">Resolution Rate</p>
+<p class="font-headline-md text-headline-md text-on-surface">86.4%</p>
+</div>
+<div class="absolute bottom-0 right-0 opacity-5 transition-opacity duration-300 group-hover:opacity-10 pointer-events-none text-9xl leading-none">
+<span class="material-symbols-outlined block translate-x-1/4 translate-y-1/4" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</section>
+<!-- AI Insight Card -->
+<section class="bg-[#E6EFFC] ai-insight-border rounded-xl p-md flex gap-md items-start shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary opacity-5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/4"></div>
+<div class="bg-white p-2 rounded-lg flex-shrink-0 shadow-sm z-10">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="z-10">
+<p class="font-label-sm text-label-sm text-primary font-bold mb-1 tracking-wider uppercase">AI Analysis</p>
+<p class="font-body-md text-body-md text-on-surface">Pothole reports in District 4 have surged 35% in the last 48 hours following the heavy rains. Suggest prioritizing DPW deployment to this sector.</p>
+</div>
+</section>
+<!-- Weekly Trends Chart (Simulated) -->
+<section class="bg-surface-container-lowest p-md rounded-xl card-shadow">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Weekly Trends</h3>
+<button class="font-label-md text-label-md text-primary flex items-center gap-1 hover:opacity-80 transition-opacity">
+                    This Week <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<div class="h-48 flex items-end justify-between gap-1 mt-6 border-b border-border-subtle pb-2 relative">
+<!-- Grid Lines -->
+<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-between pb-2 pointer-events-none">
+<div class="w-full border-t border-border-subtle border-dashed opacity-50"></div>
+<div class="w-full border-t border-border-subtle border-dashed opacity-50"></div>
+<div class="w-full border-t border-border-subtle border-dashed opacity-50"></div>
+</div>
+<!-- Bars -->
+<div class="w-full bg-surface-variant rounded-t-sm h-[30%] chart-bar group relative hover:bg-primary-fixed-dim transition-colors cursor-pointer" style="animation-delay: 0.1s;"></div>
+<div class="w-full bg-surface-variant rounded-t-sm h-[45%] chart-bar group relative hover:bg-primary-fixed-dim transition-colors cursor-pointer" style="animation-delay: 0.15s;"></div>
+<div class="w-full bg-surface-variant rounded-t-sm h-[25%] chart-bar group relative hover:bg-primary-fixed-dim transition-colors cursor-pointer" style="animation-delay: 0.2s;"></div>
+<div class="w-full bg-primary rounded-t-sm h-[85%] chart-bar group relative hover:bg-civic-blue-dark transition-colors cursor-pointer" style="animation-delay: 0.25s;">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-[10px] px-2 py-1 rounded shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-label-sm">Peak: 142</div>
+</div>
+<div class="w-full bg-surface-variant rounded-t-sm h-[60%] chart-bar group relative hover:bg-primary-fixed-dim transition-colors cursor-pointer" style="animation-delay: 0.3s;"></div>
+<div class="w-full bg-surface-variant rounded-t-sm h-[40%] chart-bar group relative hover:bg-primary-fixed-dim transition-colors cursor-pointer" style="animation-delay: 0.35s;"></div>
+<div class="w-full bg-surface-variant rounded-t-sm h-[20%] chart-bar group relative hover:bg-primary-fixed-dim transition-colors cursor-pointer" style="animation-delay: 0.4s;"></div>
+</div>
+<div class="flex justify-between mt-2 px-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">M</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">T</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">W</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold text-primary">T</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">F</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">S</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">S</span>
+</div>
+</section>
+<!-- Department Performance -->
+<section>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm">Department Performance</h3>
+<div class="space-y-sm">
+<!-- Dept Card 1 -->
+<div class="bg-surface-container-lowest p-md rounded-xl card-shadow flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">cleaning_services</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-end mb-1">
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Sanitation</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">92% SLA</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5 overflow-hidden">
+<div class="bg-tertiary h-1.5 rounded-full" style="width: 92%"></div>
+</div>
+</div>
+</div>
+<!-- Dept Card 2 -->
+<div class="bg-surface-container-lowest p-md rounded-xl card-shadow flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-secondary flex-shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-end mb-1">
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Transportation</h4>
+<span class="font-label-sm text-label-sm text-alert-red">68% SLA</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5 overflow-hidden">
+<div class="bg-alert-red h-1.5 rounded-full" style="width: 68%"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-2 pb-safe bg-surface dark:bg-on-background shadow-[0_-4px_12px_rgba(9,30,66,0.08)] rounded-t-xl md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 hover:text-primary dark:hover:text-primary-fixed transition-all duration-300 active:scale-95 group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 hover:text-primary dark:hover:text-primary-fixed transition-all duration-300 active:scale-95 group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 0;">assignment</span>
+<span class="font-label-sm text-label-sm">Complaints</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-xl px-3 py-1 transition-all duration-300 active:scale-95 pointer-events-none" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+<span class="font-label-sm text-label-sm font-bold">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 hover:text-primary dark:hover:text-primary-fixed transition-all duration-300 active:scale-95 group relative" href="#">
+<div class="absolute top-1 right-3 w-2 h-2 bg-alert-red rounded-full"></div>
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 0;">notifications</span>
+<span class="font-label-sm text-label-sm">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 hover:text-primary dark:hover:text-primary-fixed transition-all duration-300 active:scale-95 group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+</body></html>

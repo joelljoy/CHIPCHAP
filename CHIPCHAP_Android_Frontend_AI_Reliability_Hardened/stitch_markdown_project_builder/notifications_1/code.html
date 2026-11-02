@@ -1,0 +1,241 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<title>Notifications - Civic App</title>
+<!-- Fonts and Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#0052cc",
+                        "safety-orange-light": "#FFFAE6",
+                        "on-tertiary-fixed": "#002113",
+                        "secondary-fixed-dim": "#ffb77e",
+                        "inverse-surface": "#1d3054",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#006844",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "on-primary-fixed": "#001848",
+                        "on-background": "#051a3e",
+                        "on-primary-container": "#c4d2ff",
+                        "alert-red": "#DE350B",
+                        "on-surface": "#051a3e",
+                        "primary": "#003d9b",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#65dca4",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#82f9be",
+                        "border-subtle": "#DFE1E6",
+                        "surface": "#faf9ff",
+                        "on-tertiary-container": "#72e9af",
+                        "surface-bright": "#faf9ff",
+                        "surface-variant": "#d8e2ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#d8e2ff",
+                        "primary-fixed": "#dae2ff",
+                        "surface-gray": "#F4F5F7",
+                        "secondary-fixed": "#ffdcc3",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#ccdaff",
+                        "on-secondary-fixed": "#2f1500",
+                        "surface-container": "#e9edff",
+                        "on-secondary-fixed-variant": "#6e3900",
+                        "surface-container-high": "#e1e8ff",
+                        "background": "#faf9ff",
+                        "tertiary": "#004e32",
+                        "outline-variant": "#c3c6d6",
+                        "on-surface-variant": "#434654",
+                        "surface-container-low": "#f1f3ff",
+                        "on-error-container": "#93000a",
+                        "outline": "#737685",
+                        "surface-tint": "#0c56d0",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "civic-blue-dark": "#0747A6",
+                        "on-tertiary-fixed-variant": "#005235",
+                        "on-secondary-container": "#613100",
+                        "secondary-container": "#fe8a00",
+                        "inverse-primary": "#b2c5ff",
+                        "inverse-on-surface": "#edf0ff",
+                        "secondary": "#914d00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin": "20px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-sm": ["JetBrains Mono"],
+                        "label-md": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-[100px] flex flex-col font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-background fixed top-0 w-full z-50 flex items-center justify-between px-container-margin h-14 w-full">
+<button aria-label="Go back" class="text-on-surface-variant dark:text-outline hover:bg-surface-variant/50 dark:hover:bg-surface-variant/20 rounded-full p-2 transition-colors duration-200 active:scale-95">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-civic-blue-dark dark:text-primary-fixed">CHIPCHAP</h1>
+<button aria-label="Help" class="text-on-surface-variant dark:text-outline hover:bg-surface-variant/50 dark:hover:bg-surface-variant/20 rounded-full p-2 transition-colors duration-200 active:scale-95">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-[72px] px-container-margin flex flex-col gap-md max-w-md mx-auto w-full">
+<!-- Screen Title & Filter Chips -->
+<section class="flex flex-col gap-md pt-sm">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Notifications</h2>
+<div class="flex gap-sm overflow-x-auto pb-sm scrollbar-hide snap-x">
+<button class="snap-start flex items-center justify-center h-8 px-4 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md whitespace-nowrap transition-colors">
+                    All
+                </button>
+<button class="snap-start flex items-center justify-center h-8 px-4 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors hover:bg-surface-variant">
+                    Updates
+                </button>
+<button class="snap-start flex items-center justify-center h-8 px-4 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors hover:bg-surface-variant">
+                    Messages
+                </button>
+</div>
+</section>
+<!-- Notification List -->
+<section class="flex flex-col gap-md" id="notification-list">
+<!-- Item 1: Status Update (Unread) -->
+<article class="bg-surface-container-lowest p-md rounded-xl shadow-[0px_4px_12px_rgba(9,30,66,0.08)] flex gap-md relative cursor-pointer hover:bg-surface-gray transition-colors border-l-4 border-primary" onclick="window.location.href='{{DATA:SCREEN:SCREEN_13}}'">
+<!-- Unread Indicator -->
+<div aria-label="Unread" class="absolute top-md right-md w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined" data-icon="sync" style="font-variation-settings: 'FILL' 1;">sync</span>
+</div>
+<div class="flex-1 flex flex-col gap-xs">
+<div class="flex justify-between items-baseline pr-4">
+<span class="font-label-sm text-label-sm text-outline">Status Update</span>
+<span class="font-label-sm text-label-sm text-primary">2m ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-semibold">Your report #CCP-8291 has been Assigned to Maintenance.</p>
+</div>
+</article>
+<!-- Item 2: Government Reply -->
+<article class="bg-surface-container-lowest p-md rounded-xl shadow-[0px_4px_12px_rgba(9,30,66,0.08)] flex gap-md relative cursor-pointer hover:bg-surface-gray transition-colors" onclick="window.location.href='{{DATA:SCREEN:SCREEN_13}}'">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center flex-shrink-0 text-tertiary">
+<span class="material-symbols-outlined" data-icon="gavel" style="font-variation-settings: 'FILL' 1;">gavel</span>
+</div>
+<div class="flex-1 flex flex-col gap-xs">
+<div class="flex justify-between items-baseline">
+<div class="flex items-center gap-xs text-outline">
+<span class="font-label-sm text-label-sm">Official Reply</span>
+<span class="material-symbols-outlined text-[14px] text-civic-blue-dark" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">1h ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Official Reply from Sanitation Dept: <span class="italic text-on-surface-variant">"We have dispatched a crew to your location."</span></p>
+</div>
+</article>
+<!-- Item 3: AI Reminder -->
+<article class="bg-[#E6EFFC] border border-primary p-md rounded-xl shadow-[0px_4px_12px_rgba(9,30,66,0.08)] flex gap-md relative cursor-pointer hover:opacity-90 transition-opacity" onclick="window.location.href='{{DATA:SCREEN:SCREEN_13}}'">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined" data-icon="temp_preferences_custom">temp_preferences_custom</span>
+</div>
+<div class="flex-1 flex flex-col gap-xs">
+<div class="flex justify-between items-baseline">
+<span class="font-label-sm text-label-sm text-primary font-bold">AI ANALYSIS</span>
+<span class="font-label-sm text-label-sm text-outline">3h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">3 other neighbors reported similar issues in your area. Consider joining the community discussion.</p>
+</div>
+</article>
+<!-- Item 4: Success Milestone -->
+<article class="bg-surface-container-lowest p-md rounded-xl shadow-[0px_4px_12px_rgba(9,30,66,0.08)] flex gap-md relative cursor-pointer hover:bg-surface-gray transition-colors" onclick="window.location.href='{{DATA:SCREEN:SCREEN_13}}'">
+<div class="w-10 h-10 rounded-full bg-[#E3FCEF] flex items-center justify-center flex-shrink-0 text-tertiary">
+<span class="material-symbols-outlined" data-icon="emoji_events" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+</div>
+<div class="flex-1 flex flex-col gap-xs">
+<div class="flex justify-between items-baseline">
+<span class="font-label-sm text-label-sm text-outline">Milestone</span>
+<span class="font-label-sm text-label-sm text-outline">1d ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface"><span class="font-semibold text-tertiary">High Impact!</span> Your report helped resolve a safety issue at 5th Ave.</p>
+</div>
+</article>
+</section>
+<!-- Empty State (Hidden by default, shown when no notifications) -->
+<section class="hidden flex-col items-center justify-center flex-1 py-xl" id="empty-state">
+<div class="w-48 h-48 mb-md opacity-80" data-alt="A minimalist, flat illustration of a clean, light blue mailbox sitting quietly in an open space. The scene is rendered in a soft, low-contrast corporate style with generous white space. The lighting is diffused, casting soft ambient shadows, evoking a sense of calm efficiency and 'all caught up' status." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBUQ2SqQkNXsuYfSHZfIW1hKihq4-ycDucufsbe_ZIIYOlXulqdReNAKk-_x9HT9hjeXEN0E3gBvgm_7sKntytmVGsN-7RJMvQUs0i4wS9H2Li6JFJqGs6TSVunxurNrQMDETdpWbTxjVUtLT-sm1xBnSjNuHtGyxB8dbRGBbPJmdTSyp3xmx6z1CupoWJJX6ukrZQcmS9pj47LDADOQ-BYVBqpk2BA3txq9GioJxbfB5bkcwOtieRR'); background-size: contain; background-position: center; background-repeat: no-repeat;"></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-center mb-xs">All caught up</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-center max-w-[250px]">You have no new notifications at the moment.</p>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface dark:bg-surface-container-low fixed bottom-0 w-full z-50 rounded-t-xl shadow-[0px_-4px_12px_rgba(9,30,66,0.08)] shadow-lg fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-4 pb-safe md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 scale-110 transition-transform duration-300 w-16 py-2 rounded-lg" href="{{DATA:SCREEN:SCREEN_21}}">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 scale-110 transition-transform duration-300 w-16 py-2 rounded-lg" href="{{DATA:SCREEN:SCREEN_20}}">
+<span class="material-symbols-outlined mb-1" data-icon="add_circle">add_circle</span>
+<span class="font-label-sm text-label-sm text-[10px]">Report</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 scale-110 transition-transform duration-300 w-16 py-2 rounded-lg" href="{{DATA:SCREEN:SCREEN_12}}">
+<span class="material-symbols-outlined mb-1" data-icon="map">map</span>
+<span class="font-label-sm text-label-sm text-[10px]">Map</span>
+</a>
+<!-- Active State for Alerts -->
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-tertiary-container text-on-primary-container dark:text-on-tertiary-container rounded-full px-4 py-1 scale-110 transition-transform duration-300" href="{{DATA:SCREEN:SCREEN_9}}">
+<span class="material-symbols-outlined mb-1" data-icon="notifications" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="font-label-sm text-label-sm text-[10px]">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 scale-110 transition-transform duration-300 w-16 py-2 rounded-lg" href="{{DATA:SCREEN:SCREEN_6}}">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm text-[10px]">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple logic to demonstrate empty state toggling if needed
+        // document.getElementById('notification-list').classList.add('hidden');
+        // document.getElementById('empty-state').classList.remove('hidden');
+        // document.getElementById('empty-state').classList.add('flex');
+    </script>
+
+
+</body></html>

@@ -1,0 +1,222 @@
+rules_version = '2';
+
+// CHIPCHAP Firestore security rules — Phase 1 (Firestore foundation).
+//
+// Scope: users/{uid}, reports/{reportId} and its timeline, votes and comments subcollections.
+// Everything else is denied.
+//
+// These rules fail closed. Government access depends on a trusted custom claim
+// (request.auth.token.role == 'GOVERNMENT') that is NOT provisioned yet, so today no
+// account can read or write other citizens' data. See FIRESTORE_SECURITY.md.
+//
+// NOT YET DEPLOYED OR EMULATOR-TESTED — see FIRESTORE_SECURITY.md before relying on them.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // CHIPCHAP does not gate normal citizen use on email verification (product decision,
+    // 2026-09-23). A signed-in Firebase user is enough to read and to create their OWN data.
+    // Every ownership check below is unchanged: a citizen still cannot forge citizenUid,
+    // actorUid, authorUid or a vote id, cannot set status or assignment, and cannot touch
+    // another user's profile. Only the email_verified precondition was removed.
+    function isVerified() {
+      return isSignedIn();
+    }
+
+    // Trusted role only. A Firestore `role` field is never used for authorization.
+    function isGovernment() {
+      return isSignedIn() && request.auth.token.role == 'GOVERNMENT';
+    }
+
+    function userKeys() {
+      return ['uid', 'email', 'fullName', 'neighborhood', 'role', 'createdAt', 'updatedAt'];
+    }
+
+    // Evidence URLs must be empty or a Cloudinary HTTPS delivery URL. This stops a compromised
+    // client from parking an arbitrary link (or an http:// one) in a report document.
+    function isCloudEvidence(url) {
+      return url == null || url == '' ||
+        (url is string && url.matches('https://res[.]cloudinary[.]com/.*'));
+    }
+
+    function reportKeys() {
+      return ['reportId', 'citizenUid', 'citizenName', 'title', 'description', 'category',
+              'severity', 'status', 'latitude', 'longitude', 'address', 'localImagePath',
+              'evidenceUrl', 'resolutionEvidenceUrl',
+              'assignedGovernmentUid', 'assignedGovernmentName', 'createdAt', 'updatedAt'];
+    }
+
+    // users/{uid} — the application profile. Written before email verification, so only
+    // sign-in is required here; identity still comes from the Auth token.
+    match /users/{uid} {
+      allow read: if isSignedIn() && (request.auth.uid == uid || isGovernment());
+
+      allow create: if isSignedIn()
+        && request.auth.uid == uid
+        && request.resource.data.uid == uid
+        && request.resource.data.email == request.auth.token.email
+        && request.resource.data.role == 'CITIZEN'
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.keys().hasOnly(userKeys());
+
+      // role and createdAt can never be changed by the client.
+      allow update: if isSignedIn()
+        && request.auth.uid == uid
+        && request.resource.data.uid == uid
+        && request.resource.data.email == request.auth.token.email
+        && request.resource.data.role == resource.data.role
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.keys().hasOnly(userKeys());
+
+      allow delete: if false;
+
+      // users/{uid}/notifications/{notificationId} — in-app notifications for this user.
+      match /notifications/{notificationId} {
+        function notificationKeys() {
+          return ['title', 'body', 'type', 'reportId', 'status', 'read', 'actorUid', 'createdAt'];
+        }
+        function targetReport() {
+          return /databases/$(database)/documents/reports/$(request.resource.data.reportId);
+        }
+
+        // Only the owner can read their notifications.
+        allow read: if isSignedIn() && request.auth.uid == uid;
+
+        // Only a government user may create one, only for the real owner of the report, and only
+        // in the same write that actually changes that report (its updatedAt is this request's
+        // time and its new status is the one the notification announces). Citizens cannot create
+        // notifications, so a fake "Resolved" notification cannot be written.
+        allow create: if isGovernment()
+          && request.resource.data.keys().hasOnly(notificationKeys())
+          && request.resource.data.keys().hasAll(notificationKeys())
+          && request.resource.data.actorUid == request.auth.uid
+          && request.resource.data.read == false
+          && request.resource.data.createdAt == request.time
+          && request.resource.data.type in ['STATUS_CHANGED', 'RESOLVED', 'ASSIGNED']
+          && request.resource.data.status in ['SUBMITTED', 'UNDER_REVIEW', 'ASSIGNED', 'IN_PROGRESS', 'RESOLVED']
+          && request.resource.data.title is string && request.resource.data.title.size() <= 120
+          && request.resource.data.body is string && request.resource.data.body.size() <= 500
+          && request.resource.data.reportId is string
+          && get(targetReport()).data.citizenUid == uid
+          && getAfter(targetReport()).data.status == request.resource.data.status
+          && getAfter(targetReport()).data.updatedAt == request.time;
+
+        // The owner may only mark a notification as read; nothing else can change.
+        allow update: if isSignedIn() && request.auth.uid == uid
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['read'])
+          && request.resource.data.read == true;
+
+        allow delete: if false;
+      }
+    }
+
+    // reports/{reportId} — civic reports.
+    match /reports/{reportId} {
+      // Civic reports are community-visible: the community feed shows other citizens' reports,
+      // so any verified signed-in user may read them. Writes stay owner/government-only below.
+      allow read: if isVerified();
+
+      // A citizen may only create a report they own, only as SUBMITTED, and never assigned.
+      allow create: if isVerified()
+        && request.resource.data.reportId == reportId
+        && request.resource.data.citizenUid == request.auth.uid
+        && request.resource.data.status == 'SUBMITTED'
+        && request.resource.data.assignedGovernmentUid == null
+        && request.resource.data.assignedGovernmentName == null
+        // A citizen may attach their own Cloudinary evidence URL, or none at all, but can never
+        // create a report that already carries a government resolution photo.
+        && isCloudEvidence(request.resource.data.evidenceUrl)
+        && request.resource.data.resolutionEvidenceUrl == null
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.keys().hasOnly(reportKeys());
+
+      // Status, assignment and other privileged fields are government-only. No trusted
+      // government claim exists yet, so this currently denies everyone.
+      allow update: if isGovernment()
+        && request.resource.data.reportId == resource.data.reportId
+        && request.resource.data.citizenUid == resource.data.citizenUid
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.keys().hasOnly(reportKeys())
+        // Government may change only the workflow fields, and only to a known status.
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['status', 'updatedAt', 'assignedGovernmentUid', 'assignedGovernmentName',
+                       'resolutionEvidenceUrl'])
+        && request.resource.data.status in ['SUBMITTED', 'UNDER_REVIEW', 'ASSIGNED', 'IN_PROGRESS', 'RESOLVED']
+        // The resolution photo may only appear on a write that leaves the report RESOLVED, and
+        // only as a Cloudinary HTTPS URL. Government still cannot touch title, description,
+        // citizenUid or the citizen's own evidenceUrl - those stay outside the allow-list above.
+        && (!request.resource.data.diff(resource.data).affectedKeys().hasAny(['resolutionEvidenceUrl'])
+            || (request.resource.data.status == 'RESOLVED'
+                && request.resource.data.resolutionEvidenceUrl is string
+                && request.resource.data.resolutionEvidenceUrl.matches('https://res[.]cloudinary[.]com/.*')));
+
+      allow delete: if false;
+
+      // reports/{reportId}/votes/{uid} — one document per voter, the id IS the uid.
+      // That is what stops repeat taps inflating a count, and it means there is no
+      // client-writable counter field on the report itself.
+      match /votes/{voterUid} {
+        allow read: if isVerified();
+
+        allow create, update: if isVerified()
+          && request.auth.uid == voterUid
+          && request.resource.data.uid == voterUid
+          && request.resource.data.createdAt == request.time
+          && request.resource.data.keys().hasOnly(['uid', 'createdAt']);
+
+        allow delete: if isVerified() && request.auth.uid == voterUid;
+      }
+
+      // reports/{reportId}/comments/{commentId} — append-only community comments.
+      match /comments/{commentId} {
+        allow read: if isVerified();
+
+        allow create: if isVerified()
+          && request.resource.data.authorUid == request.auth.uid
+          && request.resource.data.text is string
+          && request.resource.data.text.size() > 0
+          && request.resource.data.text.size() <= 1000
+          && request.resource.data.createdAt == request.time
+          && request.resource.data.keys().hasOnly(['authorUid', 'authorName', 'text', 'createdAt']);
+
+        allow update, delete: if false;
+      }
+
+      // reports/{reportId}/timeline/{timelineId} — append-only report history.
+      match /timeline/{timelineId} {
+        function parentReport() {
+          return get(/databases/$(database)/documents/reports/$(reportId)).data;
+        }
+
+        allow read: if isVerified()
+          && (parentReport().citizenUid == request.auth.uid || isGovernment());
+
+        allow create: if isVerified()
+          && request.resource.data.actorUid == request.auth.uid
+          && request.resource.data.createdAt == request.time
+          && request.resource.data.keys().hasOnly(['status', 'message', 'actorUid', 'actorName', 'createdAt'])
+          && request.resource.data.status in ['SUBMITTED', 'UNDER_REVIEW', 'ASSIGNED', 'IN_PROGRESS', 'RESOLVED']
+          // A citizen may only record the initial SUBMITTED event on their own report;
+          // every other status event must come from a government account.
+          && (isGovernment()
+              || (parentReport().citizenUid == request.auth.uid && request.resource.data.status == 'SUBMITTED'));
+
+        // History is never rewritten.
+        allow update, delete: if false;
+      }
+    }
+
+    // Explicit deny for everything not matched above.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

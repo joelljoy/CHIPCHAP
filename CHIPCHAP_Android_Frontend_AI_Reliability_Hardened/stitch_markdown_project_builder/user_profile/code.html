@@ -1,0 +1,326 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>CHIPCHAP - User Profile</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#fe8a00",
+                    "civic-blue-dark": "#0747A6",
+                    "safety-orange-light": "#FFFAE6",
+                    "surface-container-low": "#f1f3ff",
+                    "surface-tint": "#0c56d0",
+                    "surface-container": "#e9edff",
+                    "on-tertiary-fixed": "#002113",
+                    "inverse-primary": "#b2c5ff",
+                    "primary-fixed": "#dae2ff",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#edf0ff",
+                    "on-secondary-container": "#613100",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#82f9be",
+                    "surface-dim": "#ccdaff",
+                    "surface-bright": "#faf9ff",
+                    "background": "#faf9ff",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "alert-red": "#DE350B",
+                    "on-tertiary-fixed-variant": "#005235",
+                    "surface-container-highest": "#d8e2ff",
+                    "on-background": "#051a3e",
+                    "primary-container": "#0052cc",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#65dca4",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#2f1500",
+                    "tertiary": "#004e32",
+                    "secondary-fixed-dim": "#ffb77e",
+                    "primary": "#003d9b",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "secondary-fixed": "#ffdcc3",
+                    "inverse-surface": "#1d3054",
+                    "tertiary-container": "#006844",
+                    "on-secondary-fixed-variant": "#6e3900",
+                    "surface-container-high": "#e1e8ff",
+                    "surface-gray": "#F4F5F7",
+                    "on-surface": "#051a3e",
+                    "on-tertiary-container": "#72e9af",
+                    "on-surface-variant": "#434654",
+                    "on-error": "#ffffff",
+                    "border-subtle": "#DFE1E6",
+                    "on-primary-fixed": "#001848",
+                    "error": "#ba1a1a",
+                    "outline": "#737685",
+                    "surface-variant": "#d8e2ff",
+                    "on-primary-container": "#c4d2ff",
+                    "secondary": "#914d00",
+                    "outline-variant": "#c3c6d6",
+                    "on-error-container": "#93000a",
+                    "surface": "#faf9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "container-margin": "20px",
+                    "xs": "4px",
+                    "xl": "32px",
+                    "sm": "8px",
+                    "gutter": "12px",
+                    "md": "16px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-sm": [
+                            "Hanken Grotesk"
+                    ],
+                    "headline-md": [
+                            "Hanken Grotesk"
+                    ],
+                    "headline-sm": [
+                            "Hanken Grotesk"
+                    ],
+                    "body-lg": [
+                            "Hanken Grotesk"
+                    ],
+                    "label-md": [
+                            "JetBrains Mono"
+                    ],
+                    "label-sm": [
+                            "JetBrains Mono"
+                    ],
+                    "headline-lg": [
+                            "Hanken Grotesk"
+                    ],
+                    "body-md": [
+                            "Hanken Grotesk"
+                    ]
+            },
+            "fontSize": {
+                    "body-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-sm": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-md": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "label-sm": [
+                            "10px",
+                            {
+                                    "lineHeight": "14px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        /* Hide scrollbar for clean aesthetic */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-[90px]">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface shadow-sm flex justify-between items-center px-container-margin h-16 w-full">
+<button class="text-on-surface-variant hover:bg-surface-container transition-colors active:scale-95 duration-100 p-2 -ml-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight">CHIPCHAP</h1>
+<button class="text-on-surface-variant hover:bg-surface-container transition-colors active:scale-95 duration-100 p-2 -mr-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="pt-24 px-container-margin flex flex-col gap-xl">
+<!-- Profile Header -->
+<section class="flex flex-col items-center text-center gap-md">
+<div class="relative">
+<div class="w-24 h-24 rounded-full overflow-hidden border-4 border-surface-container-high shadow-lg">
+<img class="w-full h-full object-cover" data-alt="A high-quality, professional headshot of a friendly urban citizen in a well-lit, modern city park. The lighting is soft and bright, emphasizing a clean, modern aesthetic suitable for a civic application. The background is slightly blurred featuring green foliage and modern architectural lines. The overall mood is optimistic and trustworthy, employing subtle blues and soft greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZCAT8jmZKdsnhXLb4mTwl18QE8kDsW6SF19qCiFaSOD2UmO-HdBjQIa-5OXtLH0OjzUuLKB-6Siu2gZ_Vn6d8PFIEg49BqXCOCmZ_Vneg3PsCTkDRGhsRLr6AddWelf7t-9eJeuPQczCmFrabPM9ljGbpgPQnZa2q1uaAaEuTkcIAEvmgSwQrJvaj2CQyQV2z-Q0_Bxsw7DLJFvixxPTblPQWO5cJFzrYIECfIfAFD6NHCoCrc-J_">
+</div>
+<div class="absolute bottom-0 right-0 bg-primary-container text-on-primary-container rounded-full p-1 border-2 border-surface shadow-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-background">Citizen User</h2>
+<p class="font-label-md text-label-md text-primary mt-1 uppercase">Level 5 Contributor</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Joined April 2023 • Verified Resident</p>
+</div>
+<button class="bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md px-6 py-3 rounded-full transition-all active:scale-95 shadow-sm mt-sm">
+                Edit Profile
+            </button>
+</section>
+<!-- Achievements Bento Grid -->
+<section class="flex flex-col gap-md">
+<h3 class="font-headline-sm text-headline-sm text-on-background">My Achievements</h3>
+<div class="grid grid-cols-2 gap-md">
+<div class="bg-surface-container-low rounded-xl p-md shadow-sm border border-border-subtle flex flex-col items-center text-center gap-sm">
+<div class="w-12 h-12 bg-primary-fixed-dim rounded-full flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-background font-bold">First Report</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">Completed</p>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-md shadow-sm border border-border-subtle flex flex-col items-center text-center gap-sm">
+<div class="w-12 h-12 bg-secondary-fixed-dim rounded-full flex items-center justify-center text-secondary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-background font-bold">Top Backer</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">50+ Upvotes</p>
+</div>
+</div>
+<div class="bg-[#E6EFFC] rounded-xl p-md shadow-sm border border-primary col-span-2 flex items-center gap-md">
+<div class="w-12 h-12 bg-primary text-on-primary rounded-full flex shrink-0 items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_police</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-xs mb-xs">
+<span class="material-symbols-outlined text-primary text-[12px]">auto_awesome</span>
+<span class="font-label-sm text-label-sm text-primary uppercase">Civic Hero Status</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-background">Consistently high-quality reports resolving community issues.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Menu Links -->
+<section class="flex flex-col gap-sm bg-surface-container-lowest rounded-xl shadow-sm border border-border-subtle overflow-hidden">
+<a class="flex items-center justify-between p-md border-b border-border-subtle hover:bg-surface-container-low transition-colors active:bg-surface-container" href="{{DATA:SCREEN:SCREEN_5}}">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">assignment</span>
+<span class="font-body-md text-body-md text-on-background">My Reports</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-md border-b border-border-subtle hover:bg-surface-container-low transition-colors active:bg-surface-container" href="{{DATA:SCREEN:SCREEN_2}}">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">settings</span>
+<span class="font-body-md text-body-md text-on-background">Settings</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-md border-b border-border-subtle hover:bg-surface-container-low transition-colors active:bg-surface-container" href="#">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">help</span>
+<span class="font-body-md text-body-md text-on-background">Help &amp; Support</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-md border-b border-border-subtle hover:bg-surface-container-low transition-colors active:bg-surface-container" href="#">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">policy</span>
+<span class="font-body-md text-body-md text-on-background">Privacy Policy</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</a>
+<button class="flex items-center justify-between p-md hover:bg-error-container transition-colors active:bg-error-container/80 text-alert-red w-full text-left">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md text-body-md font-bold">Logout</span>
+</div>
+</button>
+</section>
+<!-- Spacer for Bottom Nav -->
+<div class="h-8"></div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 pb-safe bg-surface shadow-[0px_-4px_12px_rgba(9,30,66,0.08)] rounded-t-xl md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-low transition-all active:scale-90 duration-200" href="{{DATA:SCREEN:SCREEN_21}}">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-low transition-all active:scale-90 duration-200" href="{{DATA:SCREEN:SCREEN_20}}">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-label-sm text-label-sm mt-1">Report</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-low transition-all active:scale-90 duration-200" href="{{DATA:SCREEN:SCREEN_12}}">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-sm text-label-sm mt-1">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-low transition-all active:scale-90 duration-200" href="{{DATA:SCREEN:SCREEN_9}}">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-label-sm text-label-sm mt-1">Notifications</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 hover:bg-surface-container-low transition-all active:scale-90 duration-200" href="{{DATA:SCREEN:SCREEN_6}}">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+
+
+</body></html>

@@ -1,0 +1,3 @@
+# Optional local configuration for CHIPCHAP. Do not commit real keys.
+# Android Studio/Gradle manages sdk.dir locally.
+GEOAPIFY_API_KEY=YOUR_GEOAPIFY_API_KEY_HERE

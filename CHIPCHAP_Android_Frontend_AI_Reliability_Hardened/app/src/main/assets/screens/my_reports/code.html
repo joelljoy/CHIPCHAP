@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Reports - CHIPCHAP</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-container": "#fe8a00",
+                      "civic-blue-dark": "#0747A6",
+                      "safety-orange-light": "#FFFAE6",
+                      "surface-container-low": "#f1f3ff",
+                      "surface-tint": "#0c56d0",
+                      "surface-container": "#e9edff",
+                      "on-tertiary-fixed": "#002113",
+                      "inverse-primary": "#b2c5ff",
+                      "primary-fixed": "#dae2ff",
+                      "on-secondary": "#ffffff",
+                      "inverse-on-surface": "#edf0ff",
+                      "on-secondary-container": "#613100",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed": "#82f9be",
+                      "surface-dim": "#ccdaff",
+                      "surface-bright": "#faf9ff",
+                      "background": "#faf9ff",
+                      "on-primary": "#ffffff",
+                      "primary-fixed-dim": "#b2c5ff",
+                      "alert-red": "#DE350B",
+                      "on-tertiary-fixed-variant": "#005235",
+                      "surface-container-highest": "#d8e2ff",
+                      "on-background": "#051a3e",
+                      "primary-container": "#0052cc",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed-dim": "#65dca4",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed": "#2f1500",
+                      "tertiary": "#004e32",
+                      "secondary-fixed-dim": "#ffb77e",
+                      "primary": "#003d9b",
+                      "on-primary-fixed-variant": "#0040a2",
+                      "secondary-fixed": "#ffdcc3",
+                      "inverse-surface": "#1d3054",
+                      "tertiary-container": "#006844",
+                      "on-secondary-fixed-variant": "#6e3900",
+                      "surface-container-high": "#e1e8ff",
+                      "surface-gray": "#F4F5F7",
+                      "on-surface": "#051a3e",
+                      "on-tertiary-container": "#72e9af",
+                      "on-surface-variant": "#434654",
+                      "on-error": "#ffffff",
+                      "border-subtle": "#DFE1E6",
+                      "on-primary-fixed": "#001848",
+                      "error": "#ba1a1a",
+                      "outline": "#737685",
+                      "surface-variant": "#d8e2ff",
+                      "on-primary-container": "#c4d2ff",
+                      "secondary": "#914d00",
+                      "outline-variant": "#c3c6d6",
+                      "on-error-container": "#93000a",
+                      "surface": "#faf9ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "container-margin": "20px",
+                      "xs": "4px",
+                      "xl": "32px",
+                      "sm": "8px",
+                      "gutter": "12px",
+                      "md": "16px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "body-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "label-md": [
+                              "JetBrains Mono"
+                      ],
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-md": [
+                              "Hanken Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-sm": [
+                              "10px",
+                              {
+                                      "lineHeight": "14px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md antialiased pb-24 selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-sm flex justify-between items-center px-container-margin h-16 w-full">
+<button class="text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors active:scale-95 duration-100 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">CHIPCHAP</h1>
+<button class="text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors active:scale-95 duration-100 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+</header>
+<main class="pt-20 px-container-margin max-w-2xl mx-auto space-y-xl">
+<!-- Header & Search -->
+<section class="space-y-lg mt-sm">
+<div class="space-y-sm">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">My Reports</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Track the status of your civic contributions.</p>
+</div>
+<!-- Search Bar -->
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline-variant group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full h-12 pl-12 pr-4 bg-surface rounded-xl border border-border-subtle focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md text-on-surface placeholder-outline transition-all shadow-sm focus:shadow-md outline-none" placeholder="Search your reports..." type="text"/>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-sm overflow-x-auto pb-2 scrollbar-hide">
+<button class="shrink-0 px-4 py-2 bg-primary text-on-primary font-label-md text-label-md rounded-full shadow-sm hover:opacity-90 transition-opacity whitespace-nowrap">All Reports</button>
+<button class="shrink-0 px-4 py-2 bg-surface text-on-surface-variant border border-border-subtle font-label-md text-label-md rounded-full hover:bg-surface-container-low transition-colors whitespace-nowrap">Open</button>
+<button class="shrink-0 px-4 py-2 bg-surface text-on-surface-variant border border-border-subtle font-label-md text-label-md rounded-full hover:bg-surface-container-low transition-colors whitespace-nowrap">Resolved</button>
+<button class="shrink-0 px-4 py-2 bg-surface text-on-surface-variant border border-border-subtle font-label-md text-label-md rounded-full hover:bg-surface-container-low transition-colors whitespace-nowrap">AI Analysis</button>
+</div>
+</section>
+<!-- Reports List -->
+<section class="space-y-md">
+<!-- Item 1: In Progress -->
+<article class="bg-surface rounded-xl shadow-[0px_4px_12px_rgba(9,30,66,0.08)] p-md flex gap-md hover:shadow-lg transition-shadow cursor-pointer border border-transparent hover:border-border-subtle">
+<div class="w-20 h-20 shrink-0 rounded-lg overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A modern urban street scene showing a medium sized pothole being repaired by a construction worker. The worker is wearing a bright orange safety vest. The lighting is bright and sunny, highlighting the textures of the asphalt and the professional civic maintenance process." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4GhNAeFa788-sjErKReJFAIk__S54moSQg5XsCALxYJJdT8XloIBRA6kMAee9OtRxFDjajLy4U2ZuEwUlJSyhNj1VEWzNIv2jvGMDDQrr7A6dSrzRRuu13mwG0qTqwrNRY8lmAEqs5LYAi7uSkmqo_6G_x32CZI8dPu0I9vuZksGKuV2vAs5xOWWx1vOFrJjphGcv4G8FYaD0fht0efU53FVcSmYXlMgNlOHP3d7sX7PN81SHrR1n"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface line-clamp-1">Pothole on Main St.</h3>
+<span class="shrink-0 px-2 py-1 bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm rounded-md whitespace-nowrap flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                                In Progress
+                            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs line-clamp-1">Reported near the intersection of 5th Ave.</p>
+</div>
+<div class="flex items-center gap-4 text-outline font-label-sm text-label-sm mt-2">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">calendar_today</span> Oct 24, 2023</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">map</span> Downtown</span>
+</div>
+</div>
+</article>
+<!-- Item 2: Resolved -->
+<article class="bg-surface rounded-xl shadow-[0px_4px_12px_rgba(9,30,66,0.08)] p-md flex gap-md hover:shadow-lg transition-shadow cursor-pointer border border-transparent hover:border-border-subtle opacity-80">
+<div class="w-20 h-20 shrink-0 rounded-lg overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover grayscale-[20%]" data-alt="A clean, modern park bench next to a functioning street lamp in a well-maintained city park. The area is free of graffiti and litter, showcasing a successful urban cleanup. Soft, welcoming sunlight filters through nearby trees." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiC6Ngp4wnMhxmlm19LRBP7147NuPlc9lMaBvUoQ0EhCRdRJ_4j2uoisyyvaWxylcTJaF88gtatcDWogeFQYdqNqU3kl3SJlhcPgcRqdgWMFOKgWA6piljB5Aq8WrCtNrrjNSnbk9JfB_DYuNSHq11ehzFFjcIdXOslcapOnBUqBsfRgOELn49iGjZZ1KoJ4rkkJR-p32HenwYnBjm7vI021DnD1jgMmD8849d9m_CigjYiu2aFWVm"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface line-clamp-1 text-on-surface-variant">Graffiti on Park Bench</h3>
+<span class="shrink-0 px-2 py-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm rounded-md whitespace-nowrap flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+                                Resolved
+                            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs line-clamp-1">Centennial Park, north entrance.</p>
+</div>
+<div class="flex items-center gap-4 text-outline font-label-sm text-label-sm mt-2">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">calendar_today</span> Sep 12, 2023</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">check_circle</span> Closed</span>
+</div>
+</div>
+</article>
+<!-- Item 3: Pending (AI Insight) -->
+<article class="bg-[#E6EFFC] rounded-xl shadow-[0px_4px_12px_rgba(9,30,66,0.08)] p-md flex gap-md hover:shadow-lg transition-shadow cursor-pointer border border-primary relative overflow-hidden">
+<div class="w-20 h-20 shrink-0 rounded-lg overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A dimly lit residential street at dusk with one broken streetlight casting a dark shadow over the sidewalk. The scene is slightly moody but maintains a clean, architectural focus on the urban infrastructure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrNaRnJvOdnioj0Z3RnNBIRcJHlGAvG6FrB9stU6b-UvuaRimVMNypPoJdG3o40QC9dWzKpnvG2xkFt2zgTwrFxzD8FqQNeI7XSAfxUZmcVO7_vNKiqmmlhCK8n0EunlkAFzvWby426rt3ThemaqvJtsQhe_aGQp9XDihKymCgoCtpMidnG2nhNPYNahCfIMiejd2c-OdYPIGzt3kCQtdWf61v775QGaeieVPWKb66dwNSeVz5qXuC"/>
+</div>
+<div class="flex-1 flex flex-col justify-between z-10">
+<div>
+<div class="flex justify-between items-start gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface line-clamp-1">Broken Streetlight</h3>
+<span class="shrink-0 px-2 py-1 bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm rounded-md whitespace-nowrap flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                                Pending
+                            </span>
+</div>
+<div class="flex items-center gap-1 mt-xs text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span>AI ANALYSIS SUGGESTED</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-outline font-label-sm text-label-sm mt-2">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">calendar_today</span> Oct 26, 2023</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">map</span> Elm District</span>
+</div>
+</div>
+<!-- Subtle background decoration for AI -->
+<div class="absolute -right-4 -bottom-4 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-9xl text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+</article>
+<!-- Item 4: High Severity -->
+<article class="bg-surface rounded-xl shadow-[0px_4px_12px_rgba(9,30,66,0.08)] p-md flex gap-md hover:shadow-lg transition-shadow cursor-pointer border-l-4 border-l-alert-red">
+<div class="w-20 h-20 shrink-0 rounded-lg overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A large, downed tree branch blocking a narrow residential road after a storm. The scene is clear and focused on the obstruction, with minimal background clutter, adhering to a stark, documentary style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6aiA8YbZXk99-fJnKdl0BZBr8TS_be98kAt2D6CFCluc8TqmswD5Tmf152-zkiIBCq7TiGJi6vBQaZnch93sZpcbBD-lLFnIxMlTD_Eo4wLZujxvWFG4mkULXzMn0cpbH3jy1ew7nwVTYXbCGLiQx7UFG5xo-yJecsjWt-X7FyudSmUY6mHly3bK45_EIEmSrqSDeujn5zBw0bvxo0OKAzyIGiCqGjb08J8C9Y7SZog31wVbCsbf8"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface line-clamp-1">Fallen Tree Blockage</h3>
+<span class="shrink-0 px-2 py-1 bg-error-container text-on-error-container font-label-sm text-label-sm rounded-md whitespace-nowrap flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[12px]">warning</span>
+                                Urgent
+                            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs line-clamp-1">Completely blocking Oak Lane.</p>
+</div>
+<div class="flex items-center gap-4 text-outline font-label-sm text-label-sm mt-2">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">calendar_today</span> Just Now</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">map</span> Oak Lane</span>
+</div>
+</div>
+</article>
+</section>
+<!-- Empty Space for scrolling -->
+<div class="h-8"></div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 pb-safe bg-surface dark:bg-surface-dim shadow-[0px_-4px_12px_rgba(9,30,66,0.08)] rounded-t-xl hidden md:hidden flex">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container transition-all active:scale-90 duration-200 group">
+<span class="material-symbols-outlined mb-1 group-hover:text-primary transition-colors" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container transition-all active:scale-90 duration-200 group">
+<span class="material-symbols-outlined mb-1 group-hover:text-primary transition-colors" style="font-variation-settings: 'FILL' 0;">add_circle</span>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Report</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container transition-all active:scale-90 duration-200 group">
+<span class="material-symbols-outlined mb-1 group-hover:text-primary transition-colors" style="font-variation-settings: 'FILL' 0;">map</span>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Map</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container transition-all active:scale-90 duration-200 group">
+<span class="material-symbols-outlined mb-1 group-hover:text-primary transition-colors" style="font-variation-settings: 'FILL' 0;">notifications</span>
+<span class="font-label-sm text-label-sm group-hover:text-primary transition-colors">Notifications</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container dark:bg-primary-fixed-dim dark:text-on-primary-fixed rounded-xl px-4 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</nav>
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 pb-safe bg-surface shadow-lg rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-low transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-low transition-all active:scale-90 duration-200" href="#">
+<div class="bg-surface-container w-10 h-10 rounded-full flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">add_circle</span>
+</div>
+<span class="font-label-sm text-label-sm">Report</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-low transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">map</span>
+<span class="font-label-sm text-label-sm mt-1">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-low transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+<span class="font-label-sm text-label-sm mt-1">Notifications</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+
+<!-- CHIPCHAP citizen navigation drawer -->
+<style>
+#ccDrawerBackdrop{position:fixed;inset:0;background:rgba(5,26,62,.32);z-index:90;opacity:0;pointer-events:none;transition:opacity .2s}
+#ccDrawer{position:fixed;top:0;left:0;height:100%;width:min(320px,86vw);background:#faf9ff;z-index:91;transform:translateX(-102%);transition:transform .22s;box-shadow:8px 0 30px rgba(9,30,66,.18);padding:24px 18px}
+#ccDrawer.open{transform:translateX(0)} #ccDrawerBackdrop.open{opacity:1;pointer-events:auto}
+.cc-drawer-link{display:flex;align-items:center;gap:12px;padding:13px 12px;border-radius:12px;color:#051a3e;text-decoration:none;font-family:Arial,sans-serif}
+.cc-drawer-link:hover{background:#e9edff}.cc-drawer-head{font-weight:700;font-size:20px;color:#003d9b;margin-bottom:18px}
+</style>
+<div id="ccDrawerBackdrop" onclick="ccCloseDrawer()"></div>
+<aside id="ccDrawer" aria-label="CHIPCHAP menu">
+<div class="cc-drawer-head">CHIPCHAP</div>
+<a class="cc-drawer-link" href="screen://home_screen"><span class="material-symbols-outlined">home</span>Home</a>
+<a class="cc-drawer-link" href="screen://capture_photo"><span class="material-symbols-outlined">add_circle</span>Report an Issue</a>
+<a class="cc-drawer-link" href="screen://my_reports"><span class="material-symbols-outlined">assignment</span>My Reports</a>
+<a class="cc-drawer-link" href="screen://map_explorer"><span class="material-symbols-outlined">map</span>Map Explorer</a>
+<a class="cc-drawer-link" href="screen://notifications_1"><span class="material-symbols-outlined">notifications</span>Notifications</a>
+<a class="cc-drawer-link" href="screen://user_profile"><span class="material-symbols-outlined">person</span>Profile</a>
+<a class="cc-drawer-link" href="screen://settings_privacy"><span class="material-symbols-outlined">settings</span>Settings & Privacy</a>
+<div style="height:1px;background:#c3c6d6;margin:12px 0"></div>
+<a class="cc-drawer-link" href="screen://login_screen"><span class="material-symbols-outlined">logout</span>Switch Account</a>
+</aside>
+<script>
+function ccOpenDrawer(){document.getElementById('ccDrawer').classList.add('open');document.getElementById('ccDrawerBackdrop').classList.add('open')}
+function ccCloseDrawer(){document.getElementById('ccDrawer').classList.remove('open');document.getElementById('ccDrawerBackdrop').classList.remove('open')}
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('button').forEach(b=>{if((b.innerText||'').trim().toLowerCase().includes('menu')||b.querySelector('[data-icon="menu"], .material-symbols-outlined')){const icon=b.querySelector('.material-symbols-outlined');if(icon && icon.textContent.trim()==='menu') b.onclick=ccOpenDrawer;}})});
+</script>
+</body></html>

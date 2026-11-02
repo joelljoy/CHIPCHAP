@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "513092421929",
+    "project_id": "chipchap-e967b",
+    "storage_bucket": "chipchap-e967b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513092421929:android:21612348d2817f5a850f38",
+        "android_client_info": {
+          "package_name": "com.chipchap.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZpZOWJNN5-8DYadvpAu1ASwz-hSVpTHI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

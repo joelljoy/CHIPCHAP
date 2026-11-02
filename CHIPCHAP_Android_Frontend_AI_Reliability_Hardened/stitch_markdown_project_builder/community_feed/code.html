@@ -1,0 +1,359 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>CHIPCHAP - Community Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#001848",
+                      "tertiary": "#004e32",
+                      "on-error": "#ffffff",
+                      "outline": "#737685",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#ffb77e",
+                      "primary-container": "#0052cc",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-container": "#c4d2ff",
+                      "surface-variant": "#d8e2ff",
+                      "on-background": "#051a3e",
+                      "on-surface": "#051a3e",
+                      "surface-dim": "#ccdaff",
+                      "surface-container-high": "#e1e8ff",
+                      "on-secondary-container": "#613100",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed-dim": "#65dca4",
+                      "primary-fixed": "#dae2ff",
+                      "surface-gray": "#F4F5F7",
+                      "alert-red": "#DE350B",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#faf9ff",
+                      "surface": "#faf9ff",
+                      "surface-container-lowest": "#ffffff",
+                      "civic-blue-dark": "#0747A6",
+                      "on-tertiary-fixed": "#002113",
+                      "secondary-container": "#fe8a00",
+                      "tertiary-container": "#006844",
+                      "inverse-primary": "#b2c5ff",
+                      "outline-variant": "#c3c6d6",
+                      "on-error-container": "#93000a",
+                      "border-subtle": "#DFE1E6",
+                      "on-secondary-fixed": "#2f1500",
+                      "on-primary-fixed-variant": "#0040a2",
+                      "surface-container": "#e9edff",
+                      "tertiary-fixed": "#82f9be",
+                      "on-tertiary-container": "#72e9af",
+                      "on-secondary-fixed-variant": "#6e3900",
+                      "on-tertiary-fixed-variant": "#005235",
+                      "inverse-on-surface": "#edf0ff",
+                      "error-container": "#ffdad6",
+                      "inverse-surface": "#1d3054",
+                      "primary-fixed-dim": "#b2c5ff",
+                      "primary": "#003d9b",
+                      "on-surface-variant": "#434654",
+                      "background": "#faf9ff",
+                      "surface-tint": "#0c56d0",
+                      "secondary": "#914d00",
+                      "surface-container-highest": "#d8e2ff",
+                      "surface-container-low": "#f1f3ff",
+                      "secondary-fixed": "#ffdcc3",
+                      "safety-orange-light": "#FFFAE6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "12px",
+                      "base": "8px",
+                      "sm": "8px",
+                      "xl": "32px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "container-margin": "20px",
+                      "xs": "4px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "label-md": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-md": [
+                              "Hanken Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "10px",
+                              {
+                                      "lineHeight": "14px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+      </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased pb-24 md:pb-0 pt-16 selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-sm flex justify-between items-center px-container-margin h-16">
+<button class="p-2 -ml-2 text-primary dark:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors rounded-full active:scale-95 duration-100 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim tracking-tight">CHIPCHAP</h1>
+<button class="p-2 -mr-2 text-primary dark:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors rounded-full active:scale-95 duration-100 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+</header>
+<main class="w-full max-w-md mx-auto md:max-w-2xl px-container-margin py-md space-y-xl">
+<!-- Header & Toggle -->
+<section class="space-y-md pt-sm">
+<div class="flex justify-between items-end">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Community</h2>
+</div>
+<div class="flex p-1 bg-surface-container-low rounded-lg border border-border-subtle w-full max-w-[280px]">
+<button class="flex-1 py-2 px-4 rounded-md bg-white shadow-sm font-label-md text-label-md text-primary font-bold transition-all text-center">Trending</button>
+<button class="flex-1 py-2 px-4 rounded-md text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-all text-center">Volunteer</button>
+</div>
+</section>
+<!-- Trending Issues -->
+<section class="space-y-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Trending Issues</h3>
+<span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div class="space-y-md">
+<!-- Card 1 -->
+<article class="bg-white rounded-xl shadow-[0px_4px_12px_rgba(9,30,66,0.08)] p-md border border-border-subtle">
+<div class="flex items-start justify-between mb-sm">
+<div class="flex items-center space-x-2">
+<span class="px-2 py-1 bg-surface-container text-primary font-label-sm text-label-sm rounded-full">High Priority</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm flex items-center"><span class="material-symbols-outlined text-[16px] mr-1">location_on</span> Maple Park</span>
+</div>
+<span class="text-outline text-label-sm font-label-sm">2h ago</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">Park Cleanup Needed</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md line-clamp-2">The playground area at Maple Park has accumulated significant litter over the weekend. Needs urgent attention before the school picnic.</p>
+<div class="flex items-center justify-between pt-sm border-t border-border-subtle">
+<div class="flex items-center space-x-4">
+<button class="flex items-center space-x-1 text-primary hover:text-civic-blue-dark transition-colors group">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">thumb_up</span>
+<span class="font-label-md text-label-md font-bold">45 Neighbors</span>
+</button>
+</div>
+<button class="p-2 text-outline hover:text-primary transition-colors rounded-full hover:bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">share</span>
+</button>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-white rounded-xl shadow-[0px_4px_12px_rgba(9,30,66,0.08)] p-md border border-border-subtle">
+<div class="flex items-start justify-between mb-sm">
+<div class="flex items-center space-x-2">
+<span class="px-2 py-1 bg-safety-orange-light text-secondary-container font-label-sm text-label-sm rounded-full">Safety</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm flex items-center"><span class="material-symbols-outlined text-[16px] mr-1">location_on</span> 5th Ave Intersection</span>
+</div>
+<span class="text-outline text-label-sm font-label-sm">5h ago</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">Broken Streetlight</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md line-clamp-2">Main streetlight at the pedestrian crossing is out, making it very dangerous at night.</p>
+<div class="flex items-center justify-between pt-sm border-t border-border-subtle">
+<div class="flex items-center space-x-4">
+<button class="flex items-center space-x-1 text-on-surface-variant hover:text-primary transition-colors group">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 0;">thumb_up</span>
+<span class="font-label-md text-label-md">32 Neighbors</span>
+</button>
+</div>
+<button class="p-2 text-outline hover:text-primary transition-colors rounded-full hover:bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">share</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- Success Stories Carousel -->
+<section class="space-y-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Success Stories</h3>
+<div class="flex overflow-x-auto no-scrollbar space-x-md pb-4 -mx-container-margin px-container-margin snap-x snap-mandatory">
+<!-- Story 1 -->
+<div class="min-w-[280px] snap-center bg-white rounded-xl shadow-[0px_4px_12px_rgba(9,30,66,0.08)] border border-border-subtle overflow-hidden">
+<div class="relative h-32 w-full flex">
+<div class="w-1/2 relative">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A split image showing a dull, faded concrete wall in an urban setting on the left side. The lighting is overcast, giving a drab appearance. This represents a 'before' state of a civic project. The image should have a professional, modern civic app aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT6IzMHLXgcdkrq0B8wQh-8dlqKC1HTng9Am8KB3uflxpz2mP_DTcRSIolgtaX6ciC3Gu7vS0xE7WCPHtUolizCtxJUt3It3RgfyDA4Dqqcka-BFa40MkUSkDVk99K_nQHz6Z4En_VPVSSmpsgVauaTfc1DpfXDaBszBFjqEETQIYzQKA40ThLg34HcPwTbisKLLinxrePsTQ4D7yOj0hJ4Y2za3A3xYl_TJZ8gH_55GBQ9E01gN2Y">
+<div class="absolute bottom-1 left-1 bg-black/60 text-white font-label-sm text-[8px] px-1 rounded">BEFORE</div>
+</div>
+<div class="w-1/2 relative border-l-2 border-white">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A split image showing a vibrant, newly painted community mural on a concrete wall on the right side. The mural features bright abstract civic shapes. The lighting is sunny and optimistic. This represents an 'after' state of a civic project. Professional, modern civic app aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5t4IjVkR-wXaEyGSQA_aisvX_adM8eoYa0Kk02Ovl7LLP1_YufQVYmLUQiThX7uFnbdRyqXFtxVrwOd6pu-IQ6sfA6FSMlvb-8lffdEjb1zdi0Nd47f6dcZc2OLbvr-4ef0v4xqHNdl6Dq_TqR85Bbj1lwMT2WggCLjriXzXXgjWpW6J9dqMG1bVEHrBFsaAzdRddHK57rBH-b3xyCk-Jo6mzsa3WpHu3tNlSWyUeGEeGr0nXFLZ_">
+<div class="absolute bottom-1 right-1 bg-tertiary-container text-white font-label-sm text-[8px] px-1 rounded">AFTER</div>
+</div>
+</div>
+<div class="p-md">
+<div class="flex items-center space-x-1 text-tertiary font-label-sm text-label-sm mb-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="">RESOLVED</span>
+</div>
+<h4 class="font-body-md text-body-md font-bold text-on-surface mb-1">Main St. Mural Restored</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Community effort brought color back to the downtown area.</p>
+</div>
+</div>
+<!-- Story 2 -->
+<div class="min-w-[280px] snap-center bg-white rounded-xl shadow-[0px_4px_12px_rgba(9,30,66,0.08)] border border-border-subtle overflow-hidden">
+<div class="relative h-32 w-full flex">
+<div class="w-1/2 relative">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A split image showing a deep pothole in a suburban asphalt road on the left side. The scene looks slightly neglected with dull lighting. This represents a 'before' state of a civic repair. Professional, modern civic app aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5owe3daj6H_wPZbUuuuDzV08Ym9JbqrvR-h10TIFb_ga_j0QMG_HK9f4qEQAhLK_Um468bUfZe-SjxwFhkgTQlj3T37eepOc2cF-Z604lMIYuljh9scUHy6MfgAs2WmxXyXeTwSXVDSkgzvYBqwy3Jny-oD5TCqd3dUwsigfSxTGiNXk1CvjcZSmyf8Fy8SFYGapkDdmh5oRyrUkMMLwvNsVMuVNT4CVTZ5-lJoTfsqXoX768TodN">
+<div class="absolute bottom-1 left-1 bg-black/60 text-white font-label-sm text-[8px] px-1 rounded">BEFORE</div>
+</div>
+<div class="w-1/2 relative border-l-2 border-white">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A split image showing a smoothly paved, freshly repaired section of asphalt road on the right side. The lighting is bright and clear, showing a successful repair. This represents an 'after' state of a civic project. Professional, modern civic app aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAceO31py6-P2b0NZJp3pW4SmDa-gMYgJnK8cpYAMmtjdltSCyFUVmhI7cJB9gQULdCuF3Ei3cryHpP4iD6-VehDWLlO7woyNw5vQUbn4RoGVrxKdr8ppRAfivsSPHlnr9WDIcJJNmV83aBtj9Lowv1B268h6JkCLfAONJOLR5a7Jmg0n2N78keORU0uLUX32wDg0wiOGpotCMTuGl4V7DeJmpoJtejMa_kgguba11fH2w1LcjADEVQ">
+<div class="absolute bottom-1 right-1 bg-tertiary-container text-white font-label-sm text-[8px] px-1 rounded">AFTER</div>
+</div>
+</div>
+<div class="p-md">
+<div class="flex items-center space-x-1 text-tertiary font-label-sm text-label-sm mb-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="">RESOLVED</span>
+</div>
+<h4 class="font-body-md text-body-md font-bold text-on-surface mb-1">Oak Lane Potholes Fixed</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">City crews repaired the major potholes reported last week.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Volunteer Events -->
+<section class="space-y-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Volunteer Events</h3>
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+</div>
+<ul class="space-y-3">
+<!-- Event 1 -->
+<li class="bg-white rounded-xl shadow-sm border border-border-subtle p-3 flex items-center justify-between">
+<div class="flex items-center space-x-4">
+<div class="bg-surface-container-high rounded-lg p-2 flex flex-col items-center justify-center min-w-[60px]">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Oct</span>
+<span class="font-headline-md text-headline-md font-bold text-primary">14</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-bold text-on-surface">Saturday Garden Maint.</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center"><span class="material-symbols-outlined text-[14px] mr-1">schedule</span> 09:00 AM - 12:00 PM</p>
+</div>
+</div>
+<button class="bg-primary text-white font-label-md text-label-md px-4 py-2 rounded-lg hover:bg-civic-blue-dark transition-colors h-10">Join</button>
+</li>
+<!-- Event 2 -->
+<li class="bg-white rounded-xl shadow-sm border border-border-subtle p-3 flex items-center justify-between">
+<div class="flex items-center space-x-4">
+<div class="bg-surface-container-high rounded-lg p-2 flex flex-col items-center justify-center min-w-[60px]">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Oct</span>
+<span class="font-headline-md text-headline-md font-bold text-primary">22</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-bold text-on-surface">Trash Collection Drive</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center"><span class="material-symbols-outlined text-[14px] mr-1">schedule</span> 10:00 AM - 02:00 PM</p>
+</div>
+</div>
+<button class="bg-white text-primary border border-primary font-label-md text-label-md px-4 py-2 rounded-lg hover:bg-surface-container transition-colors h-10">Join</button>
+</li>
+</ul>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 pb-safe bg-surface dark:bg-surface-dim shadow-[0px_-4px_12px_rgba(9,30,66,0.08)] rounded-t-xl md:hidden">
+<a href="{{DATA:SCREEN:SCREEN_21}}" class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container dark:bg-primary-fixed-dim dark:text-on-primary-fixed rounded-xl px-4 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container transition-all active:scale-90 duration-200"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span><span class="font-label-sm text-label-sm mt-1">Home</span></a>
+<a href="{{DATA:SCREEN:SCREEN_20}}" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container transition-all active:scale-90 duration-200 relative"><div class="bg-primary text-white rounded-full p-2 -mt-4 shadow-lg flex items-center justify-center"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span></div><span class="font-label-sm text-label-sm mt-1">Report</span></a>
+<a href="{{DATA:SCREEN:SCREEN_12}}" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container transition-all active:scale-90 duration-200"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">map</span><span class="font-label-sm text-label-sm mt-1">Map</span></a>
+<a href="{{DATA:SCREEN:SCREEN_9}}" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container transition-all active:scale-90 duration-200"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span><span class="font-label-sm text-label-sm mt-1">Notifications</span></a>
+<a href="{{DATA:SCREEN:SCREEN_6}}" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container transition-all active:scale-90 duration-200"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span><span class="font-label-sm text-label-sm mt-1">Profile</span></a>
+</nav>
+
+
+</body></html>

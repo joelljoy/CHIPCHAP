@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Upload Progress - Civic Clarity</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#006844",
+                        "on-secondary-fixed": "#2f1500",
+                        "tertiary-fixed-dim": "#65dca4",
+                        "on-error": "#ffffff",
+                        "civic-blue-dark": "#0747A6",
+                        "inverse-surface": "#1d3054",
+                        "outline-variant": "#c3c6d6",
+                        "on-error-container": "#93000a",
+                        "surface-gray": "#F4F5F7",
+                        "primary": "#003d9b",
+                        "surface-variant": "#d8e2ff",
+                        "surface-container-low": "#f1f3ff",
+                        "on-primary-container": "#c4d2ff",
+                        "tertiary-fixed": "#82f9be",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#051a3e",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-container": "#72e9af",
+                        "inverse-primary": "#b2c5ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#ccdaff",
+                        "alert-red": "#DE350B",
+                        "on-surface-variant": "#434654",
+                        "surface-container": "#e9edff",
+                        "secondary-container": "#fe8a00",
+                        "surface-tint": "#0c56d0",
+                        "surface-bright": "#faf9ff",
+                        "border-subtle": "#DFE1E6",
+                        "inverse-on-surface": "#edf0ff",
+                        "on-secondary": "#ffffff",
+                        "surface": "#faf9ff",
+                        "tertiary": "#004e32",
+                        "surface-container-highest": "#d8e2ff",
+                        "on-surface": "#051a3e",
+                        "secondary-fixed-dim": "#ffb77e",
+                        "primary-fixed": "#dae2ff",
+                        "background": "#faf9ff",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "secondary-fixed": "#ffdcc3",
+                        "error": "#ba1a1a",
+                        "safety-orange-light": "#FFFAE6",
+                        "on-tertiary-fixed-variant": "#005235",
+                        "on-secondary-fixed-variant": "#6e3900",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#002113",
+                        "surface-container-high": "#e1e8ff",
+                        "primary-container": "#0052cc",
+                        "outline": "#737685",
+                        "on-primary-fixed": "#001848",
+                        "on-secondary-container": "#613100",
+                        "secondary": "#914d00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "gutter": "12px",
+                        "container-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "label-sm": ["JetBrains Mono"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-md": ["JetBrains Mono"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom smooth indeterminate spinner animation */
+        .spinner-svg {
+            animation: rotate 2s linear infinite;
+        }
+        
+        .spinner-circle {
+            stroke: currentColor;
+            stroke-dasharray: 1, 200;
+            stroke-dashoffset: 0;
+            animation: dash 1.5s ease-in-out infinite;
+            stroke-linecap: round;
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes dash {
+            0% {
+                stroke-dasharray: 1, 200;
+                stroke-dashoffset: 0;
+            }
+            50% {
+                stroke-dasharray: 89, 200;
+                stroke-dashoffset: -35px;
+            }
+            100% {
+                stroke-dasharray: 89, 200;
+                stroke-dashoffset: -124px;
+            }
+        }
+        
+        /* Subtle background grid pattern to emphasize 'Civic' modern feel without distraction */
+        .bg-grid-pattern {
+            background-image: radial-gradient(var(--tw-colors-outline-variant) 1px, transparent 1px);
+            background-size: 24px 24px;
+            background-color: var(--tw-colors-background);
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<!-- 
+  NOTE: Navigation Shells (TopAppBar & BottomNavBar) are intentionally SUPPRESSED here.
+  Rule: "Automatic Suppression: You MUST exclude the navigation shell if the page intent is: Linear/Transactional..."
+  An upload progress screen is a blocking, transactional state.
+-->
+<body class="bg-background text-on-background min-h-screen relative overflow-hidden font-body-md antialiased flex flex-col">
+<!-- Decorative subtle background -->
+<div class="absolute inset-0 bg-grid-pattern z-0 pointer-events-none mix-blend-multiply"></div>
+<!-- Main Content Canvas -->
+<main class="relative z-10 flex-1 flex flex-col items-center justify-center p-container-margin w-full max-w-md mx-auto">
+<div class="flex flex-col items-center justify-center w-full max-w-sm space-y-xl">
+<!-- Visual Indicator Area -->
+<div class="relative w-40 h-40 flex items-center justify-center">
+<!-- Outer glow/shadow base -->
+<div class="absolute inset-0 bg-surface-variant rounded-full opacity-20 blur-xl animate-pulse"></div>
+<!-- Background Track -->
+<svg class="absolute inset-0 w-full h-full transform -rotate-90" viewbox="25 25 50 50">
+<circle class="text-surface-container-highest" cx="50" cy="50" fill="none" r="20" stroke="currentColor" stroke-width="3"></circle>
+</svg>
+<!-- Animated Spinner -->
+<svg class="absolute inset-0 w-full h-full spinner-svg" viewbox="25 25 50 50">
+<circle class="spinner-circle text-primary" cx="50" cy="50" fill="none" r="20" stroke-width="3"></circle>
+</svg>
+<!-- Center Icon -->
+<div class="bg-surface rounded-full p-3 shadow-[0px_4px_12px_rgba(9,30,66,0.08)] z-10">
+<span class="material-symbols-outlined text-4xl text-civic-blue-dark" style="font-variation-settings: 'FILL' 1;">
+                        cloud_upload
+                    </span>
+</div>
+</div>
+<!-- Typography Container -->
+<div class="flex flex-col items-center text-center space-y-sm px-4">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">
+                    Uploading...
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[260px]">
+                    Uploading report details and media...
+                </p>
+</div>
+<!-- Safety/Warning Banner (Glassmorphism approach) -->
+<div class="mt-lg flex items-center gap-md px-md py-sm rounded-xl bg-surface/80 backdrop-blur-md border border-border-subtle shadow-[0px_8px_24px_rgba(9,30,66,0.04)]">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">
+                    info
+                </span>
+<p class="font-label-md text-label-md text-on-surface-variant">
+                    Please do not close the app
+                </p>
+</div>
+</div>
+</main>
+</body></html>

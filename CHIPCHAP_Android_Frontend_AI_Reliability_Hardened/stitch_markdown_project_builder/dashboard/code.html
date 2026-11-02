@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Civic Clarity - Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#edf0ff",
+                    "surface-tint": "#0c56d0",
+                    "surface-gray": "#F4F5F7",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "tertiary-container": "#006844",
+                    "on-primary-fixed": "#001848",
+                    "error": "#ba1a1a",
+                    "surface": "#faf9ff",
+                    "background": "#faf9ff",
+                    "primary-container": "#0052cc",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#434654",
+                    "primary-fixed": "#dae2ff",
+                    "tertiary-fixed-dim": "#65dca4",
+                    "surface-dim": "#ccdaff",
+                    "outline": "#737685",
+                    "tertiary": "#004e32",
+                    "inverse-primary": "#b2c5ff",
+                    "secondary-fixed-dim": "#ffb77e",
+                    "inverse-surface": "#1d3054",
+                    "on-secondary-fixed": "#2f1500",
+                    "primary": "#003d9b",
+                    "surface-variant": "#d8e2ff",
+                    "secondary-container": "#fe8a00",
+                    "on-primary-container": "#c4d2ff",
+                    "on-tertiary-fixed": "#002113",
+                    "outline-variant": "#c3c6d6",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#82f9be",
+                    "alert-red": "#DE350B",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#613100",
+                    "secondary-fixed": "#ffdcc3",
+                    "on-tertiary": "#ffffff",
+                    "safety-orange-light": "#FFFAE6",
+                    "surface-container-high": "#e1e8ff",
+                    "on-surface": "#051a3e",
+                    "surface-container-highest": "#d8e2ff",
+                    "civic-blue-dark": "#0747A6",
+                    "surface-container": "#e9edff",
+                    "on-background": "#051a3e",
+                    "surface-container-low": "#f1f3ff",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "border-subtle": "#DFE1E6",
+                    "on-tertiary-fixed-variant": "#005235",
+                    "on-tertiary-container": "#72e9af",
+                    "on-secondary-fixed-variant": "#6e3900",
+                    "secondary": "#914d00",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#faf9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "12px",
+                    "xl": "32px",
+                    "container-margin": "20px",
+                    "xs": "4px",
+                    "sm": "8px",
+                    "lg": "24px",
+                    "base": "8px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "label-md": [
+                            "JetBrains Mono"
+                    ],
+                    "headline-md": [
+                            "Hanken Grotesk"
+                    ],
+                    "label-sm": [
+                            "JetBrains Mono"
+                    ],
+                    "body-sm": [
+                            "Hanken Grotesk"
+                    ],
+                    "body-lg": [
+                            "Hanken Grotesk"
+                    ],
+                    "headline-sm": [
+                            "Hanken Grotesk"
+                    ],
+                    "headline-lg": [
+                            "Hanken Grotesk"
+                    ],
+                    "body-md": [
+                            "Hanken Grotesk"
+                    ]
+            },
+            "fontSize": {
+                    "label-md": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-sm": [
+                            "10px",
+                            {
+                                    "lineHeight": "14px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-sm": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Glassmorphism effects */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .ai-glass {
+            background: rgba(230, 239, 252, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid theme('colors.primary');
+        }
+        
+        /* Subtle patterns */
+        .bg-grid-pattern {
+            background-size: 20px 20px;
+            background-image: linear-gradient(to right, rgba(0, 61, 155, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 61, 155, 0.03) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-surface-gray text-on-surface antialiased min-h-screen flex flex-col font-body-md bg-grid-pattern pb-24">
+<!-- TopAppBar -->
+<header class="bg-surface shadow-sm sticky top-0 z-50 flex justify-between items-center w-full px-container-margin h-14">
+<button class="text-primary hover:bg-surface-container-high transition-colors duration-200 active:opacity-80 p-2 -ml-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">Civic Clarity Admin</h1>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-border-subtle shadow-sm flex-shrink-0 bg-surface-container flex items-center justify-center">
+<img alt="Admin Profile" class="h-full w-full object-cover" data-alt="A professional headshot of a government official in a modern civic office. Warm, inviting lighting. Corporate and trustworthy aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlkQMeQlxbAHTuSGoCgWje6nd6WL8L84EIyY3np2xD3mAufrjuYAkLzj83kvSucAfClKR7Sf6aHL7EKjPHrHXbcC9xIgs1ea5BuxhueeloNraO8dVBJhxeeETOIvUVL5-vJpuPA2cug-DoSyKd4aUASOq0QW5KysLLWFsBKoCnuPsdWakb9oG_avH9wtX3zZSs4f84LeVAAMK1nw7e-QQGoyRCmA5WS168wmrL25aKwyZuUmZxLzYP"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-md mx-auto px-container-margin py-md flex flex-col gap-lg">
+<!-- Welcome Section -->
+<section class="flex flex-col gap-xs pt-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Good morning, Director</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Here is the city's current operational status.</p>
+</section>
+<!-- Bento Grid: Key Metrics -->
+<section class="grid grid-cols-2 gap-sm">
+<!-- Total & Pending (Stacked) -->
+<div class="flex flex-col gap-sm">
+<div class="glass-card rounded-xl p-md shadow-sm border border-border-subtle flex flex-col justify-between h-[104px]">
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Total</span>
+<span class="material-symbols-outlined text-outline text-lg">assignment</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">1,248</span>
+</div>
+</div>
+<div class="glass-card rounded-xl p-md shadow-sm border border-border-subtle flex flex-col justify-between h-[104px] relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary-fixed-dim"></div>
+<div class="flex items-start justify-between pl-2">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Pending</span>
+<span class="material-symbols-outlined text-primary-fixed-dim text-lg">schedule</span>
+</div>
+<div class="flex items-baseline gap-2 pl-2">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">342</span>
+</div>
+</div>
+</div>
+<!-- In Progress (Large Vertical) -->
+<div class="glass-card rounded-xl p-md shadow-sm border border-border-subtle flex flex-col justify-between h-full relative overflow-hidden bg-gradient-to-b from-white to-safety-orange-light/30">
+<div class="absolute top-0 left-0 w-full h-1 bg-secondary-container"></div>
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-secondary-container uppercase tracking-wider">In Progress</span>
+<div class="h-8 w-8 rounded-full bg-safety-orange-light flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary-container text-sm">construction</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 mt-auto">
+<span class="font-headline-lg text-[40px] leading-[48px] font-bold text-on-surface tracking-tighter">156</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">+12 since yesterday</span>
+</div>
+<div class="w-full bg-border-subtle h-1.5 rounded-full mt-4 overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full w-[45%]"></div>
+</div>
+</div>
+<!-- Resolved (Full Width Bottom) -->
+<div class="col-span-2 glass-card rounded-xl p-md shadow-sm border border-border-subtle flex items-center justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-tertiary-container"></div>
+<div class="flex items-center gap-3 pl-2">
+<div class="h-10 w-10 rounded-full bg-tertiary-fixed-dim/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary-container icon-fill">check_circle</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Resolved This Week</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">750</span>
+</div>
+</div>
+<div class="px-3 py-1 rounded-full bg-tertiary-container/10 text-tertiary-container font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                     8%
+                 </div>
+</div>
+</section>
+<!-- AI Insights & Alerts -->
+<section class="flex flex-col gap-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+                Action Required
+                <span class="h-2 w-2 rounded-full bg-alert-red animate-pulse"></span>
+</h3>
+<!-- AI Alert Card -->
+<div class="ai-glass rounded-xl p-md shadow-[0_8px_24px_rgba(0,61,155,0.08)] flex flex-col gap-3 relative overflow-hidden">
+<!-- Shimmer effect -->
+<div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shimmer_2s_infinite]"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-primary text-white font-label-sm text-label-sm w-fit">
+<span class="material-symbols-outlined text-[12px]">auto_awesome</span>
+                        AI ANALYSIS
+                    </div>
+<span class="font-label-sm text-label-sm text-primary">Just now</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-bold text-on-surface">Pothole Cluster Detected</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Vision AI detected 5 severe potholes within a 2-block radius in the Downtown district from recent user submissions.</p>
+</div>
+<div class="flex gap-2 mt-2">
+<button class="flex-1 h-10 bg-primary text-white font-label-md text-label-md rounded-lg flex items-center justify-center gap-2 active:scale-95 transition-transform">
+                        Dispatch Crew
+                    </button>
+<button class="h-10 px-4 bg-white border border-primary text-primary font-label-md text-label-md rounded-lg flex items-center justify-center active:bg-surface-container transition-colors">
+                        View Map
+                    </button>
+</div>
+</div>
+<!-- High Priority Standard Alert -->
+<div class="glass-card rounded-xl p-md shadow-sm border border-alert-red/30 flex items-start gap-3 bg-error-container/10">
+<div class="h-8 w-8 rounded-full bg-error-container text-error flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">priority_high</span>
+</div>
+<div class="flex flex-col gap-1 w-full">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md font-bold text-error">HIGH PRIORITY</span>
+<span class="font-label-sm text-label-sm text-outline">10m ago</span>
+</div>
+<h4 class="font-body-sm text-body-sm font-semibold text-on-surface">Traffic Light Outage</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Main St &amp; 4th Ave intersection.</p>
+</div>
+</div>
+</section>
+<!-- Quick Actions Grid -->
+<section class="flex flex-col gap-md mb-lg">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Quick Actions</h3>
+<div class="grid grid-cols-4 gap-xs">
+<button class="flex flex-col items-center gap-2 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors border border-border-subtle">
+<div class="h-10 w-10 rounded-full bg-surface text-primary shadow-sm flex items-center justify-center">
+<span class="material-symbols-outlined">map</span>
+</div>
+<span class="font-label-sm text-[10px] text-on-surface text-center">Live Map</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors border border-border-subtle">
+<div class="h-10 w-10 rounded-full bg-surface text-primary shadow-sm flex items-center justify-center">
+<span class="material-symbols-outlined">group</span>
+</div>
+<span class="font-label-sm text-[10px] text-on-surface text-center">Crews</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors border border-border-subtle">
+<div class="h-10 w-10 rounded-full bg-surface text-primary shadow-sm flex items-center justify-center">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<span class="font-label-sm text-[10px] text-on-surface text-center">Broadcast</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors border border-border-subtle">
+<div class="h-10 w-10 rounded-full bg-surface text-primary shadow-sm flex items-center justify-center">
+<span class="material-symbols-outlined">description</span>
+</div>
+<span class="font-label-sm text-[10px] text-on-surface text-center">Reports</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface shadow-[0_-4px_12px_rgba(9,30,66,0.08)] docked full-width bottom-0 rounded-t-xl fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-2 pb-safe">
+<!-- Dashboard (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-3 py-1 transition-all duration-300 active:scale-95 group cursor-pointer" href="#">
+<span class="material-symbols-outlined icon-fill group-hover:scale-110 transition-transform">dashboard</span>
+<span class="font-label-sm text-label-sm mt-1">Dashboard</span>
+</a>
+<!-- Complaints -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 active:scale-95 px-3 py-1 group cursor-pointer" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">assignment</span>
+<span class="font-label-sm text-label-sm mt-1">Complaints</span>
+</a>
+<!-- Analytics -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 active:scale-95 px-3 py-1 group cursor-pointer" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">leaderboard</span>
+<span class="font-label-sm text-label-sm mt-1">Analytics</span>
+</a>
+<!-- Alerts -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 active:scale-95 px-3 py-1 group cursor-pointer relative" href="#">
+<span class="absolute top-1 right-3 h-2 w-2 rounded-full bg-alert-red border-2 border-surface"></span>
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">notifications</span>
+<span class="font-label-sm text-label-sm mt-1">Alerts</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 active:scale-95 px-3 py-1 group cursor-pointer" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+<style>
+        @keyframes shimmer {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+    </style>
+</body></html>

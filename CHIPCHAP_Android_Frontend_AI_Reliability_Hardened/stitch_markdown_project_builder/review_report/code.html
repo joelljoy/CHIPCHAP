@@ -1,0 +1,235 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Review Report - Civic Clarity</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#006844",
+                    "on-secondary-fixed": "#2f1500",
+                    "tertiary-fixed-dim": "#65dca4",
+                    "on-error": "#ffffff",
+                    "civic-blue-dark": "#0747A6",
+                    "inverse-surface": "#1d3054",
+                    "outline-variant": "#c3c6d6",
+                    "on-error-container": "#93000a",
+                    "surface-gray": "#F4F5F7",
+                    "primary": "#003d9b",
+                    "surface-variant": "#d8e2ff",
+                    "surface-container-low": "#f1f3ff",
+                    "on-primary-container": "#c4d2ff",
+                    "tertiary-fixed": "#82f9be",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#051a3e",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "on-tertiary-container": "#72e9af",
+                    "inverse-primary": "#b2c5ff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#ccdaff",
+                    "alert-red": "#DE350B",
+                    "on-surface-variant": "#434654",
+                    "surface-container": "#e9edff",
+                    "secondary-container": "#fe8a00",
+                    "surface-tint": "#0c56d0",
+                    "surface-bright": "#faf9ff",
+                    "border-subtle": "#DFE1E6",
+                    "inverse-on-surface": "#edf0ff",
+                    "on-secondary": "#ffffff",
+                    "surface": "#faf9ff",
+                    "tertiary": "#004e32",
+                    "surface-container-highest": "#d8e2ff",
+                    "on-surface": "#051a3e",
+                    "secondary-fixed-dim": "#ffb77e",
+                    "primary-fixed": "#dae2ff",
+                    "background": "#faf9ff",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "secondary-fixed": "#ffdcc3",
+                    "error": "#ba1a1a",
+                    "safety-orange-light": "#FFFAE6",
+                    "on-tertiary-fixed-variant": "#005235",
+                    "on-secondary-fixed-variant": "#6e3900",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed": "#002113",
+                    "surface-container-high": "#e1e8ff",
+                    "primary-container": "#0052cc",
+                    "outline": "#737685",
+                    "on-primary-fixed": "#001848",
+                    "on-secondary-container": "#613100",
+                    "secondary": "#914d00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "sm": "8px",
+                    "lg": "24px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "xl": "32px",
+                    "gutter": "12px",
+                    "container-margin": "20px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-sm": ["Hanken Grotesk"],
+                    "label-sm": ["JetBrains Mono"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "label-md": ["JetBrains Mono"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                    "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                    "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                    "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                    "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                    "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                    "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                    "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { -webkit-tap-highlight-color: transparent; }
+        /* Safe area padding for mobile notch/home bar */
+        @supports (padding-bottom: env(safe-area-inset-bottom)) {
+            .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+        }
+    </style>
+</head>
+<body class="bg-surface-gray min-h-screen text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Shared Component: TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-background flex items-center justify-between px-container-margin h-14 w-full">
+<button aria-label="Go back" class="w-10 h-10 flex items-center justify-center text-primary dark:text-primary-fixed hover:bg-surface-variant/50 dark:hover:bg-surface-variant/20 rounded-full transition-colors duration-200 active:scale-95" onclick="location.href='{{DATA:SCREEN:SCREEN_18}}'">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<span class="font-headline-md text-headline-md font-bold text-civic-blue-dark dark:text-primary-fixed tracking-tight">CHIPCHAP</span>
+<button aria-label="Help" class="w-10 h-10 flex items-center justify-center text-primary dark:text-primary-fixed hover:bg-surface-variant/50 dark:hover:bg-surface-variant/20 rounded-full transition-colors duration-200 active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help_outline</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<!-- Suppressing BottomNavBar as this is a linear task-focused flow -->
+<main class="pt-[80px] pb-[120px] px-container-margin flex flex-col gap-lg">
+<!-- Progress Header -->
+<section class="flex flex-col gap-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase">Step 4 of 6</span>
+<span class="font-label-sm text-label-sm text-primary">80% Complete</span>
+</div>
+<!-- Progress Bar -->
+<div aria-valuemax="6" aria-valuemin="1" aria-valuenow="4" class="h-[6px] w-full bg-border-subtle rounded-full overflow-hidden" role="progressbar">
+<div class="h-full bg-primary rounded-full transition-all duration-500 ease-out w-[66.6%]"></div>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mt-sm">Review Report</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Please review your submission details before sending them to the city maintenance team.</p>
+</section>
+<!-- Bento Grid / Cards Layout for Summary -->
+<div class="flex flex-col gap-md">
+<!-- Card 1: Photo & Location -->
+<article class="bg-surface rounded-xl shadow-[0px_4px_12px_rgba(9,30,66,0.08)] p-md flex flex-col gap-sm overflow-hidden relative">
+<div class="flex justify-between items-center z-10 bg-surface/80 backdrop-blur-sm -mx-md -mt-md p-md border-b border-surface-gray">
+<h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px] text-civic-blue-dark">map</span>
+                        Location &amp; Evidence
+                    </h2>
+<button class="font-label-md text-label-md text-primary flex items-center gap-xs hover:text-civic-blue-dark transition-colors bg-transparent border-0">
+<span class="material-symbols-outlined text-[16px]">edit</span> Edit
+                    </button>
+</div>
+<div class="mt-sm rounded-lg overflow-hidden relative">
+<img class="w-full h-[180px] object-cover bg-surface-variant" data-alt="A high-quality, closely cropped, daylight photograph of a significant pothole on an urban asphalt street. The rough texture of the broken pavement is clearly visible, with loose gravel around the edges. The street is marked by faded white lane lines. The lighting is bright and natural, typical of a sunny afternoon, casting sharp shadows inside the crater. The overall aesthetic is gritty but clear, demonstrating a civic infrastructure issue ready for reporting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2-smnm-zWoSIG3r18xBvlvSSdGZlOa7WcFBzhWzfN9k_ruoaID5Mg_qTeqbu4y80oiSNyYApy9NGUv617tV086lyHBH--btKo5kj7j00RbeEDI3tvFrSALQwQ-OpFkrR9vkeR9jWuvOMNS4NYE84_nXFEG8FysByVeMLheQbVj_h3sCA_F9FJ3qp_fLPqGZ3QBLlC6EQ4AMWIvaMVwtMid1aTQwotyMo4b2Jo4YQQ5L72h4P4kWHf">
+<div class="absolute bottom-sm left-sm bg-surface/90 backdrop-blur-md px-sm py-xs rounded text-on-surface font-label-sm text-label-sm flex items-center gap-xs shadow-sm">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span> 1 Photo attached
+                    </div>
+</div>
+<div class="flex gap-sm items-start mt-sm">
+<span class="material-symbols-outlined text-outline mt-[2px]">location_on</span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-semibold">123 Civic Plaza, Downtown</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Metropolis, ST 12345</span>
+<span class="font-label-sm text-label-sm text-outline mt-xs">Coordinates: 40.7128° N, 74.0060° W</span>
+</div>
+</div>
+</article>
+<!-- Card 2: Classification Details -->
+<article class="bg-surface rounded-xl shadow-[0px_4px_12px_rgba(9,30,66,0.08)] p-md flex flex-col gap-sm">
+<div class="flex justify-between items-center border-b border-surface-gray pb-sm mb-sm">
+<h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px] text-civic-blue-dark">category</span>
+                        Classification
+                    </h2>
+<button class="font-label-md text-label-md text-primary flex items-center gap-xs hover:text-civic-blue-dark transition-colors bg-transparent border-0">
+<span class="material-symbols-outlined text-[16px]">edit</span> Edit
+                    </button>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<div class="flex flex-col gap-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase">Category</span>
+<div class="font-body-md text-body-md text-on-surface bg-surface-container-low py-xs px-sm rounded border border-border-subtle flex items-center gap-xs w-fit">
+<span class="material-symbols-outlined text-[16px] text-civic-blue-dark">build</span>
+                            Infrastructure
+                        </div>
+</div>
+<div class="flex flex-col gap-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase">Severity</span>
+<div class="font-label-md text-label-md text-secondary-container bg-safety-orange-light py-xs px-sm rounded-full flex items-center justify-center gap-xs border border-secondary-container/30 w-fit">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                            Moderate
+                        </div>
+</div>
+</div>
+</article>
+<!-- Card 3: Description -->
+<article class="bg-surface rounded-xl shadow-[0px_4px_12px_rgba(9,30,66,0.08)] p-md flex flex-col gap-sm relative">
+<!-- AI Insight Decoration (subtle touch as per style guide) -->
+<div class="absolute top-0 left-0 w-1 h-full bg-primary rounded-l-xl"></div>
+<div class="flex justify-between items-start">
+<h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-xs pl-xs">
+<span class="material-symbols-outlined text-[20px] text-civic-blue-dark">notes</span>
+                        Description
+                    </h2>
+<button class="font-label-md text-label-md text-primary flex items-center gap-xs hover:text-civic-blue-dark transition-colors bg-transparent border-0">
+<span class="material-symbols-outlined text-[16px]">edit</span> Edit
+                    </button>
+</div>
+<div class="bg-surface-gray p-sm rounded-lg mt-xs pl-md border border-border-subtle/50">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Large pothole in the right lane going northbound, just past the intersection. It's approximately 2 feet wide and deep enough that cars are actively swerving to avoid it. Needs urgent attention before it causes tire damage.
+                    </p>
+</div>
+</article>
+</div>
+</main>
+<!-- Bottom Action Area (Fixed for transactional steps) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface/90 backdrop-blur-xl px-container-margin py-md shadow-[0px_-8px_24px_rgba(9,30,66,0.06)] pb-safe border-t border-border-subtle/30 z-40">
+<button class="w-full h-12 bg-primary text-on-primary rounded-full font-label-md text-label-md flex items-center justify-center gap-sm shadow-md transition-all duration-200 active:scale-95 active:shadow-none hover:bg-civic-blue-dark focus:ring-2 focus:ring-primary-fixed focus:outline-none" onclick="location.href='{{DATA:SCREEN:SCREEN_16}}'">
+<span class="material-symbols-outlined text-[18px]">send</span>
+            Submit Report
+        </button>
+</div>
+
+
+</body></html>

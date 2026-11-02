@@ -1,0 +1,42 @@
+plugins { id 'com.android.application'
+    id 'com.google.gms.google-services'}
+
+// Checkpoint F1: Geoapify Routing API key for the government route preview. It is read from the
+// project's local.properties (a local, never-committed file) and compiled into
+// BuildConfig.GEOAPIFY_API_KEY, so the real key is never written into source code. Missing key ->
+// empty string -> the app reports "Route preview is not configured" instead of calling Geoapify.
+// NOTE: any key packaged into an APK can be extracted; this is an accepted MVP limitation.
+def chipchapLocalProps = new Properties()
+def chipchapLocalPropsFile = rootProject.file('local.properties')
+if (chipchapLocalPropsFile.exists()) { chipchapLocalPropsFile.withInputStream { chipchapLocalProps.load(it) } }
+def geoapifyApiKey = (chipchapLocalProps.getProperty('GEOAPIFY_API_KEY') ?: '').trim().replace('\\', '').replace('"', '')
+
+android { namespace 'com.chipchap.app'; compileSdk 35
+    defaultConfig { applicationId 'com.chipchap.app'; minSdk 23; targetSdk 35; versionCode 1; versionName '1.0' }
+    defaultConfig { buildConfigField 'String', 'GEOAPIFY_API_KEY', "\"${geoapifyApiKey}\"" }
+    buildFeatures { buildConfig true }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+}
+
+dependencies {
+    implementation platform('com.google.firebase:firebase-bom:34.18.0')
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-firestore'
+    // Required for androidx.core.content.FileProvider, which hands the camera a write URI
+    // for the app-owned photo folder. Declared explicitly rather than relied on transitively.
+    implementation 'androidx.core:core:1.13.1'
+    // Reads the capture's EXIF orientation so the stored photo is upright, not just the preview.
+    implementation 'androidx.exifinterface:exifinterface:1.3.7'
+    // Firebase AI Logic (Gemini Developer API backend). Version comes from the Firebase BoM above.
+    // No API key is needed in the app: Firebase holds the Gemini key server-side, and App Check
+    // (enforced in the console) decides which app instances may call it.
+    implementation 'com.google.firebase:firebase-ai'
+    // GenerativeModelFutures (the Java API of firebase-ai) returns Guava's ListenableFuture, but
+    // firebase-ai does not expose that type on the compile classpath. This is the dependency the
+    // Android docs give for ListenableFuture; Guava is already in the runtime graph through gRPC
+    // (Firestore), and Gradle keeps the higher of the two versions, so nothing is downgraded.
+    implementation 'com.google.guava:guava:31.0.1-android'
+    // App Check DEBUG provider for sideloaded test builds only. debugImplementation keeps it out of
+    // every release build; release code lives in src/release and never references it.
+    debugImplementation 'com.google.firebase:firebase-appcheck-debug'
+}

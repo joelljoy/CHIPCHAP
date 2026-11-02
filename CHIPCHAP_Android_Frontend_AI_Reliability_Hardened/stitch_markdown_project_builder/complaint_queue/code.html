@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Civic Clarity Admin - Complaint Queue</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#edf0ff",
+                    "surface-tint": "#0c56d0",
+                    "surface-gray": "#F4F5F7",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "tertiary-container": "#006844",
+                    "on-primary-fixed": "#001848",
+                    "error": "#ba1a1a",
+                    "surface": "#faf9ff",
+                    "background": "#faf9ff",
+                    "primary-container": "#0052cc",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#434654",
+                    "primary-fixed": "#dae2ff",
+                    "tertiary-fixed-dim": "#65dca4",
+                    "surface-dim": "#ccdaff",
+                    "outline": "#737685",
+                    "tertiary": "#004e32",
+                    "inverse-primary": "#b2c5ff",
+                    "secondary-fixed-dim": "#ffb77e",
+                    "inverse-surface": "#1d3054",
+                    "on-secondary-fixed": "#2f1500",
+                    "primary": "#003d9b",
+                    "surface-variant": "#d8e2ff",
+                    "secondary-container": "#fe8a00",
+                    "on-primary-container": "#c4d2ff",
+                    "on-tertiary-fixed": "#002113",
+                    "outline-variant": "#c3c6d6",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#82f9be",
+                    "alert-red": "#DE350B",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#613100",
+                    "secondary-fixed": "#ffdcc3",
+                    "on-tertiary": "#ffffff",
+                    "safety-orange-light": "#FFFAE6",
+                    "surface-container-high": "#e1e8ff",
+                    "on-surface": "#051a3e",
+                    "surface-container-highest": "#d8e2ff",
+                    "civic-blue-dark": "#0747A6",
+                    "surface-container": "#e9edff",
+                    "on-background": "#051a3e",
+                    "surface-container-low": "#f1f3ff",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "border-subtle": "#DFE1E6",
+                    "on-tertiary-fixed-variant": "#005235",
+                    "on-tertiary-container": "#72e9af",
+                    "on-secondary-fixed-variant": "#6e3900",
+                    "secondary": "#914d00",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#faf9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "12px",
+                    "xl": "32px",
+                    "container-margin": "20px",
+                    "xs": "4px",
+                    "sm": "8px",
+                    "lg": "24px",
+                    "base": "8px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "label-md": [
+                            "JetBrains Mono"
+                    ],
+                    "headline-md": [
+                            "Hanken Grotesk"
+                    ],
+                    "label-sm": [
+                            "JetBrains Mono"
+                    ],
+                    "body-sm": [
+                            "Hanken Grotesk"
+                    ],
+                    "body-lg": [
+                            "Hanken Grotesk"
+                    ],
+                    "headline-sm": [
+                            "Hanken Grotesk"
+                    ],
+                    "headline-lg": [
+                            "Hanken Grotesk"
+                    ],
+                    "body-md": [
+                            "Hanken Grotesk"
+                    ]
+            },
+            "fontSize": {
+                    "label-md": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-sm": [
+                            "10px",
+                            {
+                                    "lineHeight": "14px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-sm": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background antialiased pb-24">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-container-margin h-14 bg-surface shadow-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+<h1 class="text-headline-sm font-headline-sm font-bold text-primary">Civic Clarity Admin</h1>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-border-subtle">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a female administrative worker in her 30s. She is smiling subtly, wearing a smart casual blazer. The background is a brightly lit, modern office environment with a soft, blurred depth of field. The lighting is natural and flattering, evoking a sense of trust and competence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtMimTZzcGWa00HmrPvlf6AIiRvVuijBfJ2MBYpEy6S0AeO0dnEhQyg-0lShzj-EGQOkvyfP5gJmNNsVgYO5ibDQPe0xIa_4I5UKg2bFr1jBuDlmdVVzv8cRG2gGHEoHTeqFRxuB4JXKQEuFdtLwVDHzCM7VxHsskK5DfzWbEvJrdxg74gJ1OVDGmtXbvNbj64V_o6Md2yY6Ztvtg0BT9dVnA7puHmUnH860gjLmuSSjdzVmVJGBq-"/>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="px-container-margin py-md space-y-md">
+<!-- Header & Search -->
+<div class="space-y-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Complaint Queue</h2>
+<div class="flex gap-sm">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-low border border-border-subtle rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors h-12" placeholder="Search ID, Location, or Keyword" type="text"/>
+</div>
+<button class="flex items-center justify-center w-12 h-12 bg-surface-container-low border border-border-subtle rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+</div>
+<!-- Quick Filters -->
+<div class="flex gap-xs overflow-x-auto pb-2 scrollbar-hide">
+<button class="px-4 py-1.5 bg-primary-container text-on-primary-container rounded-full font-label-md text-label-md whitespace-nowrap">All Reports</button>
+<button class="px-4 py-1.5 bg-surface-container-low border border-border-subtle text-on-surface-variant rounded-full font-label-md text-label-md whitespace-nowrap">High Priority</button>
+<button class="px-4 py-1.5 bg-surface-container-low border border-border-subtle text-on-surface-variant rounded-full font-label-md text-label-md whitespace-nowrap">Pending</button>
+<button class="px-4 py-1.5 bg-surface-container-low border border-border-subtle text-on-surface-variant rounded-full font-label-md text-label-md whitespace-nowrap">Assigned</button>
+</div>
+</div>
+<!-- List -->
+<div class="space-y-sm">
+<!-- Card 1: High Priority -->
+<div class="bg-surface p-md rounded-xl shadow-[0_4px_12px_rgba(9,30,66,0.08)] border-l-4 border-alert-red flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<div class="flex gap-xs flex-wrap">
+<span class="px-2 py-0.5 bg-safety-orange-light text-alert-red rounded font-label-sm text-label-sm uppercase tracking-wider border border-alert-red/20">High</span>
+<span class="px-2 py-0.5 bg-primary-fixed-dim text-on-primary-fixed rounded font-label-sm text-label-sm uppercase tracking-wider">Pending</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">10m ago</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Severe Pothole on Main St.</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Large pothole in the right lane causing traffic backup. Several cars have hit it hard. Needs immediate attention before rush hour.</p>
+</div>
+<div class="flex items-center gap-xs text-outline">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+<span class="font-body-sm text-body-sm">400 Block, Main St, Downtown</span>
+</div>
+</div>
+<!-- Card 2: AI Insight -->
+<div class="bg-[#E6EFFC] p-md rounded-xl shadow-[0_4px_12px_rgba(9,30,66,0.08)] border border-primary flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<div class="flex gap-xs items-center">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-bold">AI ANALYSIS</span>
+</div>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-medium">Cluster Detected: 5 related reports of streetlight outages in Westside district within the last hour.</p>
+</div>
+<button class="self-start text-primary font-label-md text-label-md flex items-center gap-xs">
+                    View Cluster <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Card 3: Medium Priority -->
+<div class="bg-surface p-md rounded-xl shadow-[0_4px_12px_rgba(9,30,66,0.08)] border-l-4 border-secondary-container flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<div class="flex gap-xs flex-wrap">
+<span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-container rounded font-label-sm text-label-sm uppercase tracking-wider">Medium</span>
+<span class="px-2 py-0.5 bg-surface-container-high text-on-surface rounded font-label-sm text-label-sm uppercase tracking-wider">Assigned</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">2h ago</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Graffiti on Park Pavilion</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">New tagging on the east side of the main pavilion at Centennial Park. Offensive language visible to playground area.</p>
+</div>
+<div class="flex items-center gap-xs text-outline">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+<span class="font-body-sm text-body-sm">Centennial Park, East Pavilion</span>
+</div>
+</div>
+<!-- Card 4: Low Priority -->
+<div class="bg-surface p-md rounded-xl shadow-[0_4px_12px_rgba(9,30,66,0.08)] border-l-4 border-tertiary-fixed-dim flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<div class="flex gap-xs flex-wrap">
+<span class="px-2 py-0.5 bg-surface-container text-on-surface-variant rounded font-label-sm text-label-sm uppercase tracking-wider">Low</span>
+<span class="px-2 py-0.5 bg-[#E3FCEF] text-[#006644] rounded font-label-sm text-label-sm uppercase tracking-wider">Resolved</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">1d ago</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Overgrown Bushes blocking sidewalk</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Bushes from 104 Elm st are spilling over the sidewalk forcing pedestrians onto the road.</p>
+</div>
+<div class="flex items-center gap-xs text-outline">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+<span class="font-body-sm text-body-sm">104 Elm St.</span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-2 pb-safe bg-surface shadow-[0_-4px_12px_rgba(9,30,66,0.08)] rounded-t-xl transition-all duration-300 md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-all duration-300 active:scale-95 group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-label-sm mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-3 py-1 transition-all duration-300 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="assignment" data-weight="fill" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-label-sm text-label-sm mt-1">Complaints</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-all duration-300 active:scale-95 group" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-sm text-label-sm mt-1">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-all duration-300 active:scale-95 group" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-label-sm text-label-sm mt-1">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-all duration-300 active:scale-95 group" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+<!-- Optional: Floating Action Button (FAB) for adding new report manually if needed, though usually citizen facing -->
+<button class="fixed bottom-24 right-container-margin w-14 h-14 bg-primary text-on-primary rounded-2xl shadow-lg flex items-center justify-center md:hidden hover:bg-civic-blue-dark transition-colors">
+<span class="material-symbols-outlined text-[24px]" data-icon="add">add</span>
+</button>
+</body></html>

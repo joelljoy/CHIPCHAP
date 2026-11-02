@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Cloudinary client-safe configuration.
+
+  Both values below are PUBLIC by design: an unsigned upload preset is meant to ship inside a
+  client, and the cloud name appears in every delivery URL. They are kept here, in a resource
+  file, because that is the conventional Android place for build-visible configuration - it keeps
+  environment values out of the code, and a different cloud/preset can later be supplied per build
+  type without touching CloudEvidenceRepository.
+
+  NEVER add api_key or api_secret here, or anywhere else in this app. Signed uploads require a
+  server; this MVP deliberately uses unsigned uploads only.
+
+  The destination asset folder (chipchap/evidence) is configured ON the preset in the Cloudinary
+  console, so the client does not send a folder parameter - unsigned presets reject folder
+  overrides unless explicitly allowed.
+-->
+<resources>
+    <string name="cloudinary_cloud_name" translatable="false">lbdhplkp</string>
+    <string name="cloudinary_upload_preset" translatable="false">chipchap_evidence</string>
+</resources>

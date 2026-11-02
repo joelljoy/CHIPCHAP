@@ -1,0 +1,286 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+<title>CHIPCHAP - Notifications</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts: Hanken Grotesk & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#0052cc",
+                    "safety-orange-light": "#FFFAE6",
+                    "on-tertiary-fixed": "#002113",
+                    "secondary-fixed-dim": "#ffb77e",
+                    "inverse-surface": "#1d3054",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#006844",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "on-primary-fixed": "#001848",
+                    "on-background": "#051a3e",
+                    "on-primary-container": "#c4d2ff",
+                    "alert-red": "#DE350B",
+                    "on-surface": "#051a3e",
+                    "primary": "#003d9b",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#65dca4",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#82f9be",
+                    "border-subtle": "#DFE1E6",
+                    "surface": "#faf9ff",
+                    "on-tertiary-container": "#72e9af",
+                    "surface-bright": "#faf9ff",
+                    "surface-variant": "#d8e2ff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#d8e2ff",
+                    "primary-fixed": "#dae2ff",
+                    "surface-gray": "#F4F5F7",
+                    "secondary-fixed": "#ffdcc3",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#ccdaff",
+                    "on-secondary-fixed": "#2f1500",
+                    "surface-container": "#e9edff",
+                    "on-secondary-fixed-variant": "#6e3900",
+                    "surface-container-high": "#e1e8ff",
+                    "background": "#faf9ff",
+                    "tertiary": "#004e32",
+                    "outline-variant": "#c3c6d6",
+                    "on-surface-variant": "#434654",
+                    "surface-container-low": "#f1f3ff",
+                    "on-error-container": "#93000a",
+                    "outline": "#737685",
+                    "surface-tint": "#0c56d0",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "civic-blue-dark": "#0747A6",
+                    "on-tertiary-fixed-variant": "#005235",
+                    "on-secondary-container": "#613100",
+                    "secondary-container": "#fe8a00",
+                    "inverse-primary": "#b2c5ff",
+                    "inverse-on-surface": "#edf0ff",
+                    "secondary": "#914d00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-margin": "20px",
+                    "xl": "32px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "gutter": "12px",
+                    "xs": "4px",
+                    "lg": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-sm": [
+                            "Hanken Grotesk"
+                    ],
+                    "headline-md": [
+                            "Hanken Grotesk"
+                    ],
+                    "body-md": [
+                            "Hanken Grotesk"
+                    ],
+                    "body-sm": [
+                            "Hanken Grotesk"
+                    ],
+                    "headline-lg": [
+                            "Hanken Grotesk"
+                    ],
+                    "body-lg": [
+                            "Hanken Grotesk"
+                    ],
+                    "label-sm": [
+                            "JetBrains Mono"
+                    ],
+                    "label-md": [
+                            "JetBrains Mono"
+                    ]
+            },
+            "fontSize": {
+                    "headline-sm": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-sm": [
+                            "10px",
+                            {
+                                    "lineHeight": "14px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "label-md": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        /* Hide scrollbar for clean UI */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Custom padding for bottom nav area */
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 16px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-background">
+<div class="flex items-center justify-between px-container-margin h-14 w-full">
+<button aria-label="Go back" class="text-primary dark:text-primary-fixed hover:bg-surface-variant/50 dark:hover:bg-surface-variant/20 rounded-full transition-colors duration-200 active:scale-95 p-2 -ml-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-civic-blue-dark dark:text-primary-fixed">CHIPCHAP</h1>
+<button aria-label="Help" class="text-primary dark:text-primary-fixed hover:bg-surface-variant/50 dark:hover:bg-surface-variant/20 rounded-full transition-colors duration-200 active:scale-95 p-2 -mr-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help_outline</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas (Empty State) -->
+<main class="flex-1 w-full max-w-[600px] mx-auto mt-14 mb-24 flex flex-col items-center justify-center px-container-margin">
+<div class="w-full flex flex-col items-center justify-center text-center space-y-xl animate-fade-in-up">
+<!-- Illustration Area -->
+<div class="relative w-64 h-64 flex items-center justify-center mb-md">
+<div class="absolute inset-0 bg-primary-fixed/20 rounded-full blur-3xl animate-pulse"></div>
+<!-- Abstract peaceful illustration or styled bell -->
+<div class="w-48 h-48 rounded-full bg-surface-container flex items-center justify-center shadow-lg relative z-10 border-4 border-surface">
+<span class="material-symbols-outlined text-[80px] text-primary" style="font-variation-settings: 'FILL' 1;">notifications_paused</span>
+<div class="absolute -bottom-2 -right-2 bg-tertiary-fixed text-on-tertiary-fixed w-16 h-16 rounded-full flex items-center justify-center shadow-md border-4 border-surface">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+</div>
+<!-- Copy -->
+<div class="space-y-sm max-w-sm">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">All caught up!</h2>
+<p class="font-body-lg text-body-lg text-outline">
+                    You'll receive updates here when there's news about your reports or community activity.
+                </p>
+</div>
+<!-- CTA -->
+<a href="screen://map_explorer" class="mt-lg h-12 px-8 bg-primary text-on-primary rounded-full font-headline-sm text-headline-sm shadow-md hover:shadow-lg hover:bg-civic-blue-dark active:scale-95 transition-all duration-200 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">explore</span>
+                Explore Map
+            </a>
+<!-- Secondary ghost action if they want to adjust settings -->
+<button class="h-12 px-6 text-primary rounded-full font-body-md text-body-md hover:bg-surface-variant/50 active:scale-95 transition-all duration-200">
+                Notification Settings
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl shadow-[0px_-4px_12px_rgba(9,30,66,0.08)] bg-surface dark:bg-surface-container-low shadow-lg md:hidden">
+<div class="flex justify-around items-center h-20 px-4 pb-safe w-full">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 transition-colors duration-200 rounded-full p-2 w-16 group" href="screen://home_screen">
+<span class="material-symbols-outlined group-active:scale-110 transition-transform duration-300" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-md text-label-md mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 transition-colors duration-200 rounded-full p-2 w-16 group" href="screen://capture_photo">
+<span class="material-symbols-outlined group-active:scale-110 transition-transform duration-300" style="font-variation-settings: 'FILL' 0;">add_circle</span>
+<span class="font-label-md text-label-md mt-1">Report</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 transition-colors duration-200 rounded-full p-2 w-16 group" href="screen://map_explorer">
+<span class="material-symbols-outlined group-active:scale-110 transition-transform duration-300" style="font-variation-settings: 'FILL' 0;">map</span>
+<span class="font-label-md text-label-md mt-1">Map</span>
+</a>
+<!-- Active Tab: Alerts -->
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-tertiary-container text-on-primary-container dark:text-on-tertiary-container rounded-full px-4 py-1 w-20 group" href="screen://notifications_1">
+<span class="material-symbols-outlined scale-110 transition-transform duration-300" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="font-label-md text-label-md mt-1">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 transition-colors duration-200 rounded-full p-2 w-16 group" href="screen://user_profile">
+<span class="material-symbols-outlined group-active:scale-110 transition-transform duration-300" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-label-md text-label-md mt-1">Profile</span>
+</a>
+</div>
+</nav>
+<style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+    </style>
+
+
+</body></html>

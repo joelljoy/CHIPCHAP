@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Profile - Civic Clarity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&amp;family=Hanken+Grotesk:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#edf0ff",
+                      "surface-tint": "#0c56d0",
+                      "surface-gray": "#F4F5F7",
+                      "primary-fixed-dim": "#b2c5ff",
+                      "on-primary-fixed-variant": "#0040a2",
+                      "tertiary-container": "#006844",
+                      "on-primary-fixed": "#001848",
+                      "error": "#ba1a1a",
+                      "surface": "#faf9ff",
+                      "background": "#faf9ff",
+                      "primary-container": "#0052cc",
+                      "on-secondary": "#ffffff",
+                      "on-surface-variant": "#434654",
+                      "primary-fixed": "#dae2ff",
+                      "tertiary-fixed-dim": "#65dca4",
+                      "surface-dim": "#ccdaff",
+                      "outline": "#737685",
+                      "tertiary": "#004e32",
+                      "inverse-primary": "#b2c5ff",
+                      "secondary-fixed-dim": "#ffb77e",
+                      "inverse-surface": "#1d3054",
+                      "on-secondary-fixed": "#2f1500",
+                      "primary": "#003d9b",
+                      "surface-variant": "#d8e2ff",
+                      "secondary-container": "#fe8a00",
+                      "on-primary-container": "#c4d2ff",
+                      "on-tertiary-fixed": "#002113",
+                      "outline-variant": "#c3c6d6",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed": "#82f9be",
+                      "alert-red": "#DE350B",
+                      "error-container": "#ffdad6",
+                      "on-secondary-container": "#613100",
+                      "secondary-fixed": "#ffdcc3",
+                      "on-tertiary": "#ffffff",
+                      "safety-orange-light": "#FFFAE6",
+                      "surface-container-high": "#e1e8ff",
+                      "on-surface": "#051a3e",
+                      "surface-container-highest": "#d8e2ff",
+                      "civic-blue-dark": "#0747A6",
+                      "surface-container": "#e9edff",
+                      "on-background": "#051a3e",
+                      "surface-container-low": "#f1f3ff",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "border-subtle": "#DFE1E6",
+                      "on-tertiary-fixed-variant": "#005235",
+                      "on-tertiary-container": "#72e9af",
+                      "on-secondary-fixed-variant": "#6e3900",
+                      "secondary": "#914d00",
+                      "on-error-container": "#93000a",
+                      "surface-bright": "#faf9ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "12px",
+                      "xl": "32px",
+                      "container-margin": "20px",
+                      "xs": "4px",
+                      "sm": "8px",
+                      "lg": "24px",
+                      "base": "8px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "label-md": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-md": [
+                              "Hanken Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "10px",
+                              {
+                                      "lineHeight": "14px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+      </style>
+</head>
+<body class="bg-background text-on-background antialiased flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-container-margin h-14 bg-surface dark:bg-on-background shadow-sm transition-colors duration-200">
+<button class="text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high dark:hover:bg-surface-variant p-2 rounded-full transition-colors duration-200 active:opacity-80 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="text-headline-sm font-headline-sm font-bold text-primary dark:text-primary-fixed">Civic Clarity Admin</h1>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high">
+<img alt="Admin Profile Picture" class="w-full h-full object-cover" data-alt="A close up, professional headshot of a city official in modern corporate attire. They are smiling slightly in front of a soft, blurred light gray background. The lighting is studio quality, bright, and evenly distributed, fitting a high-end corporate application profile picture. The mood is approachable and trustworthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNjrdOPE0vdJy1mhW-t3BEyBI_hTQmlb8igk8Wor3__7Nqh7g0ytbBrD3xsoKlZwq_b6plkSm6rimdEuU9Dr63Kw1i1p1Q67W8SfA4N7p1gRYPPeSxO-SzkzZg-05jFuesg2E_2iWsZ-kGoIS1CJHQMiCO9BDaJO2t0--aIW6mzyn7F7Jbwrc1Nkwp92VQFRL3thWltbdNRbEVv8vU6fLgPbWWBcKHP8bWP8iRgqhc-e4Dio3f_Uqa"/>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow px-container-margin py-lg flex flex-col gap-xl pb-32">
+<!-- Profile Header Card (Glassmorphism inspired, Level 1 Elevation) -->
+<section class="bg-surface rounded-xl shadow-[0_4px_12px_rgba(9,30,66,0.08)] p-lg flex flex-col items-center text-center relative overflow-hidden">
+<!-- Subtle background accent -->
+<div class="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-surface-container-low to-transparent z-0"></div>
+<div class="relative z-10 w-24 h-24 rounded-full overflow-hidden border-4 border-surface shadow-sm mb-md">
+<img alt="Eleanor Vance" class="w-full h-full object-cover" data-alt="A professional headshot of a city official in modern corporate attire. They are smiling slightly in front of a soft, blurred light gray background. The lighting is studio quality, bright, and evenly distributed, fitting a high-end corporate application profile picture. The mood is approachable and trustworthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7NZ4-dEdtlNjCUZ5xpmLwHtsjUuT4Y4PQ1ntqoAWJf1QRWjD300RLlTsP3_UaWfoy3zGvG7IhclnpaJ19CtTJcJa_u_LXrBCDOKt5iS31vY2jc9cBHR9GiZstx6G_0LjTGuEaJtE50y800PJFvkmY75nMwHC9Md6TDIKR72fQWh1Sr9-_w-ZY0ZGEBphM2fWLA3_w7COPzDaWeIXH7MzGjR-EOVJtBrUnPCD-LHvvoCKxw-PkogZc"/>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs relative z-10">Eleanor Vance</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm relative z-10">Senior Urban Planner</p>
+<div class="inline-flex items-center gap-2 bg-surface-container-low px-3 py-1 rounded-full relative z-10">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+<span class="font-label-md text-label-md text-on-surface">Department of Infrastructure</span>
+</div>
+</section>
+<!-- Stats Bento Grid -->
+<section class="grid grid-cols-2 gap-sm">
+<div class="bg-surface rounded-xl shadow-[0_4px_12px_rgba(9,30,66,0.08)] p-md flex flex-col gap-sm">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary-container">check_circle</span>
+<span class="font-label-md text-label-md">Resolved</span>
+</div>
+<p class="font-headline-lg text-headline-lg text-on-surface">1,248</p>
+<p class="font-body-sm text-body-sm text-outline">Issues closed this year</p>
+</div>
+<div class="bg-surface rounded-xl shadow-[0_4px_12px_rgba(9,30,66,0.08)] p-md flex flex-col gap-sm">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary-container">pending_actions</span>
+<span class="font-label-md text-label-md">Active</span>
+</div>
+<p class="font-headline-lg text-headline-lg text-on-surface">34</p>
+<p class="font-body-sm text-body-sm text-outline">Currently assigned</p>
+</div>
+</section>
+<!-- Menu Options -->
+<section class="flex flex-col gap-sm">
+<!-- Settings -->
+<button class="w-full bg-surface rounded-xl shadow-[0_4px_12px_rgba(9,30,66,0.08)] p-md flex items-center justify-between hover:bg-surface-container-low transition-colors duration-200 group active:scale-[0.98]">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+</div>
+<div class="text-left">
+<p class="font-headline-sm text-headline-sm text-on-surface">Settings</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Account, Notifications, Privacy</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+<!-- Help & Support -->
+<button class="w-full bg-surface rounded-xl shadow-[0_4px_12px_rgba(9,30,66,0.08)] p-md flex items-center justify-between hover:bg-surface-container-low transition-colors duration-200 group active:scale-[0.98]">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help</span>
+</div>
+<div class="text-left">
+<p class="font-headline-sm text-headline-sm text-on-surface">Help &amp; Support</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">FAQs, Contact Admin IT</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+<!-- AI Insights (Mocked feature for civic clarity) -->
+<button class="w-full bg-[#E6EFFC] border border-primary rounded-xl shadow-[0_4px_12px_rgba(9,30,66,0.08)] p-md flex items-center justify-between hover:bg-surface-container-high transition-colors duration-200 group active:scale-[0.98] mt-sm">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary transition-colors">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">temp_preferences_custom</span>
+</div>
+<div class="text-left">
+<div class="flex items-center gap-2 mb-1">
+<p class="font-headline-sm text-headline-sm text-on-surface">Performance Report</p>
+<span class="bg-white text-primary font-label-sm text-label-sm px-2 py-0.5 rounded-sm border border-primary/20">AI ANALYSIS</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Weekly efficiency metrics</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary">chevron_right</span>
+</button>
+</section>
+<!-- Logout Action -->
+<section class="mt-auto pt-lg">
+<button class="w-full bg-white border border-outline-variant text-error font-headline-sm text-headline-sm py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-error-container hover:text-on-error-container hover:border-error-container transition-colors duration-200 min-h-[48px] shadow-[0_4px_12px_rgba(9,30,66,0.04)] active:scale-[0.98]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">logout</span>
+                Logout
+            </button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-2 pb-safe bg-surface dark:bg-on-background shadow-[0_-4px_12px_rgba(9,30,66,0.08)] rounded-t-xl transition-all duration-300 md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 hover:text-primary dark:hover:text-primary-fixed transition-all duration-300 active:scale-95 group">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 hover:text-primary dark:hover:text-primary-fixed transition-all duration-300 active:scale-95 group">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 0;">assignment</span>
+<span class="font-label-sm text-label-sm">Complaints</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 hover:text-primary dark:hover:text-primary-fixed transition-all duration-300 active:scale-95 group">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 0;">leaderboard</span>
+<span class="font-label-sm text-label-sm">Analytics</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-xl px-3 py-1 transition-all duration-300 active:scale-95 group">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</nav>
+
+<style>
+#govDrawerBackdrop{position:fixed;inset:0;background:rgba(5,26,62,.34);z-index:90;opacity:0;pointer-events:none;transition:opacity .2s}
+#govDrawer{position:fixed;top:0;left:0;height:100%;width:min(320px,86vw);background:#faf9ff;z-index:91;transform:translateX(-102%);transition:transform .22s;box-shadow:8px 0 30px rgba(9,30,66,.18);padding:24px 18px}
+#govDrawer.open{transform:translateX(0)} #govDrawerBackdrop.open{opacity:1;pointer-events:auto}
+.gov-link{display:flex;align-items:center;gap:12px;padding:13px 12px;border-radius:12px;color:#051a3e;text-decoration:none;font-family:Arial,sans-serif}.gov-link:hover{background:#e9edff}
+</style>
+<div id="govDrawerBackdrop" onclick="govCloseDrawer()"></div><aside id="govDrawer">
+<div style="font-weight:700;font-size:20px;color:#003d9b;margin-bottom:18px">Civic Clarity</div>
+<a class="gov-link" href="screen://dashboard"><span class="material-symbols-outlined">dashboard</span>Dashboard</a>
+<a class="gov-link" href="screen://complaint_queue"><span class="material-symbols-outlined">assignment</span>Complaint Queue</a>
+<a class="gov-link" href="screen://analytics"><span class="material-symbols-outlined">leaderboard</span>Analytics</a>
+<a class="gov-link" href="screen://admin_profile"><span class="material-symbols-outlined">person</span>Admin Profile</a>
+<div style="height:1px;background:#c3c6d6;margin:12px 0"></div>
+<a class="gov-link" href="screen://login_screen"><span class="material-symbols-outlined">logout</span>Sign Out</a>
+</aside>
+<script>
+function govOpenDrawer(){document.getElementById('govDrawer').classList.add('open');document.getElementById('govDrawerBackdrop').classList.add('open')}
+function govCloseDrawer(){document.getElementById('govDrawer').classList.remove('open');document.getElementById('govDrawerBackdrop').classList.remove('open')}
+document.addEventListener('DOMContentLoaded',()=>{
+ document.querySelectorAll('button').forEach(b=>{const i=b.querySelector('.material-symbols-outlined');if(i&&i.textContent.trim()==='menu') b.onclick=govOpenDrawer;});
+ document.querySelectorAll('nav a, nav button').forEach(el=>{const t=(el.innerText||'').trim().toLowerCase();let u=null;if(t.includes('dashboard'))u='screen://dashboard';else if(t.includes('complaints'))u='screen://complaint_queue';else if(t.includes('analytics'))u='screen://analytics';else if(t.includes('alerts'))u='screen://notifications_2';else if(t.includes('profile'))u='screen://admin_profile';if(u)el.onclick=()=>{window.location.href=u};});
+});
+</script>
+</body></html>

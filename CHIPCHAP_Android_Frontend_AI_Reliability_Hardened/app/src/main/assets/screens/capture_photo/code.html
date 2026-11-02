@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>CHIPCHAP - Capture Photo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-container": "#006844",
+                        "on-secondary-fixed": "#2f1500",
+                        "tertiary-fixed-dim": "#65dca4",
+                        "on-error": "#ffffff",
+                        "civic-blue-dark": "#0747A6",
+                        "inverse-surface": "#1d3054",
+                        "outline-variant": "#c3c6d6",
+                        "on-error-container": "#93000a",
+                        "surface-gray": "#F4F5F7",
+                        "primary": "#003d9b",
+                        "surface-variant": "#d8e2ff",
+                        "surface-container-low": "#f1f3ff",
+                        "on-primary-container": "#c4d2ff",
+                        "tertiary-fixed": "#82f9be",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#051a3e",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-container": "#72e9af",
+                        "inverse-primary": "#b2c5ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#ccdaff",
+                        "alert-red": "#DE350B",
+                        "on-surface-variant": "#434654",
+                        "surface-container": "#e9edff",
+                        "secondary-container": "#fe8a00",
+                        "surface-tint": "#0c56d0",
+                        "surface-bright": "#faf9ff",
+                        "border-subtle": "#DFE1E6",
+                        "inverse-on-surface": "#edf0ff",
+                        "on-secondary": "#ffffff",
+                        "surface": "#faf9ff",
+                        "tertiary": "#004e32",
+                        "surface-container-highest": "#d8e2ff",
+                        "on-surface": "#051a3e",
+                        "secondary-fixed-dim": "#ffb77e",
+                        "primary-fixed": "#dae2ff",
+                        "background": "#faf9ff",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "secondary-fixed": "#ffdcc3",
+                        "error": "#ba1a1a",
+                        "safety-orange-light": "#FFFAE6",
+                        "on-tertiary-fixed-variant": "#005235",
+                        "on-secondary-fixed-variant": "#6e3900",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#002113",
+                        "surface-container-high": "#e1e8ff",
+                        "primary-container": "#0052cc",
+                        "outline": "#737685",
+                        "on-primary-fixed": "#001848",
+                        "on-secondary-container": "#613100",
+                        "secondary": "#914d00"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "md": "16px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "gutter": "12px",
+                        "container-margin": "20px"
+                    },
+                    fontFamily: {
+                        "headline-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "label-sm": ["JetBrains Mono"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-md": ["JetBrains Mono"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"]
+                    },
+                    fontSize: {
+                        "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "label-sm": ["10px", { lineHeight: "14px", letterSpacing: "0.05em", fontWeight: "500" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "500" }],
+                        "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Hide scrollbar for cleaner UI */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Camera viewfinder corners */
+        .viewfinder-corner {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            border-color: rgba(255, 255, 255, 0.8);
+            border-style: solid;
+        }
+        .corner-tl { top: 24px; left: 24px; border-width: 3px 0 0 3px; border-top-left-radius: 8px; }
+        .corner-tr { top: 24px; right: 24px; border-width: 3px 3px 0 0; border-top-right-radius: 8px; }
+        .corner-bl { bottom: 24px; left: 24px; border-width: 0 0 3px 3px; border-bottom-left-radius: 8px; }
+        .corner-br { bottom: 24px; right: 24px; border-width: 0 3px 3px 0; border-bottom-right-radius: 8px; }
+    </style>
+</head>
+<body class="bg-background text-on-background h-screen flex flex-col antialiased">
+<!-- TopAppBar (From JSON, executed verbatim structurally and stylistically) -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-background flex items-center justify-between px-container-margin h-14 w-full">
+<button aria-label="Go back" class="w-10 h-10 flex items-center justify-center hover:bg-surface-variant/50 dark:hover:bg-surface-variant/20 rounded-full transition-colors duration-200 active:scale-95 text-on-surface-variant dark:text-outline">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-civic-blue-dark dark:text-primary-fixed">
+            CHIPCHAP
+        </h1>
+<button aria-label="Help" class="w-10 h-10 flex items-center justify-center hover:bg-surface-variant/50 dark:hover:bg-surface-variant/20 rounded-full transition-colors duration-200 active:scale-95 text-on-surface-variant dark:text-outline">
+<span class="material-symbols-outlined text-[24px]">help_outline</span>
+</button>
+</header>
+<!-- Main Content Canvas (Linear Task Flow - Navigation Shell Suppressed) -->
+<main class="flex-1 mt-14 flex flex-col px-container-margin pb-xl overflow-hidden">
+<!-- Progress Indicator -->
+<div class="mt-lg w-full">
+<div class="flex justify-between items-end mb-sm">
+<span class="font-label-md text-label-md text-primary tracking-wider uppercase">Step 1 of 3</span>
+</div>
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500 ease-in-out" style="width: 33.33%;"></div>
+</div>
+</div>
+<!-- Header Texts -->
+<div class="mt-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Capture Photo</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Snap a photo of the issue to begin.</p>
+</div>
+<!-- Camera Viewfinder Area -->
+<div class="mt-lg relative flex-1 bg-inverse-surface rounded-xl overflow-hidden shadow-lg border border-border-subtle group">
+<!-- Simulated Camera Feed -->
+<img class="w-full h-full object-cover opacity-90 transition-opacity duration-300 group-hover:opacity-100" data-alt="A first-person point of view looking at a large pothole on a suburban asphalt street during daytime. The view mimics looking through a modern smartphone camera app. The lighting is bright and natural, casting sharp shadows. The aesthetic is realistic, urban, and functional, matching a civic reporting application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdW9qObC1nYOQW_5Iay2rsetu_bornLfkO5Lw4zHjdEUMk38sQkHw_HRhZxIm0fxCXad77ykfMEDy34N2ohKOlrOrHv764qvNdfVbk0zGSx7VWZrMJXmSprtzitO8oDtOZ7wRZv36GMhmwLSIheqkRbczTfUNLxoHlmjC7RTBNtHBQCVyAV9jZZpjYxchCYtV8W8PM25XoXIXNsumbfMxvCQYYLidwmBqvZwsW0uE34dZB4oOr2vCi"/>
+<!-- Viewfinder Overlay Elements -->
+<div class="absolute inset-0 bg-black/10"></div>
+<!-- Grid Lines for alignment -->
+<div class="absolute inset-0 flex flex-col justify-evenly pointer-events-none opacity-30">
+<div class="w-full h-[1px] bg-white"></div>
+<div class="w-full h-[1px] bg-white"></div>
+</div>
+<div class="absolute inset-0 flex justify-evenly pointer-events-none opacity-30">
+<div class="h-full w-[1px] bg-white"></div>
+<div class="h-full w-[1px] bg-white"></div>
+</div>
+<!-- Focus Corners -->
+<div class="viewfinder-corner corner-tl"></div>
+<div class="viewfinder-corner corner-tr"></div>
+<div class="viewfinder-corner corner-bl"></div>
+<div class="viewfinder-corner corner-br"></div>
+<!-- Center Reticle -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center opacity-70">
+<span class="material-symbols-outlined text-white text-[32px] font-light">center_focus_strong</span>
+</div>
+</div>
+<!-- Controls Area -->
+<div class="mt-xl mb-md flex items-center justify-center px-md relative z-10">
+<!-- Gallery option removed: a CHIPCHAP report must be a new photo taken at the scene, so the
+     only photo source is a live ACTION_IMAGE_CAPTURE capture. -->
+<!-- Main Capture Button -->
+<button aria-label="Take photo" class="relative w-20 h-20 bg-transparent rounded-full border-4 border-outline flex items-center justify-center active:scale-95 transition-transform duration-200 group">
+<div class="w-[60px] h-[60px] bg-white rounded-full shadow-[0px_4px_12px_rgba(9,30,66,0.15)] group-active:bg-surface-variant transition-colors group-active:scale-90"></div>
+</button>
+<!-- Flash control removed in an earlier pass: ACTION_IMAGE_CAPTURE hands the camera session
+     to the external camera app, so the WebView cannot control the physical flash. -->
+</div>
+</main>
+<!-- BottomNavBar SUPPRESSED per conflict resolution protocol: Linear task flow ('Step 1 of 3'). -->
+</body></html>

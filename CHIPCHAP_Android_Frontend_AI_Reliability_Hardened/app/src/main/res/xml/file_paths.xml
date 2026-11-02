@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Grants the camera app write access to exactly one app-owned folder.
+  Nothing outside these paths is shareable through the FileProvider.
+-->
+<paths>
+    <external-files-path name="complaint_photos_external" path="Pictures/complaint_photos/"/>
+    <files-path name="complaint_photos_internal" path="complaint_photos/"/>
+</paths>

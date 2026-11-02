@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CHIPCHAP - Sign Up</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#72e9af",
+                        "tertiary-fixed-dim": "#65dca4",
+                        "surface-container-highest": "#d8e2ff",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c3c6d6",
+                        "surface-gray": "#F4F5F7",
+                        "surface-dim": "#ccdaff",
+                        "on-surface": "#051a3e",
+                        "surface-container": "#e9edff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#001848",
+                        "surface-container-high": "#e1e8ff",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "secondary-fixed": "#ffdcc3",
+                        "primary-fixed": "#dae2ff",
+                        "on-secondary-fixed": "#2f1500",
+                        "alert-red": "#DE350B",
+                        "background": "#faf9ff",
+                        "tertiary-container": "#006844",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#fe8a00",
+                        "secondary": "#914d00",
+                        "surface-container-low": "#f1f3ff",
+                        "inverse-on-surface": "#edf0ff",
+                        "border-subtle": "#DFE1E6",
+                        "on-secondary-container": "#613100",
+                        "surface-tint": "#0c56d0",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-fixed": "#002113",
+                        "on-secondary-fixed-variant": "#6e3900",
+                        "inverse-primary": "#b2c5ff",
+                        "tertiary-fixed": "#82f9be",
+                        "on-tertiary-fixed-variant": "#005235",
+                        "safety-orange-light": "#FFFAE6",
+                        "primary-container": "#0052cc",
+                        "civic-blue-dark": "#0747A6",
+                        "primary": "#003d9b",
+                        "secondary-fixed-dim": "#ffb77e",
+                        "tertiary": "#004e32",
+                        "surface-variant": "#d8e2ff",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#c4d2ff",
+                        "on-surface-variant": "#434654",
+                        "surface": "#faf9ff",
+                        "surface-bright": "#faf9ff",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#1d3054",
+                        "on-background": "#051a3e",
+                        "outline": "#737685",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "md": "16px",
+                        "container-margin": "20px",
+                        "xl": "32px",
+                        "base": "8px",
+                        "gutter": "12px",
+                        "xs": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-md": ["JetBrains Mono"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "label-sm": ["JetBrains Mono"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .input-civic {
+            @apply w-full rounded-lg border border-border-subtle bg-surface px-4 py-3 font-body-md text-on-surface outline-none transition-colors placeholder:text-outline-variant focus:border-primary focus:ring-1 focus:ring-primary h-12;
+        }
+        .label-civic {
+            @apply block mb-xs font-label-md text-label-md text-on-surface-variant;
+        }
+        .btn-primary {
+            @apply w-full rounded-full bg-primary py-3 font-label-md text-label-md text-on-primary transition-transform active:scale-95 h-12 flex items-center justify-center gap-2;
+        }
+    </style>
+</head>
+<body class="h-full bg-surface text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Header (Suppressed navigation shell per rules, using simple back action for transactional flow) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md h-16 flex items-center px-container-margin">
+<a class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center p-2 -ml-2 rounded-full active:bg-surface-container" href="#">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</a>
+</header>
+<!-- Main Content -->
+<main class="min-h-screen pt-24 pb-safe flex flex-col justify-between px-container-margin">
+<div class="flex-1 w-full max-w-md mx-auto">
+<!-- Hero / Title -->
+<div class="mb-xl space-y-2">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Join CHIPCHAP</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Create an account to start contributing to your community's upkeep.</p>
+</div>
+<!-- Signup Form -->
+<form class="space-y-md">
+<!-- Full Name -->
+<div>
+<label class="label-civic" for="fullName">Full Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline-variant pointer-events-none" data-icon="person">person</span>
+<input class="input-civic pl-12" id="fullName" placeholder="Jane Doe" required="" type="text"/>
+</div>
+</div>
+<!-- Phone Number -->
+<div>
+<label class="label-civic" for="phone">Phone Number</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline-variant pointer-events-none" data-icon="call">call</span>
+<input class="input-civic pl-12" id="phone" placeholder="+1 (555) 000-0000" required="" type="tel"/>
+</div>
+</div>
+<!-- Area/Neighborhood -->
+<div>
+<label class="label-civic" for="neighborhood">Neighborhood</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline-variant pointer-events-none" data-icon="location_on">location_on</span>
+<select class="input-civic pl-12 appearance-none bg-no-repeat bg-[right_1rem_center]" id="neighborhood" style="background-image: url('data:image/svg+xml;utf8,&lt;svg fill=\'%23737685\' height=\'24\' viewBox=\'0 0 24 24\' width=\'24\' xmlns=\'http://www.w3.org/2000/svg\'&gt;&lt;path d=\'M7 10l5 5 5-5z\'/&gt;&lt;path d=\'M0 0h24v24H0z\' fill=\'none\'/&gt;&lt;/svg&gt;');">
+<option disabled="" selected="" value="">Select your area</option>
+<option value="downtown">Downtown District</option>
+<option value="northside">Northside Heights</option>
+<option value="westend">Westend Valley</option>
+<option value="eastpark">East Park</option>
+</select>
+</div>
+<p class="mt-xs font-body-sm text-body-sm text-outline-variant text-xs">Used to direct your reports accurately.</p>
+</div>
+</form>
+</div>
+<!-- Sticky Bottom Action -->
+<div class="w-full max-w-md mx-auto pt-lg pb-md mt-auto">
+<button class="btn-primary shadow-lg shadow-primary/20" type="submit">
+                Create Account
+                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<p class="text-center mt-md font-body-sm text-body-sm text-on-surface-variant">
+                Already have an account? <a class="text-primary font-bold hover:underline" href="#">Log in</a>
+</p>
+</div>
+</main>
+</body></html>

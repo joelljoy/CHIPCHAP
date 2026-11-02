@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CHIPCHAP - Improve your community</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-container": "#72e9af",
+                      "tertiary-fixed-dim": "#65dca4",
+                      "surface-container-highest": "#d8e2ff",
+                      "on-tertiary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "outline-variant": "#c3c6d6",
+                      "surface-gray": "#F4F5F7",
+                      "surface-dim": "#ccdaff",
+                      "on-surface": "#051a3e",
+                      "surface-container": "#e9edff",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed": "#001848",
+                      "surface-container-high": "#e1e8ff",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed-variant": "#0040a2",
+                      "secondary-fixed": "#ffdcc3",
+                      "primary-fixed": "#dae2ff",
+                      "on-secondary-fixed": "#2f1500",
+                      "alert-red": "#DE350B",
+                      "background": "#faf9ff",
+                      "tertiary-container": "#006844",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#fe8a00",
+                      "secondary": "#914d00",
+                      "surface-container-low": "#f1f3ff",
+                      "inverse-on-surface": "#edf0ff",
+                      "border-subtle": "#DFE1E6",
+                      "on-secondary-container": "#613100",
+                      "surface-tint": "#0c56d0",
+                      "primary-fixed-dim": "#b2c5ff",
+                      "on-tertiary-fixed": "#002113",
+                      "on-secondary-fixed-variant": "#6e3900",
+                      "inverse-primary": "#b2c5ff",
+                      "tertiary-fixed": "#82f9be",
+                      "on-tertiary-fixed-variant": "#005235",
+                      "safety-orange-light": "#FFFAE6",
+                      "primary-container": "#0052cc",
+                      "civic-blue-dark": "#0747A6",
+                      "primary": "#003d9b",
+                      "secondary-fixed-dim": "#ffb77e",
+                      "tertiary": "#004e32",
+                      "surface-variant": "#d8e2ff",
+                      "error-container": "#ffdad6",
+                      "on-primary-container": "#c4d2ff",
+                      "on-surface-variant": "#434654",
+                      "surface": "#faf9ff",
+                      "surface-bright": "#faf9ff",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#1d3054",
+                      "on-background": "#051a3e",
+                      "outline": "#737685",
+                      "surface-container-lowest": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "8px",
+                      "md": "16px",
+                      "container-margin": "20px",
+                      "xl": "32px",
+                      "base": "8px",
+                      "gutter": "12px",
+                      "xs": "4px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "headline-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "label-md": [
+                              "JetBrains Mono"
+                      ],
+                      "body-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-md": [
+                              "Hanken Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "10px",
+                              {
+                                      "lineHeight": "14px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background h-screen w-full overflow-hidden flex flex-col font-body-md">
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-between px-container-margin pt-xl pb-lg w-full max-w-[480px] mx-auto">
+<!-- Header/Skip -->
+<header class="w-full flex justify-end">
+<button class="text-on-surface-variant font-label-md text-label-md tracking-wider uppercase opacity-0 pointer-events-none">Skip</button>
+</header>
+<!-- Illustration & Copy -->
+<div class="flex flex-col items-center w-full mt-lg">
+<!-- Graphic Container (Glassmorphism/Bento style) -->
+<div class="w-full aspect-[4/3] rounded-xl relative overflow-hidden shadow-lg bg-surface-container-low border border-border-subtle/30 mb-xl flex items-center justify-center">
+<!-- AI Insight style background elements -->
+<div class="absolute inset-0 bg-gradient-to-br from-[#E6EFFC] to-transparent opacity-50"></div>
+<img class="w-full h-full object-cover relative z-10" data-alt="A modern, minimalist illustration of a bright, clean city street scene. The focus is on a newly repaired streetlight casting a warm, inviting glow over a well-maintained sidewalk. The style is flat vector art with subtle gradients, using a refined color palette of crisp whites, soft grays, and accents of 'Civic Blue' (#003d9b) and vibrant greens. The mood is optimistic, safe, and highly organized, reflecting civic pride and efficient urban management." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCasXxf-ozJ3EMbptAjZ_erQJTjKbMhJIXRMDfBI6NeKvTj7ZDF_NI_EDrDanDsnWNW4USwdbk7mikBWOgIZGeIofEl77zAv3nEb7pnmZATyVKCwyfVU98EP8aAA3P356PxySGti7QRvSWfua9UU1Dd1au3DWSLgu7MOLL-CXKHQ5R_Muvf7uZCrKLGJX-gJS5EkAeRYA2awWJLbngIITlAIdWlR9M6ZQ5tVsJRlWTNixR8C7TTBw7t"/>
+<!-- Decorative UI Elements floating over image -->
+<div class="absolute bottom-4 right-4 z-20 bg-surface/90 backdrop-blur-md px-sm py-xs rounded-lg shadow-sm border border-outline-variant/20 flex items-center gap-xs">
+<span class="material-symbols-outlined text-tertiary-container text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-sm text-label-sm text-on-surface">Resolved</span>
+</div>
+</div>
+<!-- Typography -->
+<div class="text-center px-sm">
+<h1 class="font-headline-lg text-headline-lg text-on-background mb-md">Improve your community</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">See the direct impact of your reports as issues are resolved, creating a safer, cleaner environment for everyone.</p>
+</div>
+</div>
+<!-- Navigation Footer -->
+<div class="w-full flex flex-col items-center gap-xl mt-xl">
+<!-- Pagination Dots -->
+<div class="flex gap-xs justify-center items-center">
+<div class="w-2 h-2 rounded-full bg-outline-variant transition-all duration-300"></div>
+<div class="w-2 h-2 rounded-full bg-outline-variant transition-all duration-300"></div>
+<div class="w-6 h-2 rounded-full bg-primary transition-all duration-300"></div>
+</div>
+<!-- Action Button -->
+<button class="w-full h-[48px] bg-primary text-on-primary rounded-lg font-label-md text-label-md uppercase tracking-wider shadow-sm hover:bg-civic-blue-dark active:scale-[0.98] transition-all duration-200 flex items-center justify-center">
+                Get Started
+            </button>
+</div>
+</main>
+</body></html>
